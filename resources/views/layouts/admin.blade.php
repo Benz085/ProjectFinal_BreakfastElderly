@@ -21,25 +21,25 @@
     <link rel="stylesheet" href="{{ asset('css/ace.min.css') }}" class="ace-main-stylesheet" id="main-ace-style" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="{{ asset('css/ace-part2.min.css')}}" class="ace-main-stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/ace-part2.min.css') }}" class="ace-main-stylesheet" />
     <![endif]-->
-    <link rel="stylesheet" href="{{ asset('css/') }}assets/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="{{ asset('css/') }}assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/ace-skins.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/ace-rtl.min.css') }}" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="{{ asset('css/') }}assets/css/ace-ie.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/ace-ie.min.css') }}"  />
     <![endif]-->
 
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
-    <script src="{{ asset('css/') }}assets/js/ace-extra.min.js"></script>
+    <script src="{{ asset('js/ace-extra.min.js') }}"></script>
 
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
     <!--[if lte IE 8]>
-    <script src="assets/js/html5shiv.min.js"></script>
-    <script src="assets/js/respond.min.js"></script>
+    <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
     <![endif]-->
 </head>
 
@@ -324,10 +324,10 @@
 
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                        {{--<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />--}}
                         <span class="user-info">
 									<small>Welcome,</small>
-									Jason
+                                    {{ Auth::user()->name }}
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -648,7 +648,7 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <?php require_once 'index.php';?>
+                        @yield('content')
                     </div>
                 </div>
             </div>
@@ -690,34 +690,34 @@
 <!-- basic scripts -->
 
 <!--[if !IE]> -->
-<script src="assets/js/jquery-2.1.4.min.js"></script>
+<script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
 
 <!-- <![endif]-->
 
 <!--[if IE]>
-<script src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
 <![endif]-->
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 </script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 <!-- page specific plugin scripts -->
 
 <!--[if lte IE 8]>
-<script src="assets/js/excanvas.min.js"></script>
+<script src="{{ asset('js/excanvas.min.js') }}"></script>
 <![endif]-->
-<script src="assets/js/jquery-ui.custom.min.js"></script>
-<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="{{ asset('js/jquery-ui.custom.min.js') }}"></script>
+<script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
 <!--		<script src="assets/js/jquery.easypiechart.min.js"></script>-->
-<script src="assets/js/jquery.sparkline.index.min.js"></script>
-<script src="assets/js/jquery.flot.min.js"></script>
-<script src="assets/js/jquery.flot.pie.min.js"></script>
-<script src="assets/js/jquery.flot.resize.min.js"></script>
+<script src="{{ asset('js/jquery.sparkline.index.min.js') }}"></script>
+<script src="{{ asset('js/jquery.flot.min.js') }}"></script>
+<script src="{{ asset('js/jquery.flot.pie.min.js') }}"></script>
+<script src="{{ asset('js/jquery.flot.resize.min.js') }}"></script>
 
 <!-- ace scripts -->
-<script src="assets/js/ace-elements.min.js"></script>
-<script src="assets/js/ace.min.js"></script>
+<script src="{{ asset('js/ace-elements.min.js') }}"></script>
+<script src="{{ asset('js/ace.min.js') }}"></script>
 
 
 </body>
