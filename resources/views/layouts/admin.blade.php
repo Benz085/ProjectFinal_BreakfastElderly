@@ -1,724 +1,437 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
+
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <meta name="description" content="overview &amp; stats" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-    <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('font-awesome/4.5.0/css/font-awesome.min.css') }}" />
-
-    <!-- page specific plugin styles -->
-
-    <!-- text fonts -->
-    <link rel="stylesheet" href="{{ asset('css/fonts.googleapis.com.css') }}" />
-
-    <!-- ace styles -->
-    <link rel="stylesheet" href="{{ asset('css/ace.min.css') }}" class="ace-main-stylesheet" id="main-ace-style" />
-
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" href="{{ asset('css/ace-part2.min.css') }}" class="ace-main-stylesheet" />
-    <![endif]-->
-    <link rel="stylesheet" href="{{ asset('css/ace-skins.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/ace-rtl.min.css') }}" />
-
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" href="{{ asset('css/ace-ie.min.css') }}"  />
-    <![endif]-->
-
-    <!-- inline styles related to this page -->
-
-    <!-- ace settings handler -->
-    <script src="{{ asset('js/ace-extra.min.js') }}"></script>
-
-    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-
-    <!--[if lte IE 8]>
-    <script src="{{ asset('js/html5shiv.min.js') }}"></script>
-    <script src="{{ asset('js/respond.min.js') }}"></script>
-    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{--<link rel="apple-touch-icon" href="apple-touch-icon.png">--}}
+<!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="{{ asset('backend/css/vendor.css') }}">
+    <!-- Theme initialization -->
+    {{--<script>--}}
+    {{--var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :--}}
+    {{--{};--}}
+    {{--var themeName = themeSettings.themeName || '';--}}
+    {{--if (themeName) {--}}
+    {{--document.write('<link rel="stylesheet" id="theme-style" href="{{ asset("backend/css/app- '+ themeName + '.css") }}">');--}}
+    {{--}--}}
+    {{--else {--}}
+    {{--document.write('<link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">');--}}
+    {{--}--}}
+    {{--</script>--}}
+    <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">
+    <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app-green.css') }}">
 </head>
 
-<body class="no-skin">
-<div id="navbar" class="navbar navbar-default          ace-save-state">
-    <div class="navbar-container ace-save-state" id="navbar-container">
-        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
-            <span class="sr-only">Toggle sidebar</span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-        </button>
-
-        <div class="navbar-header pull-left">
-            <a href="index.html" class="navbar-brand">
-                <small>
-                    <i class="fa fa-leaf"></i>
-                    Ace Admin
-                </small>
-            </a>
-        </div>
-
-        <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-                <li class="grey dropdown-modal">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="ace-icon fa fa-tasks"></i>
-                        <span class="badge badge-grey">4</span>
-                    </a>
-
-                    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="ace-icon fa fa-check"></i>
-                            4 Tasks to complete
-                        </li>
-
-                        <li class="dropdown-content">
-                            <ul class="dropdown-menu dropdown-navbar">
+<body>
+<div class="main-wrapper">
+    <div class="app" id="app">
+        <header class="header">
+            <div class="header-block header-block-collapse hidden-lg-up">
+                <button class="collapse-btn" id="sidebar-collapse-btn">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <div class="header-block header-block-search hidden-sm-down">
+                <form role="search">
+                    <div class="input-container"><i class="fa fa-search"></i> <input type="search" placeholder="Search">
+                        <div class="underline"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="header-block header-block-nav">
+                <ul class="nav-profile">
+                    <li class="notifications new"><a href="" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <sup>
+                                <span class="counter">8</span>
+                            </sup>
+                        </a>
+                        <div class="dropdown-menu notifications-dropdown-menu">
+                            <ul class="notifications-container">
                                 <li>
-                                    <a href="#">
-                                        <div class="clearfix">
-                                            <span class="pull-left">Software Update</span>
-                                            <span class="pull-right">65%</span>
+                                    <a href="" class="notification-item">
+                                        <div class="img-col">
+                                            <div class="img"
+                                                 style="background-image: url({{ asset('backend/assets/faces/3.jpg') }})"></div>
                                         </div>
-
-                                        <div class="progress progress-mini">
-                                            <div style="width:65%" class="progress-bar"></div>
+                                        <div class="body-col">
+                                            <p><span class="accent">Zack Alien</span> pushed new commit: <span
+                                                        class="accent">Fix page load performance issue</span>. </p>
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
-                                    <a href="#">
-                                        <div class="clearfix">
-                                            <span class="pull-left">Hardware Upgrade</span>
-                                            <span class="pull-right">35%</span>
+                                    <a href="" class="notification-item">
+                                        <div class="img-col">
+                                            <div class="img"
+                                                 style="background-image: url({{ asset('backend/assets/faces/5.jpg') }})"></div>
                                         </div>
-
-                                        <div class="progress progress-mini">
-                                            <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                        <div class="body-col">
+                                            <p><span class="accent">Amaya Hatsumi</span> started new task: <span
+                                                        class="accent">Dashboard UI design.</span>. </p>
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
-                                    <a href="#">
-                                        <div class="clearfix">
-                                            <span class="pull-left">Unit Testing</span>
-                                            <span class="pull-right">15%</span>
+                                    <a href="" class="notification-item">
+                                        <div class="img-col">
+                                            <div class="img"
+                                                 style="background-image: url({{ asset('backend/assets/faces/8.jpg') }})"></div>
                                         </div>
-
-                                        <div class="progress progress-mini">
-                                            <div style="width:15%" class="progress-bar progress-bar-warning"></div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <div class="clearfix">
-                                            <span class="pull-left">Bug Fixes</span>
-                                            <span class="pull-right">90%</span>
-                                        </div>
-
-                                        <div class="progress progress-mini progress-striped active">
-                                            <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                        <div class="body-col">
+                                            <p><span class="accent">Andy Nouman</span> deployed new version of <span
+                                                        class="accent">NodeJS REST Api V3</span></p>
                                         </div>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-
-                        <li class="dropdown-footer">
-                            <a href="#">
-                                See tasks with details
-                                <i class="ace-icon fa fa-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="purple dropdown-modal">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                        <span class="badge badge-important">8</span>
-                    </a>
-
-                    <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="ace-icon fa fa-exclamation-triangle"></i>
-                            8 Notifications
-                        </li>
-
-                        <li class="dropdown-content">
-                            <ul class="dropdown-menu dropdown-navbar navbar-pink">
-                                <li>
-                                    <a href="#">
-                                        <div class="clearfix">
-													<span class="pull-left">
-														<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
-														New Comments
-													</span>
-                                            <span class="pull-right badge badge-info">+12</span>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="btn btn-xs btn-primary fa fa-user"></i>
-                                        Bob just signed up as an editor ...
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <div class="clearfix">
-													<span class="pull-left">
-														<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
-														New Orders
-													</span>
-                                            <span class="pull-right badge badge-success">+8</span>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <div class="clearfix">
-													<span class="pull-left">
-														<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
-														Followers
-													</span>
-                                            <span class="pull-right badge badge-info">+11</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown-footer">
-                            <a href="#">
-                                See all notifications
-                                <i class="ace-icon fa fa-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="green dropdown-modal">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
-                        <span class="badge badge-success">5</span>
-                    </a>
-
-                    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="ace-icon fa fa-envelope-o"></i>
-                            5 Messages
-                        </li>
-
-                        <li class="dropdown-content">
-                            <ul class="dropdown-menu dropdown-navbar">
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <img src="assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
-                                        <span class="msg-body">
-													<span class="msg-title">
-														<span class="blue">Alex:</span>
-														Ciao sociis natoque penatibus et auctor ...
-													</span>
-
-													<span class="msg-time">
-														<i class="ace-icon fa fa-clock-o"></i>
-														<span>a moment ago</span>
-													</span>
-												</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <img src="assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
-                                        <span class="msg-body">
-													<span class="msg-title">
-														<span class="blue">Susan:</span>
-														Vestibulum id ligula porta felis euismod ...
-													</span>
-
-													<span class="msg-time">
-														<i class="ace-icon fa fa-clock-o"></i>
-														<span>20 minutes ago</span>
-													</span>
-												</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <img src="assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
-                                        <span class="msg-body">
-													<span class="msg-title">
-														<span class="blue">Bob:</span>
-														Nullam quis risus eget urna mollis ornare ...
-													</span>
-
-													<span class="msg-time">
-														<i class="ace-icon fa fa-clock-o"></i>
-														<span>3:15 pm</span>
-													</span>
-												</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <img src="assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
-                                        <span class="msg-body">
-													<span class="msg-title">
-														<span class="blue">Kate:</span>
-														Ciao sociis natoque eget urna mollis ornare ...
-													</span>
-
-													<span class="msg-time">
-														<i class="ace-icon fa fa-clock-o"></i>
-														<span>1:33 pm</span>
-													</span>
-												</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <img src="assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
-                                        <span class="msg-body">
-													<span class="msg-title">
-														<span class="blue">Fred:</span>
-														Vestibulum id penatibus et auctor  ...
-													</span>
-
-													<span class="msg-time">
-														<i class="ace-icon fa fa-clock-o"></i>
-														<span>10:09 am</span>
-													</span>
-												</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown-footer">
-                            <a href="inbox.html">
-                                See all messages
-                                <i class="ace-icon fa fa-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="light-blue dropdown-modal">
-                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        {{--<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />--}}
-                        <span class="user-info">
-									<small>Welcome,</small>
-                                    {{ Auth::user()->name }}
-								</span>
-
-                        <i class="ace-icon fa fa-caret-down"></i>
-                    </a>
-
-                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
-                            <a href="#">
-                                <i class="ace-icon fa fa-cog"></i>
+                            <footer>
+                                <ul>
+                                    <li><a href="">
+                                            View All
+                                        </a></li>
+                                </ul>
+                            </footer>
+                        </div>
+                    </li>
+                    <li class="profile dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <div class="img"
+                                 style="background-image: {{ asset('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40') }})"></div>
+                            <span class="name">
+    			       {{ Auth::user()->name }}
+    			    </span> </a>
+                        <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1"><a
+                                    class="dropdown-item" href="#">
+                                <i class="fa fa-user icon"></i>
+                                Profile
+                            </a> <a class="dropdown-item" href="#">
+                                <i class="fa fa-bell icon"></i>
+                                Notifications
+                            </a> <a class="dropdown-item" href="#">
+                                <i class="fa fa-gear icon"></i>
                                 Settings
                             </a>
-                        </li>
-
-                        <li>
-                            <a href="profile.html">
-                                <i class="ace-icon fa fa-user"></i>
-                                Profile
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="#">
-                                <i class="ace-icon fa fa-power-off"></i>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa fa-power-off icon"></i>
                                 Logout
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div><!-- /.navbar-container -->
-</div>
-
-<div class="main-container ace-save-state" id="main-container">
-    <script type="text/javascript">
-        try{ace.settings.loadState('main-container')}catch(e){}
-    </script>
-
-    <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
-        <script type="text/javascript">
-            try{ace.settings.loadState('sidebar')}catch(e){}
-        </script>
-
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                <button class="btn btn-success">
-                    <i class="ace-icon fa fa-signal"></i>
-                </button>
-
-                <button class="btn btn-info">
-                    <i class="ace-icon fa fa-pencil"></i>
-                </button>
-
-                <button class="btn btn-warning">
-                    <i class="ace-icon fa fa-users"></i>
-                </button>
-
-                <button class="btn btn-danger">
-                    <i class="ace-icon fa fa-cogs"></i>
-                </button>
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                <span class="btn btn-success"></span>
-
-                <span class="btn btn-info"></span>
-
-                <span class="btn btn-warning"></span>
-
-                <span class="btn btn-danger"></span>
-            </div>
-        </div><!-- /.sidebar-shortcuts -->
-
-        <ul class="nav nav-list">
-            <li class="">
-                <a href="#">
-                    <i class="menu-icon fa fa-home"></i>
-                    <span class="menu-text"> หน้าเว็บไซต์หลัก </span>
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-            <li class="active">
-                <a href="#">
-                    <i class="menu-icon fa  fa-home"></i>
-                    <span class="menu-text"> หน้าหลัก </span>
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-pencil-square-o"></i>
-                    <span class="menu-text"> เพิ่มข้อมูล </span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <b class="arrow"></b>
-
-                <ul class="submenu">
-                    <li class="">
-                        <a href="#">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            กลุ่มอาหาร
-                        </a>
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="#">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            เมนูอาหาร
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-
-                </ul>
-            </li>
-
-            <li class="">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-                    <span class="menu-text">
-								แสดงข้อมูล
-							</span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <b class="arrow"></b>
-
-                <ul class="submenu">
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            อาหารเช้า
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <b class="arrow"></b>
-
-                        <ul class="submenu">
-                            <li class="">
-                                <a href="#">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    กลุ่มอาหาร
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="#">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    เมนูอาหาร
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="">
-                        <a href="#">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            สำรับอาหารเช้า
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                    <li class="">
-                        <a href="#">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            ข้อมูล Hashtag
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-                    <li class="">
-                        <a href="#">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            ข้อมูล Recommend
-                        </a>
-
-                        <b class="arrow"></b>
+                            </a></div>
                     </li>
                 </ul>
-            </li>
-
-
-
-
-            <li class="">
-                <a href="#">
-                    <i class="menu-icon fa fa-list-alt"></i>
-                    <span class="menu-text"> จัดการข้อมูล </span>
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-
-
-
-
-
-        </ul><!-- /.nav-list -->
-
-        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-        </div>
-    </div>
-    <div class="main-content">
-        <div class="main-content-inner">
-            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="active">Dashboard</li>
-                </ul><!-- /.breadcrumb -->
-
-                <div class="nav-search" id="nav-search">
-                    <form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-                    </form>
-                </div><!-- /.nav-search -->
             </div>
-
-            <div class="page-content">
-                <div class="ace-settings-container" id="ace-settings-container">
-                    <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-                        <i class="ace-icon fa fa-cog bigger-130"></i>
-                    </div>
-
-                    <div class="ace-settings-box clearfix" id="ace-settings-box">
-                        <div class="pull-left width-50">
-                            <div class="ace-settings-item">
-                                <div class="pull-left">
-                                    <select id="skin-colorpicker" class="hide">
-                                        <option data-skin="skin-2" value="#C6487E">#438EB9</option>
-                                        <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-                                        <option data-skin="no-skin" value="#438EB9">#C6487E</option>
-                                        <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-                                    </select>
-                                </div>
-                                <span>&nbsp; Choose Skin</span>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-add-container">
-                                    Inside
-                                    <b>.container</b>
-                                </label>
-                            </div>
-                        </div><!-- /.pull-left -->
-
-                        <div class="pull-left width-50">
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
-                                <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-                            </div>
-                        </div><!-- /.pull-left -->
-                    </div><!-- /.ace-settings-box -->
-                </div><!-- /.ace-settings-container -->
-
-                <div class="page-header">
-                    <h1>
-                        Dashboard
-                        <small>
-                            <i class="ace-icon fa fa-angle-double-right"></i>
-                            overview &amp; stats
-                        </small>
-                    </h1>
-                </div><!-- /.page-header -->
-
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        @yield('content')
+        </header>
+        <aside class="sidebar">
+            <div class="sidebar-container">
+                <div class="sidebar-header">
+                    <div class="brand" style="font-size:14px ">
+                        <div class="logo">
+                            <span class="l l1"></span> <span class="l l2"></span>
+                            <span class="l l3"></span> <span class="l l4"></span>
+                            <span class="l l5"></span>
+                        </div>
+                        ระบบการจัดการฐานข้อมูล
                     </div>
                 </div>
+                <nav class="menu">
+                    <ul class="nav metismenu" id="sidebar-menu">
+                        <li class="active">
+                            <a href="#"><i class="fa fa-home"></i> หน้าเว็บไซต์หลัก </a>
+                        </li>
+                        <li class="">
+                            <a href="#"><i class="fa fa-home"></i> หน้าหลัก </a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-pencil-square-o"></i> เพิ่มข้อมูล<i class="fa arrow"></i></a>
+                            <ul>
+                                <li><a href="#"> กลุ่มอาหาร</a></li>
+                                <li><a href="#"> เมูนอาหาร</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">
+                                <i class="fa fa-desktop"></i>แสดงผลข้อมูล<i class="fa arrow"></i>
+                            </a>
+                            <ul>
+                                <li><a href="#"> กลุ่มอาหาร</a></li>
+                                <li><a href="#">เมนูอาหาร </a></li>
+                                <li><a href="#"> สำรับอาหาร</a></li>
+                                <li><a href="#">ข้อมูล #HashTag twitter</a></li>
+                                <li><a href="#"> ข้อมูลคะแนนให้อาหาร</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-cutlery"></i> การจัดการข้อมูลสำรับ</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-    </div>
+            <footer class="sidebar-footer">
+                <footer class="sidebar-footer">
+                    <ul class="nav metismenu" id="customize-menu">
+                        <li>
+                            <ul>
+                                <li class="customize">
+                                    <div class="customize-item">
+                                        <div class="row customize-header">
+                                            <div class="col-xs-4"></div>
+                                            <div class="col-xs-4"><label class="title">fixed</label></div>
+                                            <div class="col-xs-4"><label class="title">static</label></div>
+                                        </div>
+                                        <div class="row hidden-md-down">
+                                            <div class="col-xs-4"><label class="title">Sidebar:</label></div>
+                                            <div class="col-xs-4"><label>
+                                                    <input class="radio" type="radio" name="sidebarPosition"
+                                                           value="sidebar-fixed">
+                                                    <span></span>
+                                                </label></div>
+                                            <div class="col-xs-4"><label>
+                                                    <input class="radio" type="radio" name="sidebarPosition" value="">
+                                                    <span></span>
+                                                </label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4"><label class="title">Header:</label></div>
+                                            <div class="col-xs-4"><label>
+                                                    <input class="radio" type="radio" name="headerPosition"
+                                                           value="header-fixed">
+                                                    <span></span>
+                                                </label></div>
+                                            <div class="col-xs-4"><label>
+                                                    <input class="radio" type="radio" name="headerPosition" value="">
+                                                    <span></span>
+                                                </label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4"><label class="title">Footer:</label></div>
+                                            <div class="col-xs-4"><label>
+                                                    <input class="radio" type="radio" name="footerPosition"
+                                                           value="footer-fixed">
+                                                    <span></span>
+                                                </label></div>
+                                            <div class="col-xs-4"><label>
+                                                    <input class="radio" type="radio" name="footerPosition" value="">
+                                                    <span></span>
+                                                </label></div>
+                                        </div>
+                                    </div>
+                                    <div class="customize-item">
+                                        <ul class="customize-colors">
+                                            <li><span class="color-item color-red" data-theme="red"></span></li>
+                                            <li><span class="color-item color-orange" data-theme="orange"></span></li>
+                                            <li><span class="color-item color-green active" data-theme=""></span></li>
+                                            <li><span class="color-item color-seagreen" data-theme="seagreen"></span>
+                                            </li>
+                                            <li><span class="color-item color-blue" data-theme="blue"></span></li>
+                                            <li><span class="color-item color-purple" data-theme="purple"></span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="">
+                                <i class="fa fa-cog"></i> ตั้งค่า
+                            </a></li>
+                    </ul>
+                </footer>
+            </footer>
+        </aside>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <article class="content dashboard-page">
+            <section class="section">
+                <div class="row sameheight-container">
+                    <div class="col col-xs-12 col-sm-12 col-md-12 col-xl-12 stats-col">
+                        <div class="card sameheight-item stats" data-exclude="xs">
+                            <div class="card-block">
+                                <div class="title-block">
+                                    <h4 class="title"> Stats </h4>
+                                    <p class="title-description"> Website metrics for <a
+                                                href="http://modularteam.github.io/modularity-free-admin-dashboard-theme-html/">
+                                            your awesome project
+                                        </a></p>
+                                </div>
+                                <div class="row row-sm stats-container">
+                                    <div class="col-xs-12 col-sm-6 stat-col">
+                                        <div class="stat-icon"><i class="fa fa-rocket"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> 5407</div>
+                                            <div class="name"> Active items</div>
+                                        </div>
+                                        <progress class="progress stat-progress" value="75" max="100">
+                                            <div class="progress">
+                                                <span class="progress-bar" style="width: 75%;"></span>
+                                            </div>
+                                        </progress>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 stat-col">
+                                        <div class="stat-icon"><i class="fa fa-shopping-cart"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> 78464</div>
+                                            <div class="name"> Items sold</div>
+                                        </div>
+                                        <progress class="progress stat-progress" value="25" max="100">
+                                            <div class="progress">
+                                                <span class="progress-bar" style="width: 25%;"></span>
+                                            </div>
+                                        </progress>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  stat-col">
+                                        <div class="stat-icon"><i class="fa fa-line-chart"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> $80.560</div>
+                                            <div class="name"> Monthly income</div>
+                                        </div>
+                                        <progress class="progress stat-progress" value="60" max="100">
+                                            <div class="progress">
+                                                <span class="progress-bar" style="width: 60%;"></span>
+                                            </div>
+                                        </progress>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  stat-col">
+                                        <div class="stat-icon"><i class="fa fa-users"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> 359</div>
+                                            <div class="name"> Total users</div>
+                                        </div>
+                                        <progress class="progress stat-progress" value="34" max="100">
+                                            <div class="progress">
+                                                <span class="progress-bar" style="width: 34%;"></span>
+                                            </div>
+                                        </progress>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  stat-col">
+                                        <div class="stat-icon"><i class="fa fa-list-alt"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> 59</div>
+                                            <div class="name"> Tickets closed</div>
+                                        </div>
+                                        <progress class="progress stat-progress" value="49" max="100">
+                                            <div class="progress">
+                                                <span class="progress-bar" style="width: 49%;"></span>
+                                            </div>
+                                        </progress>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 stat-col">
+                                        <div class="stat-icon"><i class="fa fa-dollar"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> $780.064</div>
+                                            <div class="name"> Total income</div>
+                                        </div>
+                                        <progress class="progress stat-progress" value="15" max="100">
+                                            <div class="progress">
+                                                <span class="progress-bar" style="width: 15%;"></span>
+                                            </div>
+                                        </progress>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-
-    <div class="footer">
-        <div class="footer-inner">
-            <div class="footer-content">
-						<span class="bigger-120">
-							<span class="blue bolder">Ace</span>
-							Application &copy; 2013-2014
-						</span>
-
-                &nbsp; &nbsp;
-                <span class="action-buttons">
-							<a href="#">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
-						</span>
+            @yield('content')
+        </article>
+        <footer class="footer">
+            <div class="footer-block author">
+                <ul>
+                    <li> created by <a href="https://github.com/modularcode">ModularCode</a></li>
+                    <li><a href="https://github.com/modularcode/modular-admin-html#get-in-touch">get in touch</a></li>
+                </ul>
             </div>
+        </footer>
+        <div class="modal fade" id="modal-media">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title">Media Library</h4>
+                    </div>
+                    <div class="modal-body modal-tab-container">
+                        <ul class="nav nav-tabs modal-tabs" role="tablist">
+                            <li class="nav-item"><a class="nav-link" href="#gallery" data-toggle="tab" role="tab">Gallery</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link active" href="#upload" data-toggle="tab" role="tab">Upload</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content modal-tab-content">
+                            <div class="tab-pane fade" id="gallery" role="tabpanel">
+                                <div class="images-container">
+                                    <div class="row"></div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade active in" id="upload" role="tabpanel">
+                                <div class="upload-container">
+                                    <div id="dropzone">
+                                        <form action="/" method="POST" enctype="multipart/form-data"
+                                              class="dropzone needsclick dz-clickable" id="demo-upload">
+                                            <div class="dz-message-block">
+                                                <div class="dz-message needsclick"> Drop files here or click to
+                                                    upload.
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Insert Selected</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
         </div>
+        <!-- /.modal -->
+        <div class="modal fade" id="confirm-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title"><i class="fa fa-warning"></i> Alert</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure want to do this?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
     </div>
+</div>
 
-    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-    </a>
-</div><!-- /.main-container -->
+<!-- Reference block for JS -->
+<div class="ref" id="ref">
+    <div class="color-primary"></div>
+    <div class="chart">
+        <div class="color-primary"></div>
+        <div class="color-secondary"></div>
+    </div>
+</div>
 
-<!-- basic scripts -->
-
-<!--[if !IE]> -->
-<script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-
-<!-- <![endif]-->
-
-<!--[if IE]>
-<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
-<![endif]-->
-<script type="text/javascript">
-    if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-</script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-<!-- page specific plugin scripts -->
-
-<!--[if lte IE 8]>
-<script src="{{ asset('js/excanvas.min.js') }}"></script>
-<![endif]-->
-<script src="{{ asset('js/jquery-ui.custom.min.js') }}"></script>
-<script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
-<!--		<script src="assets/js/jquery.easypiechart.min.js"></script>-->
-<script src="{{ asset('js/jquery.sparkline.index.min.js') }}"></script>
-<script src="{{ asset('js/jquery.flot.min.js') }}"></script>
-<script src="{{ asset('js/jquery.flot.pie.min.js') }}"></script>
-<script src="{{ asset('js/jquery.flot.resize.min.js') }}"></script>
-
-<!-- ace scripts -->
-<script src="{{ asset('js/ace-elements.min.js') }}"></script>
-<script src="{{ asset('js/ace.min.js') }}"></script>
-
-
+<script src="{{ asset('backend/js/vendor.js') }}"></script>
+<script src="{{ asset('backend/js/app.js') }}"></script>
 </body>
+
 </html>
