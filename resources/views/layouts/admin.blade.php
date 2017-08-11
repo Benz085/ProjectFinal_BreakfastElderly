@@ -122,10 +122,15 @@
                                 Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
                                 <i class="fa fa-power-off icon"></i>
-                                Logout
-                            </a></div>
+                                ออกจากระบบ
+                            </a>
+                        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -144,28 +149,28 @@
                 </div>
                 <nav class="menu">
                     <ul class="nav metismenu" id="sidebar-menu">
-                        <li class="active">
+                        <li>
                             <a href="#"><i class="fa fa-home"></i> หน้าเว็บไซต์หลัก </a>
                         </li>
-                        <li class="">
-                            <a href="#"><i class="fa fa-home"></i> หน้าหลัก </a>
+                        <li class="active">
+                            <a href="{{ url('home') }}"><i class="fa fa-home"></i> หน้าหลัก </a>
                         </li>
                         <li>
                             <a href=""><i class="fa fa-pencil-square-o"></i> เพิ่มข้อมูล<i class="fa arrow"></i></a>
                             <ul>
-                                <li><a href="#"> กลุ่มอาหาร</a></li>
-                                <li><a href="#"> เมูนอาหาร</a></li>
+                                <li><a href="{{ url('groupsfood/create') }}"> กลุ่มอาหาร</a></li>
+                                <li><a href="{{ url('#') }}"> เมูนอาหาร</a></li>
                             </ul>
                         </li>
                         <li><a href="">
                                 <i class="fa fa-desktop"></i>แสดงผลข้อมูล<i class="fa arrow"></i>
                             </a>
                             <ul>
-                                <li><a href="#"> กลุ่มอาหาร</a></li>
-                                <li><a href="#">เมนูอาหาร </a></li>
-                                <li><a href="#"> สำรับอาหาร</a></li>
-                                <li><a href="#">ข้อมูล #HashTag twitter</a></li>
-                                <li><a href="#"> ข้อมูลคะแนนให้อาหาร</a></li>
+                                <li><a href="{{ url('groupsfood') }}"> กลุ่มอาหาร</a></li>
+                                <li><a href="{{ url('#') }}">เมนูอาหาร </a></li>
+                                <li><a href="{{ url('#') }}"> สำรับอาหาร</a></li>
+                                <li><a href="{{ url('#') }}">ข้อมูล #HashTag twitter</a></li>
+                                <li><a href="{{ url('#') }}"> ข้อมูลคะแนนให้อาหาร</a></li>
                             </ul>
                         </li>
                         <li>
@@ -244,101 +249,9 @@
             </footer>
         </aside>
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
-        <article class="content dashboard-page">
-            <section class="section">
-                <div class="row sameheight-container">
-                    <div class="col col-xs-12 col-sm-12 col-md-12 col-xl-12 stats-col">
-                        <div class="card sameheight-item stats" data-exclude="xs">
-                            <div class="card-block">
-                                <div class="title-block">
-                                    <h4 class="title"> Stats </h4>
-                                    <p class="title-description"> Website metrics for <a
-                                                href="http://modularteam.github.io/modularity-free-admin-dashboard-theme-html/">
-                                            your awesome project
-                                        </a></p>
-                                </div>
-                                <div class="row row-sm stats-container">
-                                    <div class="col-xs-12 col-sm-6 stat-col">
-                                        <div class="stat-icon"><i class="fa fa-rocket"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> 5407</div>
-                                            <div class="name"> Active items</div>
-                                        </div>
-                                        <progress class="progress stat-progress" value="75" max="100">
-                                            <div class="progress">
-                                                <span class="progress-bar" style="width: 75%;"></span>
-                                            </div>
-                                        </progress>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 stat-col">
-                                        <div class="stat-icon"><i class="fa fa-shopping-cart"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> 78464</div>
-                                            <div class="name"> Items sold</div>
-                                        </div>
-                                        <progress class="progress stat-progress" value="25" max="100">
-                                            <div class="progress">
-                                                <span class="progress-bar" style="width: 25%;"></span>
-                                            </div>
-                                        </progress>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6  stat-col">
-                                        <div class="stat-icon"><i class="fa fa-line-chart"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> $80.560</div>
-                                            <div class="name"> Monthly income</div>
-                                        </div>
-                                        <progress class="progress stat-progress" value="60" max="100">
-                                            <div class="progress">
-                                                <span class="progress-bar" style="width: 60%;"></span>
-                                            </div>
-                                        </progress>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6  stat-col">
-                                        <div class="stat-icon"><i class="fa fa-users"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> 359</div>
-                                            <div class="name"> Total users</div>
-                                        </div>
-                                        <progress class="progress stat-progress" value="34" max="100">
-                                            <div class="progress">
-                                                <span class="progress-bar" style="width: 34%;"></span>
-                                            </div>
-                                        </progress>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6  stat-col">
-                                        <div class="stat-icon"><i class="fa fa-list-alt"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> 59</div>
-                                            <div class="name"> Tickets closed</div>
-                                        </div>
-                                        <progress class="progress stat-progress" value="49" max="100">
-                                            <div class="progress">
-                                                <span class="progress-bar" style="width: 49%;"></span>
-                                            </div>
-                                        </progress>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 stat-col">
-                                        <div class="stat-icon"><i class="fa fa-dollar"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> $780.064</div>
-                                            <div class="name"> Total income</div>
-                                        </div>
-                                        <progress class="progress stat-progress" value="15" max="100">
-                                            <div class="progress">
-                                                <span class="progress-bar" style="width: 15%;"></span>
-                                            </div>
-                                        </progress>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            @yield('content')
-        </article>
+        @yield('content')
+
         <footer class="footer">
             <div class="footer-block author">
                 <ul>
