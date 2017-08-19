@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\GroupFoods;
 use App\Menu;
-class GroupfoodController extends Controller
+use App\GroupFoods;
+use Illuminate\Support\Facades\DB;
+class DeckController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth',['except' =>['index','create','store']]);
     }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $groups =  GroupFoods::Paginate(5);
-        $groupcount = GroupFoods::count();
-        return view('backend.group.index',[
-            'groups' => $groups,
-            'count' => $groupcount
-        ]);
+        //
     }
 
     /**
@@ -29,16 +29,28 @@ class GroupfoodController extends Controller
      */
     public function create()
     {
-        return view('backend.group.create');
+        $deck = Menu::all()->toArray();
+//        $deck = Menu::all()->toJson();
+        $data = DB::table('groupfoods')
+            ->join('menu', 'groupfoods.id', '=', 'menu.ID_Food_Group')
+            ->select('groupfoods.id', 'groupfoods.food_name','menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
+            ->get();
+        $dataArr = $data->toArray();
+
+
+        dd($dataArr);
+//        return view('backend.deck.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        $qroup = new GroupFoods();
-        $qroup->food_name = $request->groupfood;
-        $qroup->save();
-
-        return  redirect('groupsfood');
+        //
     }
 
     /**

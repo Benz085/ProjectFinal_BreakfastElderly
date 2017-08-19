@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'ระบบจัดการฐานข้อมูล') }}</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +28,7 @@
     {{--</script>--}}
     <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">
     <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app-green.css') }}">
+    @yield('head')
 </head>
 
 <body>
@@ -98,7 +99,7 @@
                                     <li><a href="">
                                             View All
                                         </a></li>
-                                </ul>
+                                </ul>{{ asset('backend/assets/faces/3.jpg') }}
                             </footer>
                         </div>
                     </li>
@@ -106,7 +107,7 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                            aria-haspopup="true" aria-expanded="false">
                             <div class="img"
-                                 style="background-image: {{ asset('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40') }})"></div>
+                                 style="background-image: url{{ asset('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40') }})"></div>
                             <span class="name">
     			       {{ Auth::user()->name }}
     			    </span> </a>
@@ -122,7 +123,7 @@
                                 Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                                 <i class="fa fa-power-off icon"></i>
                                 ออกจากระบบ
@@ -148,7 +149,7 @@
                     </div>
                 </div>
                 <nav class="menu">
-                    <ul class="nav metismenu" id="sidebar-menu">
+                    <ul class="nav metismenu active" id="sidebar-menu">
                         <li>
                             <a href="#"><i class="fa fa-home"></i> หน้าเว็บไซต์หลัก </a>
                         </li>
@@ -159,7 +160,8 @@
                             <a href=""><i class="fa fa-pencil-square-o"></i> เพิ่มข้อมูล<i class="fa arrow"></i></a>
                             <ul>
                                 <li><a href="{{ url('groupsfood/create') }}"> กลุ่มอาหาร</a></li>
-                                <li><a href="{{ url('#') }}"> เมูนอาหาร</a></li>
+                                <li><a href="{{ url('menu/create') }}"> เมูนอาหาร</a></li>
+                                <li><a href="{{ url('#') }}"> โภชนาการ</a></li>
                             </ul>
                         </li>
                         <li><a href="">
@@ -167,14 +169,14 @@
                             </a>
                             <ul>
                                 <li><a href="{{ url('groupsfood') }}"> กลุ่มอาหาร</a></li>
-                                <li><a href="{{ url('#') }}">เมนูอาหาร </a></li>
-                                <li><a href="{{ url('#') }}"> สำรับอาหาร</a></li>
-                                <li><a href="{{ url('#') }}">ข้อมูล #HashTag twitter</a></li>
-                                <li><a href="{{ url('#') }}"> ข้อมูลคะแนนให้อาหาร</a></li>
+                                <li><a href="{{ url('menu') }}">เมนูอาหาร </a></li>
+                                <li><a href="{{ url('') }}"> สำรับอาหาร</a></li>
+                                <li><a href="{{ url('twitter/index') }}">ข้อมูล #HashTag twitter</a></li>
+                                <li><a href="{{ url('twitter/show') }}"> ข้อมูลคะแนนให้อาหาร</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-cutlery"></i> การจัดการข้อมูลสำรับ</a>
+                            <a href="{{ url('deck/create') }}"><i class="fa fa-cutlery"></i> การจัดการข้อมูลสำรับ</a>
                         </li>
                     </ul>
                 </nav>
@@ -345,6 +347,14 @@
 
 <script src="{{ asset('backend/js/vendor.js') }}"></script>
 <script src="{{ asset('backend/js/app.js') }}"></script>
+@yield('script')
+<script type="text/javascript">
+    $('#active').on('click', 'li','a', function(){
+        $('.nav li a').removeClass('active');
+        $(this).addClass('active');
+    });
+</script>
+
 </body>
 
 </html>

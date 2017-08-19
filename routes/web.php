@@ -20,3 +20,8 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::resource('groupsfood', 'GroupfoodController');
+Route::resource('menu', 'MenuController');
+Route::resource('deck', 'DeckController');
+
+Route::get('twitter/index', 'TwitterController@index');
+Route::get('twitter/show', 'TwitterController@show');

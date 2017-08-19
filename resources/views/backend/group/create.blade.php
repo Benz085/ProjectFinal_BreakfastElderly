@@ -7,7 +7,7 @@
                 <div class="col-md-8">
                     <div class="card card-block sameheight-item">
                         <div class="title-block">
-                            <h2> เพิ่มข้อมูล กลุ่มอาหาร </h2>
+                            <h2> เพิ่มข้อมูล  </h2>
                         </div>
                         {!! Form::open(['url' => 'groupsfood','files'=>true]) !!}
 

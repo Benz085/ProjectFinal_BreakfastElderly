@@ -8,7 +8,8 @@
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <h3> กลุ่มอาหาร </h3>
+                                <h3> กลุ่มอาหาร  จำนวนกลุ่มทั้งหมด {{$count}} </h3><br>
+                                <h4> จำนวนกลุ่มทั้งหมด : {{$count}} </h4>
                             </div>
                             <section class="example">
                                 <div class="table-flip-scroll">
@@ -21,32 +22,20 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($groups as $group)
                                         <tr class="odd gradeA">
-                                            <td>01</td>
-                                            <td>อาหารจานเดียว</td>
+                                            <td>{{ $group->id }}</td>
+                                            <td>{{ $group->food_name }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-pill-left btn-warning">แก้ไข</button>
                                                 <button type="button" class="btn btn-pill-right btn-danger">ลบ</button>
                                             </td>
                                         </tr>
-                                        <tr class="odd gradeA">
-                                            <td>02</td>
-                                            <td>อาหารจานเดียว</td>
-                                            <td>
-                                                <button type="button" class="btn btn-pill-left btn-warning">แก้ไข</button>
-                                                <button type="button" class="btn btn-pill-right btn-danger">ลบ</button>
-                                            </td>
-                                        </tr>
-                                        <tr class="odd gradeA">
-                                            <td>03</td>
-                                            <td>อาหารจานเดียว</td>
-                                            <td>
-                                                <button type="button" class="btn btn-pill-left btn-warning">แก้ไข</button>
-                                                <button type="button" class="btn btn-pill-right btn-danger">ลบ</button>
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
+                                    <br>
+                                   {!! $groups->render() !!}
                                 </div>
                             </section>
                         </div>
