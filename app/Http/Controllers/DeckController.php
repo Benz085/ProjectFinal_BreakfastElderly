@@ -29,17 +29,29 @@ class DeckController extends Controller
      */
     public function create()
     {
-        $deck = Menu::all()->toArray();
+//        $deck = Menu::all()->toArray();
 //        $deck = Menu::all()->toJson();
+
         $data = DB::table('groupfoods')
             ->join('menu', 'groupfoods.id', '=', 'menu.ID_Food_Group')
-            ->select('groupfoods.id', 'groupfoods.food_name','menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
+            ->select('groupfoods.id', 'groupfoods.food_name','menu.ID_Menu','menu.Menu_Name')
+            ->orderBy('groupfoods.id')
             ->get();
-        $dataArr = $data->toArray();
 
 
-        dd($dataArr);
-//        return view('backend.deck.create');
+//        $dataArr = $data->toArray();
+//        dd($data);
+
+
+//        $json=  response()->json($data);
+        $json = $data->toArray();
+
+
+//        dd($json);
+        return view('backend.deck.create',[
+            'data' => $data,
+            'json' =>$json
+        ]);
     }
 
     /**
