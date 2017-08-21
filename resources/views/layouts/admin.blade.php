@@ -14,6 +14,7 @@
 {{--<link rel="apple-touch-icon" href="apple-touch-icon.png">--}}
 <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="{{ asset('backend/css/vendor.css') }}">
+
     <!-- Theme initialization -->
     {{--<script>--}}
     {{--var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :--}}
@@ -348,12 +349,7 @@
 <script src="{{ asset('backend/js/vendor.js') }}"></script>
 <script src="{{ asset('backend/js/app.js') }}"></script>
 @yield('script')
-<script type="text/javascript">
-    $('#active').on('click', 'li','a', function(){
-        $('.nav li a').removeClass('active');
-        $(this).addClass('active');
-    });
-</script>
+
 
 </body>
 
