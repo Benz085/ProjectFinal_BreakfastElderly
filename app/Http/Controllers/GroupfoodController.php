@@ -14,7 +14,7 @@ class GroupfoodController extends Controller
 
     public function index()
     {
-        $groups =  GroupFoods::paginate(5);
+        $groups =  GroupFoods::Paginate(5);
         $groupcount = GroupFoods::count();
         return view('backend.group.index',[
             'groups' => $groups,
