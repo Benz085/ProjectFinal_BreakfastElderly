@@ -39,10 +39,12 @@
                                     <h3 class="panel-title">PickList Demo</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <div id="pickList"></div>
-                                    <br>
-                                    <br>
-                                    <button class="btn btn-primary" id="getSelected">Get Selected</button>
+                                    <form id="inputpickListResult" method="POST">
+                                        <div id="pickList"></div>
+                                        <br>
+                                        <br>
+                                        <button class="btn btn-primary" name="submit" id="getSelected">Submit</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -53,59 +55,60 @@
     </article>
 @endsection
 @section('script')
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
-        (function($) {
+        (function ($) {
 
-            $.fn.pickList = function(options) {
+            $.fn.pickList = function (options) {
 
                 var opts = $.extend({}, $.fn.pickList.defaults, options);
 
-                this.fill = function() {
+                this.fill = function () {
                     var option = '';
 
-                    $.each(opts.data, function(key, val) {
-                        option += '<option  id=' + val.ID_Menu + '>' + val.Menu_Name + '</option>';
+                    $.each(opts.data, function (key, val) {
+                        option += '<option  value='+ val.ID_Menu +'>' + val.Menu_Name + '</option>';
                     });
                     this.find('#pickData').append(option);
                 };
-                this.controll = function() {
+                this.controll = function () {
                     var pickThis = this;
 
-                    $("#pAdd").on('click', function() {
+                    $("#pAdd").on('click', function () {
                         var p = pickThis.find("#pickData option:selected");
                         p.clone().appendTo("#pickListResult");
                         p.remove();
                     });
 
-                    $("#pAddAll").on('click', function() {
+                    $("#pAddAll").on('click', function () {
                         var p = pickThis.find("#pickData option");
                         p.clone().appendTo("#pickListResult");
                         p.remove();
                     });
 
-                    $("#pRemove").on('click', function() {
+                    $("#pRemove").on('click', function () {
                         var p = pickThis.find("#pickListResult option:selected");
                         p.clone().appendTo("#pickData");
                         p.remove();
                     });
 
-                    $("#pRemoveAll").on('click', function() {
+                    $("#pRemoveAll").on('click', function () {
                         var p = pickThis.find("#pickListResult option");
                         p.clone().appendTo("#pickData");
                         p.remove();
                     });
                 };
-                this.getValues = function() {
+                this.getValues = function () {
                     var objResult = [];
-                    this.find("#pickListResult option").each(function() {
+                    this.find("#pickListResult option").each(function () {
                         objResult.push({
-                            id: this.id,
+                            id: this.value,
                             text: this.text
                         });
                     });
                     return objResult;
                 };
-                this.init = function() {
+                this.init = function () {
                     var pickListHtml =
                         "<div class='row'>" +
                         "  <div class='col-sm-5'>" +
@@ -118,7 +121,9 @@
                         "	<button id='pRemoveAll' class='btn btn-primary btn-sm'>" + opts.removeAll + "</button>" +
                         " </div>" +
                         " <div class='col-sm-5'>" +
-                        "    <select class='form-control pickListSelect' id='pickListResult' multiple></select>" +
+//                            " <form method='post' id='inputpickListResult'>"+
+                        "    <select class='form-control pickListSelect' id='pickListResult'  name='pickList[]' multiple></select>" +
+//                            " </form>"+
                         " </div>" +
                         "</div>";
 
@@ -146,14 +151,46 @@
         console.log(val);
 
 
-
         var pick = $("#pickList").pickList({
             data: val
         });
 
-        $("#getSelected").click(function() {
-            console.log(pick.getValues());
-        });
+        $("#getSelected").click(function () {
+            // deck/store
+            axios.post('<?php echo url('/deck/store') ?>', { idDeck:pick.getValues()})
+                .then(function(response) {
+                    window.location.href = '<?php echo url('/deck/index') ?>';
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
 
+        });
+    </script>
+    <script>
+        axios.post('/deck/store', {
+            firstName: 'Fred',
+            lastName: 'Flintstone'
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    </script>
+    <script type="text/javascript">
+        $('#inputpickListResult').on('submit', function () {
+            $.ajax({
+                type: "POST",
+                url: "./store",
+                data: {selectedpickList: $('input#pickList').val()},
+                success: function (data) {
+                    alert(data);
+                }
+            });
+            return false;
+        })
     </script>
 @endsection

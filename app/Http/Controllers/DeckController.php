@@ -62,7 +62,9 @@ class DeckController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->input('idDeck');
+        $model->relation->sync();
+        return $request->all();
     }
 
     /**

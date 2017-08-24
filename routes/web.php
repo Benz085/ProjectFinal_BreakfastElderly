@@ -23,5 +23,8 @@ Route::resource('groupsfood', 'GroupfoodController');
 Route::resource('menu', 'MenuController');
 Route::resource('deck', 'DeckController');
 
+Route::post('deck/store', 'DeckController@store');
+
+
 Route::get('twitter/index', 'TwitterController@index');
 Route::get('twitter/show', 'TwitterController@show');
