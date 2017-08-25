@@ -25,7 +25,7 @@
                 <div class="col-md-12">
                     <div class="card card-block sameheight-item">
                         <div class="title-block">
-                            <h3 style="margin:auto"> ข้อมูลเมนูอาหารเช้า ผู้สูงอายุ</h3>
+                            <h3 style="margin:auto"> ข้อมูลเมนูอาหารเช้า ผู้สูงอายุ2</h3>
                         </div>
                         <select multiple class="form-control" style="height: 250px">
                             @foreach($data as $menu)
@@ -38,12 +38,25 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">PickList Demo</h3>
                                 </div>
+                                {{--<div class="panel-body">--}}
+                                    {{--<div id="pickList"></div>--}}
+                                    {{--<br>--}}
+                                    {{--<br>--}}
+                                    {{--<button class="btn btn-primary" name="submit" id="getSelected">Submit</button>--}}
+                                {{--</div>--}}
+
+
+
+
+                                {!! Form::open(['url' => 'deck','files'=>true]) !!}
+                                        {{--{{ Form::label('pickList', 'Conca') }}--}}
+                                        {{--{{ Form::select('pickList', $basins) }}--}}
                                 <div class="panel-body">
-                                        <div id="pickList"></div>
-                                        <br>
-                                        <br>
-                                        <button class="btn btn-primary" name="submit" id="getSelected">Submit</button>
+                                    <div id="pickList"></div>
                                 </div>
+                                {{ Form::submit('Create', array('id'=>'getSelected','class' => '"btn btn-primary')) }}
+                                {{ Form::close() }}
+
                             </div>
                         </div>
                     </div>
@@ -141,48 +154,43 @@
                 remove: 'Remove',
                 removeAll: 'Remove All'
             };
+
+
         }(jQuery));
 
         var val = JSON.parse('<?php echo json_encode($json) ?>');
         console.log(val);
 
+
         var pick = $("#pickList").pickList({
             data: val
         });
 
-        $("#getSelected").click(function (e) {
-            console.log('submit');
-//            axios.post('/test/', { idDeck:pick.getValues()});
+        $("#getSelected").click(function () {
             // deck/store
-            e.preventDefault();
-            axios.post('{{ url('/deck/store/') }}', { idDeck:pick.getValues()})
+            axios.post('<?php echo url('/deck/store') ?>', { idDeck:pick.getValues()})
                 .then(function(response) {
-                    //$('body').html(response.data);
-                    if(response.data.status == 'success') {
-                       // window.location.href = '{{ url('/deck') }}';
-                    }
-                    if(response.data.status == 'errors') {
-                       // window.location.href = '{{ url('/deck/store') }}';
-                    }
+                    window.location.href = '<?php echo url('/deck/store') ?>';
                     console.log(response);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
+
         });
     </script>
 
     {{--<script type="text/javascript">--}}
-        {{--$('#inputpickListResult').on('submit', function () {--}}
-            {{--$.ajax({--}}
-                {{--type: "POST",--}}
-                {{--url: "./store",--}}
-                {{--data: {selectedpickList: $('input#pickList').val()},--}}
-                {{--success: function (data) {--}}
-                    {{--alert(data);--}}
-                {{--}--}}
-            {{--});--}}
-            {{--return false;--}}
-        {{--})--}}
+    {{--$('#inputpickListResult').on('submit', function () {--}}
+    {{--$.ajax({--}}
+    {{--type: "POST",--}}
+    {{--url: "./store",--}}
+    {{--data: {selectedpickList: $('input#pickList').val()},--}}
+    {{--success: function (data) {--}}
+    {{--alert(data);--}}
+    {{--}--}}
+    {{--});--}}
+    {{--return false;--}}
+    {{--})--}}
     {{--</script>--}}
 @endsection

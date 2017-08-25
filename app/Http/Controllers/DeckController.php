@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Menu;
 use App\GroupFoods;
 use Illuminate\Support\Facades\DB;
+use PDOException;
+use App\Models\Deck;
+
 class DeckController extends Controller
 {
     public function __construct()
@@ -62,9 +65,29 @@ class DeckController extends Controller
      */
     public function store(Request $request)
     {
-        $request->input('idDeck');
-        $model->relation->sync();
-        return $request->all();
+       //return $request->all();
+        //dd($request->all());
+
+//        $model->relation->sync();
+
+        try {
+            $latest = Deck::getLatestDeck()->count + 1;
+//            $query = new Deck();
+//            $latest = $query->orderBy('ID_Deck', 'DESC')->first();
+//            dd($latest);
+            foreach($request->input('idDeck') as $val) {
+                $deck = new Deck();
+                $deck->ID_Menu = $val['id'];
+                $deck->ID_Deck = $latest;
+                $deck->save();
+            }
+
+            return response()->json(['status' => 'success']);
+        } catch (PDOException $exception) {
+            return response()->json(['status' => 'errors', 'message' => $exception->getMessage()]);
+        }
+
+
     }
 
     /**
