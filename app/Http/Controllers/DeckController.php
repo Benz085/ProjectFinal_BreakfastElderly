@@ -11,10 +11,12 @@ use App\Models\Deck;
 
 class DeckController extends Controller
 {
+    protected $result;
     public function __construct()
     {
-        $this->middleware('auth',['except' =>['index','create','store']]);
+        $this->middleware('auth', ['except' => ['index', 'create', 'store']]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +24,22 @@ class DeckController extends Controller
      */
     public function index()
     {
-        //
+
+        $count = DB::table('decks')
+            ->select(DB::raw('count(*) as count_Deck, ID_Deck'))
+            ->groupBY('ID_Deck')
+            ->simplePaginate(8);
+        $count2 = DB::table('decks')
+            ->select(DB::raw('count(*) as count_Deck, ID_Deck'))
+            ->groupBY('ID_Deck')
+            ->get();
+//        dd($count);
+        $countALL = count($count2);
+        return view('backend.deck.index', [
+            'count' => $count,
+            'countALL' => $countALL
+        ]);
+
     }
 
     /**
@@ -37,74 +54,72 @@ class DeckController extends Controller
 
         $data = DB::table('groupfoods')
             ->join('menu', 'groupfoods.id', '=', 'menu.ID_Food_Group')
-            ->select('groupfoods.id', 'groupfoods.food_name','menu.ID_Menu','menu.Menu_Name')
+            ->select('groupfoods.id', 'groupfoods.food_name', 'menu.ID_Menu', 'menu.Menu_Name')
             ->orderBy('groupfoods.id')
             ->get();
-
-
-//        $dataArr = $data->toArray();
-//        dd($data);
-
-
-//        $json=  response()->json($data);
         $json = $data->toArray();
-
-
 //        dd($json);
-        return view('backend.deck.create',[
+        return view('backend.deck.create', [
             'data' => $data,
-            'json' =>$json
+            'json' => $json
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-       //return $request->all();
-        //dd($request->all());
-
-//        $model->relation->sync();
+        //insert past from ajax
 
         try {
             $latest = Deck::getLatestDeck()->count + 1;
 //            $query = new Deck();
 //            $latest = $query->orderBy('ID_Deck', 'DESC')->first();
 //            dd($latest);
-            foreach($request->input('idDeck') as $val) {
+            foreach ($request->input('idDeck') as $val) {
                 $deck = new Deck();
                 $deck->ID_Menu = $val['id'];
                 $deck->ID_Deck = $latest;
                 $deck->save();
             }
-
             return response()->json(['status' => 'success']);
         } catch (PDOException $exception) {
             return response()->json(['status' => 'errors', 'message' => $exception->getMessage()]);
         }
-
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+
+        $data = DB::table('menu')
+            ->join('decks', 'decks.ID_Menu', '=', 'menu.ID_Menu')
+            ->join('groupfoods', 'groupfoods.id', '=', 'menu.ID_Food_Group')
+            ->select('decks.ID_Deck','decks.ID_Menu','menu.Menu_Name','menu.ID_Food_Group','groupfoods.food_name')
+            ->where('decks.ID_Deck', '=', $id)
+            ->get();
+//        echo $id;
+//        dd($data);
+
+        return view('backend.deck.show',[
+            'id' => $id,
+           'data' => $data
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -115,8 +130,8 @@ class DeckController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -127,7 +142,7 @@ class DeckController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -19,4 +19,5 @@ class Composition extends Model
     {
         return $this->belongsTo(Menu::class,'ID_Menu');
     }
+
 }

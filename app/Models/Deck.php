@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+
+use App\Menu;
 use Illuminate\Database\Eloquent\Model;
 
 class Deck extends Model
 {
     protected $table = 'decks';
-
-//    protected $primaryKey = ['ID_Menu','ID_Deck'];
 
     protected $fillable = [
         'ID_Menu','ID_Deck'
@@ -26,12 +26,10 @@ class Deck extends Model
         }
         return (object) $count;
     }
-
-
-    // scope
-
-
-
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class,'ID_Menu');
+    }
 
 
 }

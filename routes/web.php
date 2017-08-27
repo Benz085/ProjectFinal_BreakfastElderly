@@ -11,21 +11,22 @@
 |
 */
 
-
-
-Auth::routes();
-
-// Beck - End
+// Beck - End//
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index');
+//DB Group Food
 Route::resource('groupsfood', 'GroupfoodController');
+//DB Menu
 Route::resource('menu', 'MenuController');
+//DB Deck
 Route::resource('deck', 'DeckController');
-
+//insert form ajax
 Route::post('/deck/store/', 'DeckController@store');
-
+//get Data DB Twitter
 Route::get('twitter/index', 'TwitterController@index');
 Route::get('twitter/show', 'TwitterController@show');
 
-//Font - End
+//Font - End//
 Route::get('index', 'IndexController@index');
+
+Auth::routes();

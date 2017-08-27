@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('head')
-    {{--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">--}}
     <meta name="csrf-token" content="{{ Session::token() }}">
     <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/multi-select.css') }}">
     <style>
@@ -8,11 +7,9 @@
             padding: 10px;
             text-align: center;
         }
-
         .pickListButtons button {
             margin-bottom: 5px;
         }
-
         .pickListSelect {
             height: 200px !important;
         }
@@ -36,7 +33,7 @@
                         <div class="container">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">PickList Demo</h3>
+                                    <h3 class="panel-title">จัดสำรับเมนูอาหารเช้า</h3>
                                 </div>
                                 <div class="panel-body">
                                         <div id="pickList"></div>
@@ -159,10 +156,10 @@
                 .then(function(response) {
                     //$('body').html(response.data);
                     if(response.data.status == 'success') {
-                       // window.location.href = '{{ url('/deck') }}';
+                        window.location.href = '{{ url('/deck') }}';
                     }
                     if(response.data.status == 'errors') {
-                       // window.location.href = '{{ url('/deck/store') }}';
+                        window.location.href = '{{ url('/deck/store') }}';
                     }
                     console.log(response);
                 })
@@ -172,17 +169,4 @@
         });
     </script>
 
-    {{--<script type="text/javascript">--}}
-        {{--$('#inputpickListResult').on('submit', function () {--}}
-            {{--$.ajax({--}}
-                {{--type: "POST",--}}
-                {{--url: "./store",--}}
-                {{--data: {selectedpickList: $('input#pickList').val()},--}}
-                {{--success: function (data) {--}}
-                    {{--alert(data);--}}
-                {{--}--}}
-            {{--});--}}
-            {{--return false;--}}
-        {{--})--}}
-    {{--</script>--}}
 @endsection

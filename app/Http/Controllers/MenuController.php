@@ -8,6 +8,7 @@ use App\Menu;
 use App\Composition;
 use Image;
 use Illuminate\Support\Facades\DB;
+
 class MenuController extends Controller
 {
     public function __construct()
