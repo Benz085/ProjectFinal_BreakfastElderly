@@ -10,4 +10,16 @@ class IndexController extends Controller
     {
         return view('frontend.home');
     }
+    public function care()
+    {
+        return  view('frontend.care');
+    }
+    public function form()
+    {
+        return  view('frontend.form');
+    }
+    public function contact()
+    {
+        return  view('frontend.contact');
+    }
 }

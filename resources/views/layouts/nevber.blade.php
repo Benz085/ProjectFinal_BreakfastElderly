@@ -34,7 +34,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('frontend/ico/apple-touch-icon-114-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('frontend/ico/apple-touch-icon-72-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('frontend/ico/apple-touch-icon-57-precomposed.png') }}">
-
+    @yield('head')
 </head>
 
 <body>
@@ -49,38 +49,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Andia - a super cool design agency...</a>
+            <a class="navbar-brand" href="#"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
-                        <i class="fa fa-home"></i><br>Home <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-left" role="menu">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Home 2</a></li>
-                    </ul>
+                    <a href="{{ url('index') }}"><i class="fa fa-home"></i><br>หน้าหลัก</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-camera"></i><br>Portfolio</a>
+                    <a href="{{ url('#') }}"><i class="glyphicon glyphicon-apple"></i><br>เกร็ดความรู้</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-tasks"></i><br>Services</a>
+                    <a href="{{ url('form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>ระบบแนะนำอาหารเช้า</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-user"></i><br>About</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-envelope"></i><br>Contact</a>
+                    <a href="{{ url('#') }}"><i class="fa fa-user"></i><br>ผู้จัดทำ</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
-                        <i class="fa fa-paperclip"></i><br>Pages <span class="caret"></span>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+                        <i class="glyphicon glyphicon-log-in"></i><br>เข้าสู่ระบบ <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Pricing tables</a></li>
+                        <li><a href="{{ url('login') }}" target="_blank">ระบบการจัดการฐานข้อมูล</a></li>
                     </ul>
                 </li>
             </ul>
@@ -94,8 +85,8 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 footer-box wow fadeInUp">
-                <h4>About Us</h4>
+            <div class="col-sm-4 footer-box wow fadeInUp">
+                <h4>เกี่ยวกับ</h4>
                 <div class="footer-box-text">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
@@ -104,10 +95,10 @@
                     <p><a href="#">Read more...</a></p>
                 </div>
             </div>
-            <div class="col-sm-3 footer-box wow fadeInDown">
-                <h4>Email Updates</h4>
+            <div class="col-sm-4 footer-box wow fadeInDown">
+                <h4>Email</h4>
                 <div class="footer-box-text footer-box-text-subscribe">
-                    <p>Enter your email and you'll be one of the first to get new updates:</p>
+                    <p>ป้อนอีเมลของคุณและคุณจะเป็นหนึ่งในคนแรกที่ได้รับการอัปเดตใหม่ ๆ :</p>
                     <form role="form" action="#" method="post">
                         <div class="form-group">
                             <label class="sr-only" for="subscribe-email">Email address</label>
@@ -119,17 +110,13 @@
                     <p class="error-message"></p>
                 </div>
             </div>
-            <div class="col-sm-3 footer-box wow fadeInUp">
-                <h4>Flickr Photos</h4>
-                <div class="footer-box-text flickr-feed"></div>
-            </div>
-            <div class="col-sm-3 footer-box wow fadeInDown">
-                <h4>Contact Us</h4>
+            <div class="col-sm-4 footer-box wow fadeInDown">
+                <h4>ติดต่อผู้จัดทำ</h4>
                 <div class="footer-box-text footer-box-text-contact">
-                    <p><i class="fa fa-map-marker"></i> Address: Via Principe Amedeo 9, 10100, Torino, TO, Italy</p>
-                    <p><i class="fa fa-phone"></i> Phone: 0039 333 12 68 347</p>
-                    <p><i class="fa fa-user"></i> Skype: Andia_Agency</p>
-                    <p><i class="fa fa-envelope"></i> Email: <a href="">contact@andia.co.uk</a></p>
+                    <p><i class="fa fa-map-marker"></i> Address :  มหาวิทยาลัยราชภัฏสวนสุนันทา , ถนน อู่ทองนอก แขวง วชิรพยาบาล เขต ดุสิต กรุงเทพมหานคร 10300</p>
+                    <p><i class="fa fa-phone"></i> Phone :  080 958 3708</p>
+                    <p><i class="fa fa-user"></i> Fackbook  :  Nattapong Thipbamrung</p>
+                    <p><i class="fa fa-envelope"></i> Email :  s57122201085@ssru.ac.th </p>
                 </div>
             </div>
         </div>
@@ -140,13 +127,13 @@
         </div>
         <div class="row">
             <div class="col-sm-7 footer-copyright wow fadeIn">
-                <p>Copyright 2012 Andia - All rights reserved. Template by <a href="http://azmind.com/free-bootstrap-themes-templates/">Azmind</a>.</p>
+                <p>Copyright 2017 Project - Computer Science. 57 by <a href="https://www.facebook.com/nattapong.thipbamrung">Nattapong Thipbamrung</a>.</p>
             </div>
             <div class="col-sm-5 footer-social wow fadeIn">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
+                <a href="https://www.facebook.com/nattapong.thipbamrung" target="_blank"><i class="fa fa-facebook"></i></a>
+                {{--<a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>--}}
+                <a href="https://twitter.com/BEnzny_cs29" target="_blank"><i class="fa fa-twitter"></i></a>
+                {{--<a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>--}}
             </div>
         </div>
     </div>

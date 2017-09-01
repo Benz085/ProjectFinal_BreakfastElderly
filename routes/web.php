@@ -12,7 +12,7 @@
 */
 
 // Beck - End//
-Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index');
 //DB Group Food
 Route::resource('groupsfood', 'GroupfoodController');
@@ -27,6 +27,11 @@ Route::get('twitter/index', 'TwitterController@index');
 Route::get('twitter/show', 'TwitterController@show');
 
 //Font - End//
+Route::get('/', 'IndexController@index');
 Route::get('index', 'IndexController@index');
+Route::get('form', 'IndexController@form');
+
+Route::get('quiz/quizFood', 'QuizController@quizFood');
+Route::resource('quiz', 'QuizController');
 
 Auth::routes();

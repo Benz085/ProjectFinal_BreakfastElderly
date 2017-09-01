@@ -48,8 +48,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 wow fadeInLeftBig">
-                    <h1>We are <span class="violet">Andia</span>, a super cool design agency.</h1>
-                    <p>We design beautiful websites, logos and prints. Your project is safe with us.</p>
+                    {{--  ชื่อโปรเจค  --}}
+                    <h1>Project <span class="violet">Andia</span>, a super cool design agency.</h1>
+                    <p>บรรยายเกี่ยวกับ.</p>
                 </div>
             </div>
         </div>
@@ -59,93 +60,28 @@
     <div class="services-container">
         <div class="container">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="service wow fadeInUp">
                         <div class="service-icon"><i class="fa fa-eye"></i></div>
-                        <h3>Beautiful Websites</h3>
+                        <h3>ความเป็นมา</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
                         <a class="big-link-1" href="#">Read more</a>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="service wow fadeInDown">
                         <div class="service-icon"><i class="fa fa-table"></i></div>
-                        <h3>Responsive Layout</h3>
+                        <h3>จุดประสงค์</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
                         <a class="big-link-1" href="#">Read more</a>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="service wow fadeInUp">
                         <div class="service-icon"><i class="fa fa-magic"></i></div>
-                        <h3>Awesome Logos</h3>
+                        <h3>วิธีการใช้งานเว็บไซต์</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
                         <a class="big-link-1" href="#">Read more</a>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="service wow fadeInDown">
-                        <div class="service-icon"><i class="fa fa-print"></i></div>
-                        <h3>High Res Prints</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="#">Read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Latest work -->
-    <div class="work-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 work-title wow fadeIn">
-                    <h2>Our Latest Work</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="work wow fadeInUp">
-                        <img src="{{ asset('frontend/img/portfolio/work1.jpg') }}" alt="Lorem Website" data-at2x="{{ asset('frontend/img/portfolio/work1.jpg') }}">
-                        <h3>Lorem Website</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-                        <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset('frontend/img/portfolio/work1.jpg') }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-2" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="work wow fadeInDown">
-                        <img src="{{ asset('frontend/img/portfolio/work2.jpg') }}" alt="Ipsum Logo" data-at2x="{{ asset('frontend/img/portfolio/work2.jpg') }}">
-                        <h3>Ipsum Logo</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-                        <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset('frontend/img/portfolio/work2.jpg') }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-2" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="work wow fadeInUp">
-                        <img src="{{ asset('frontend/img/portfolio/work3.jpg') }}" alt="Dolor Prints" data-at2x="{{ asset('frontend/img/portfolio/work3.jpg') }}">
-                        <h3>Dolor Prints</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-                        <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset('frontend/img/portfolio/work3.jpg') }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-2" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="work wow fadeInDown">
-                        <img src="{{ asset('frontend/img/portfolio/work4.jpg') }}" alt="Sit Amet Website" data-at2x="{{ asset('frontend/img/portfolio/work4.jpg') }}">
-                        <h3>Sit Amet Website</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-                        <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset('frontend/img/portfolio/work4.jpg') }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-2" href="#"><i class="fa fa-link"></i></a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -157,7 +93,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 testimonials-title wow fadeIn">
-                    <h2>Testimonials</h2>
+                    <h2>แนะนำเว็บไซต์</h2>
                 </div>
             </div>
             <div class="row">
