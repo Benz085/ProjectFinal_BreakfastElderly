@@ -61,56 +61,111 @@ class QuizController extends Controller
 
 
         if($rating == 'Yes'){
-            if($celery == 0) { $celery = null ;}else if($celery == 1){ $celery;}
-            if($gluten == 0) { $gluten = null ;}elseif($gluten == 1){ $gluten;}
-            if($Sea_animals == 0) { $Sea_animals = null ;}elseif($Sea_animals == 1){  $Sea_animals;}
-            if($egg == 0) { $egg = null ;}elseif($egg == 1){  $egg;}
-            if($fish == 0) { $fish = null ;}elseif($fish == 1){  $fish;}
-            if($lupine == 0) { $lupine = null ;}elseif($lupine == 1){  $lupine;}
-            if($mike == 0) { $mike = null ;}elseif($mike == 1){  $mike;}
-            if($shellfish_squid == 0) {echo $shellfish_squid = null ;}elseif($shellfish_squid == 1){  $shellfish_squid;}
-            if($mustard == 0) { $mustard = null ;}elseif($mustard == 1){  $mustard;}
-            if($Nuts_with_hard_shell == 0) { $Nuts_with_hard_shell = null ;}elseif($Nuts_with_hard_shell == 1){  $Nuts_with_hard_shell;}
-            if($peanut == 0) { $peanut = null ;}elseif($peanut == 1){  $peanut;}
-            if($sesame_seeds == 0) { $sesame_seeds = null ;}elseif($sesame_seeds == 1){  $sesame_seeds;}
-            if($soybean == 0) { $soybean = null ;}elseif($soybean == 1){  $soybean;}
-            if($sulfur_oxide == 0) {echo $sulfur_oxide = null ;}elseif($sulfur_oxide == 1){  $sulfur_oxide;}
+
+            $celery == 1 ?: $celery = null;
+            $gluten == 1 ?: $gluten = null;
+            $Sea_animals == 1 ?: $Sea_animals = null;
+            $egg == 1 ?: $egg = null;
+            $fish == 1 ?: $fish = null;
+            $lupine == 1 ?: $lupine = null;
+            $mike == 1 ?: $mike = null;
+            $shellfish_squid == 1 ?: $shellfish_squid = null;
+            $mustard == 1 ?: $mustard = null;
+            $Nuts_with_hard_shell == 1 ?: $Nuts_with_hard_shell = null;
+            $peanut == 1 ?: $peanut = null;
+            $sesame_seeds == 1 ?: $sesame_seeds = null;
+            $soybean == 1 ?: $soybean = null;
+            $sulfur_oxide == 1 ?: $sulfur_oxide = null;
 
 
-            $result = DB::table('exams')->whereNotIn('id', function($q){
-                $q->select('ID_Deck')->from('quiz_rule')
-                ->where('quiz_Celery' ,'=', $celery)
-                ;
-            })->get();
+//            echo '<hr>';
+//            var_dump( $celery);echo '<br>';
+//            var_dump ($gluten);echo '<br>';
+//            var_dump ($Sea_animals);echo '<br>';
+//            var_dump ($egg);echo '<br>';
+//            var_dump ($fish);echo '<br>';
+//            var_dump ($lupine);echo '<br>';
+//            var_dump ($mike);echo '<br>';
+//            var_dump ($shellfish_squid);echo '<br>';
+//            var_dump ($mustard);echo '<br>';
+//            var_dump ($Nuts_with_hard_shell);echo '<br>';
+//            var_dump ($peanut);echo '<br>';
+//            var_dump ($sesame_seeds);echo '<br>';
+//            var_dump ($soybean);echo '<br>';
+//            var_dump ($sulfur_oxide);echo '<br>';
+//            var_dump(null);
+//            echo '<hr>';
 
+            $in = DB::table('quiz_rule')
+                ->orWhere('quiz_Celery' ,'=', $celery)
+                ->orWhere('quiz_Gluten' ,'=', $gluten)
+                ->orWhere('quiz_Sea_animals' ,'=', $Sea_animals)
+                ->orWhere('quiz_Egg' ,'=', $egg)
+                ->orWhere('quiz_fish' ,'=', $fish)
+                ->orWhere('quiz_Lupine' ,'=', $lupine)
+                ->orWhere('quiz_Mike' ,'=', $mike)
+                ->orWhere('quiz_Shellfish_squid' ,'=', $shellfish_squid)
+                ->orWhere('quiz_Mustard' ,'=', $mustard)
+                ->orWhere('quiz_Nuts_with_hard_shell' ,'=', $Nuts_with_hard_shell)
+                ->orWhere('quiz_Peanut' ,'=', $peanut)
+                ->orWhere('quiz_Sesame_seeds' ,'=', $sesame_seeds)
+                ->orWhere('quiz_Soybean' ,'=', $soybean)
+                ->orWhere('quiz_Sulfur_oxide' ,'=', $sulfur_oxide)
+                ->get();
+            $inArr = [];
+            foreach($in as $value){
+                $inArr[] = $value->ID_Deck;
+            }
+            $result = DB::table('quiz_rule')->whereNotIn('ID_Deck', $inArr)->get();
+//            dd($result);
+            $inArr2 = [];
+//            echo '<hr>';
+            foreach($result as $value){
+                $inArr2[] =  $value->ID_Deck;
+            }
+            $col = collect($inArr2);
+//            echo '<pre>';
+//           print_r($col);
+//            echo 'ramdom : '. $randon = $col->random();
+            $randon = $col->random();
 
+            $decks = DB::table('menu')
+                ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
+                ->select('decks.ID_Deck', 'menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
+                ->where('decks.ID_Deck', '=', $randon)
+                ->get();
+//            dd($decks);
 
-
-             $data = DB::table('quiz_rule')
-                ->whereNotIn('ID_Deck')
-                ->select('SELECT ID_Deck FROM quiz_rule WHERE
-                `quiz_Celery` = '.$celery.' OR
-                `quiz_Gluten` = '.$gluten.' OR
-                `quiz_Sea_animals` = '.$Sea_animals.' OR
-                `quiz_Egg` = '.$egg.' OR
-                `quiz_fish` = '.$fish.' OR
-                `quiz_Lupine` = '.$lupine.' OR
-                `quiz_Mike` = '.$mike.' OR
-                `quiz_Shellfish_squid` = '.$shellfish_squid.' OR
-                `quiz_Mustard` = '.$mustard.' OR
-                `quiz_Nuts_with_hard_shell` = '.$Nuts_with_hard_shell.' OR
-                `quiz_Peanut` = '.$peanut.' OR
-                `quiz_Sesame_seeds` = '.$sesame_seeds.' OR
-                `quiz_Soybean` = '.$soybean.' OR
-                `quiz_Sulfur_oxide` = '.$sulfur_oxide.'
-                ')->get();
-            dd($data);
+            return view('frontend.quiz.index',
+                [
+                    'decks' => $decks,
+                    'randon' =>$randon
+                ]);
 
         }else{
-            echo 'No';
+//            echo 'No';
+            $data = DB::table('decks')
+                ->get();
+            $arr1 = [];
+            foreach ($data as  $value){
+                 $arr1[] = $value->ID_Deck;
+            }
+            $col = collect($arr1);
+//            echo '<pre>';
+//            print_r($arr1);
+            $randon = $col->random();
+            $decks = DB::table('menu')
+                ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
+                ->select('decks.ID_Deck', 'menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
+                ->where('decks.ID_Deck', '=', $randon)
+                ->get();
+//            dd($decks);
+            return view('frontend.quiz.index',
+                ['decks' => $decks,
+                'randon' =>$randon
+                ]);
 
         }
-//        return $request->all();
     }
 
     /**
