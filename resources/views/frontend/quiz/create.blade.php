@@ -370,25 +370,25 @@
 @endsection
 
 @section('script')
-    <script>
-        function myFunction(clr) {
-            if ('True' == clr){
-                document.onclick = function () {
-                    swal("คำตอบ!", "คำตอบคุณเลือกคือ ใช่!", "success");
-                };
-//                console.log("True");
-            }else {
-                document.onclick = function () {
-                    swal("คำตอบ!", "คำตอบคุณเลือกคือ ไม่!", "success");
-                };
-//                console.log("False");
-            }c
-        }
-    </script>
+    {{--<script>--}}
+        {{--function myFunction(clr) {--}}
+            {{--if ('True' == clr){--}}
+                {{--document.onclick = function () {--}}
+                    {{--swal("คำตอบ!", "คำตอบคุณเลือกคือ ใช่!", "success");--}}
+                {{--};--}}
+{{--//                console.log("True");--}}
+            {{--}else {--}}
+                {{--document.onclick = function () {--}}
+                    {{--swal("คำตอบ!", "คำตอบคุณเลือกคือ ไม่!", "success");--}}
+                {{--};--}}
+{{--//                console.log("False");--}}
+            {{--}--}}
+        {{--}--}}
+    {{--</script>--}}
 
-    <script>
-        document.querySelector('.sweet-3').onclick = function () {
-            swal("Good job!", "You clicked the button!", "success");
-        };
-    </script>
+    {{--<script>--}}
+        {{--document.querySelector('.sweet-3').onclick = function () {--}}
+            {{--swal("Good job!", "You clicked the button!", "success");--}}
+        {{--};--}}
+    {{--</script>--}}
 @endsection
