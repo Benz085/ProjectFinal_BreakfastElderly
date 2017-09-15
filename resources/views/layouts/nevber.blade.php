@@ -61,7 +61,7 @@
                     <a href="{{ url('#') }}"><i class="glyphicon glyphicon-apple"></i><br>เกร็ดความรู้</a>
                 </li>
                 <li>
-                    <a href="{{ url('form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>ระบบแนะนำอาหารเช้า</a>
+                    <a href="{{ url('form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>ระบบจัดสำรับอาหารเช้า</a>
                 </li>
                 <li>
                     <a href="{{ url('#') }}"><i class="fa fa-user"></i><br>ผู้จัดทำ</a>

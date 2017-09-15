@@ -1,6 +1,5 @@
 @extends('layouts.nevber')
 @section('head')
-
     <style>
         .bg-1 {
             /*background-color: #EEE0E5;*/
@@ -22,30 +21,32 @@
     </style>
 @endsection
 @section('content')
-    <div class="container-fluid bg-1 text-center">
+    <div class="page-title-container">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 testimonials-title wow fadeIn" style="margin-top: 60px">
-                  <p style="font-size: 20px;color: #3a3a3a">ระบบสำรับอาหารเช้าผู้สูงอายุ </p>
+                <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+                    <a><i class="glyphicon glyphicon-cutlery"></i></a>
+                    <h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-1 text-center">
+        <div class="container">
+            {{--<div class="row">--}}
+                {{--<div class="col-sm-12 testimonials-title wow fadeIn" style="margin-top: 60px">--}}
+                  {{--<p style="font-size: 20px;color: #3a3a3a">ระบบสำรับอาหารเช้าผู้สูงอายุ </p>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <center>
                 <div class="row" style="margin-top: 15px;">
                     <div class="col-md-12">
-                        <div class="col-md-3 col-md-offset-3">
-                            <a href="{{ url('quiz/quizFood') }}" class="thumbnail">
-                                <img alt="100%x180" data-src="holder.js/100%x180"
-                                     style="height: 180px; width: 100%; display: block;"
-                                     src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDMxOSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTVlMmYwMTljZGYgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNWUyZjAxOWNkZiI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSI5Ny4yIj4zMTl4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
-                                     data-holder-rendered="true">
-                            </a>
-                            <h4 style="color: #411c0e">แบบทดสอบด้านสารอาหาร</h4>
-                        </div>
                         <div class="col-md-3">
-                            <a href="{{ url('quiz/create') }}" class="thumbnail">
-                                <img alt="100%x180" data-src="holder.js/100%x180"style="height: 180px; width: 100%; display: block;"
-                                     src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDMxOSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTVlMmYwMWIzZGYgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNWUyZjAxYjNkZiI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSI5Ny4yIj4zMTl4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
-                                     data-holder-rendered="true">
+
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ url('quiz/create') }}">
+                                <img alt="140x140" data-src="holder.js/140x140" class="img-circle" style="width: 140px; height: 140px;" src="{{ asset("frontend/img/newscms.jpg") }}" data-holder-rendered="true">
                             </a>
                             <h4 style="color: #411c0e">จัดสำรับอาหาร</h4>
                         </div>
