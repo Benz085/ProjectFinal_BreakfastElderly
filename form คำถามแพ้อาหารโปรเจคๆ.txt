@@ -1,0 +1,294 @@
+ <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ผักขึ้นฉ่าย หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="celery" type="radio" value="1"/>--}}
+                                                {{  Form::radio('celery', '1',null,['onclick' => "myFunction('True')"]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="celery" type="radio" value="0"/>--}}
+                                                {{  Form::radio('celery', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <br>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ธัญพืชที่มีส่วน ประกอบของ กลูเตน หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="gluten" type="radio" value="1"/>--}}
+                                                {{  Form::radio('gluten', '1') ,null,['onclick' => "myFunction('True')"] }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="gluten" type="radio" value="0"/>--}}
+                                                {{  Form::radio('gluten', '0') ,null,['onclick' => "myFunction('False')"] }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <br>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ สัตว์น้ำที่มีเปลืองแข็ง หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="Sea_animals" type="radio" value="1"/>--}}
+                                                {{  Form::radio('Sea_animals', '1',null,['onclick' => "myFunction('True')"]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="Sea_animals" type="radio" value="0"/>--}}
+                                                {{  Form::radio('Sea_animals', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ไข่ หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="egg" type="radio" value="1"/>--}}
+                                                {{  Form::radio('egg', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="egg" type="radio" value="0"/>--}}
+                                                {{  Form::radio('egg', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ปลา หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="fish" type="radio" value="1"/>--}}
+                                                {{  Form::radio('fish', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="fish" type="radio" value="0"/>--}}
+                                                {{  Form::radio('fish', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ลูพิน หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="lupine" type="radio" value="1"/>--}}
+                                                {{  Form::radio('lupine', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="lupine" type="radio" value="0"/>--}}
+                                                {{  Form::radio('lupine', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ นม หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="mike" type="radio" value="1"/>--}}
+                                                {{  Form::radio('mike', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="mike" type="radio" value="0"/>--}}
+                                                {{  Form::radio('mike', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label">
+                                                คุณแพ้ สัตว์จำพวกหอยและปลาหมึก หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="shellfish_squid" type="radio" value="1"/>--}}
+                                                {{  Form::radio('shellfish_squid', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="shellfish_squid" type="radio" value="0"/>--}}
+                                                {{  Form::radio('shellfish_squid', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ มัสตาร์ด หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{  Form::radio('mustard', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                {{--<input name="mustard" type="radio" value="1"/>--}}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{  Form::radio('mustard', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                {{--<input name="mustard" type="radio" value="0"/>--}}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ถั่วที่มีเปลือกแข็ง หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="Nuts_with_hard_shell" type="radio" value="1"/>--}}
+                                                {{  Form::radio('Nuts_with_hard_shell', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="Nuts_with_hard_shell" type="radio" value="0"/>--}}
+                                                {{  Form::radio('Nuts_with_hard_shell', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ถั่วลิสง หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="peanut" type="radio" value="1"/>--}}
+                                                {{  Form::radio('peanut', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="peanut" type="radio" value="0"/>--}}
+                                                {{  Form::radio('peanut', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ เมล็ดงา หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="sesame_seeds" type="radio" value="1"/>--}}
+                                                {{  Form::radio('sesame_seeds', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="sesame_seeds" type="radio" value="0"/>--}}
+                                                {{  Form::radio('sesame_seeds', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ถั่วเหลือง หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="soybean" type="radio" value="1"/>--}}
+                                                {{  Form::radio('soybean', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                {{--<input name="soybean" type="radio" value="0"/>--}}
+                                                {{  Form::radio('soybean', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 15px;color: #101010">
+                                            <label class="control-label ">
+                                                คุณแพ้ ซัลเฟอร์ได อ็อกไซด์ หรือป่าว
+                                            </label>
+                                        </p>
+                                        <div>
+                                            <label class="radio-inline">
+                                                {{--<input name="sulfur_oxide" type="radio" value="1"/>--}}
+                                                {{  Form::radio('sulfur_oxide', '1',null,['onclick' => "myFunction('True')" ]) }}
+                                                ใช่
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input name="sulfur_oxide" type="radio" value="0"/>
+                                                {{  Form::radio('sulfur_oxide', '0',null,['onclick' => "myFunction('False')"]) }}
+                                                ไม่
+                                            </label>
+                                        </div>
+                                        <p>ตัวอย่าง :</p>
+                                    </div>

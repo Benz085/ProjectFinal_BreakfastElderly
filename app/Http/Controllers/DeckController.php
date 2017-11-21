@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Menu;
-use App\GroupFoods;
 use Illuminate\Support\Facades\DB;
 use PDOException;
 use App\Models\Deck;

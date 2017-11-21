@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'ระบบแนะนำอาหารเช้าผู้สูงอายุ') }}</title>
-
+    <script src="{{ asset('frontend/js/jquery-1.11.1.min.js') }}"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans">
@@ -49,16 +49,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"></a>
+            {{--<a class="navbar-brand" href="{{ url('index') }}"></a>--}}
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown active">
+                <li>
                     <a href="{{ url('index') }}"><i class="fa fa-home"></i><br>หน้าหลัก</a>
                 </li>
                 <li>
-                    <a href="{{ url('#') }}"><i class="glyphicon glyphicon-apple"></i><br>เกร็ดความรู้</a>
+                    <a href="{{ url('recommend/index') }}"><i class="glyphicon glyphicon-apple"></i><br>แนะนำผู้สูงอายุ</a>
                 </li>
                 <li>
                     <a href="{{ url('form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>ระบบจัดสำรับอาหารเช้า</a>
@@ -140,7 +140,7 @@
 </footer>
 
 <!-- Javascript -->
-<script src="{{ asset('frontend/js/jquery-1.11.1.min.js') }}"></script>
+
 <script src="{{ asset('frontend/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('frontend/js/bootstrap-hover-dropdown.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.backstretch.min.js') }}"></script>
@@ -148,7 +148,7 @@
 <script src="{{ asset('frontend/js/retina-1.1.0.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('frontend/flexslider/jquery.flexslider-min.js') }}"></script>
-<script src="{{ asset('frontend/js/flickrfeed.min.js') }}"></script>
+<script src="{{ asset('frontend/js/jflickrfeed.min.js') }}"></script>
 <script src="{{ asset('frontend/js/masonry.pkgd.min.js') }}"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="{{ asset('frontend/js/jquery.ui.map.min.js') }}"></script>

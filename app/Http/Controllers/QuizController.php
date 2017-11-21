@@ -12,6 +12,11 @@ class QuizController extends Controller
 
         echo 'แบบทดสอบด้านสารอาหาร';
     }
+    public function chart()
+    {
+
+        return view('frontend.quiz.chart');
+    }
     /**
      * Display a listing of the resource.
      *

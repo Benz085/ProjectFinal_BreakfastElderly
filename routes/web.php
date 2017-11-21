@@ -25,13 +25,26 @@ Route::post('/deck/store/', 'DeckController@store');
 //get Data DB Twitter
 Route::get('twitter/index', 'TwitterController@index');
 Route::get('twitter/show', 'TwitterController@show');
-
+//--------------------------//
 //Font - End//
+//view Home
 Route::get('/', 'IndexController@index');
 Route::get('index', 'IndexController@index');
-Route::get('form', 'IndexController@form');
+//view Recommend
+Route::get('recommend/index', 'RecommendController@index');
+Route::get('reviewMenu/reviewMenuView', 'RecommendController@reviewMenuView');
+Route::get('reviewMenu/reviewMenuDetail/{id}', 'RecommendController@reviewMenuDetail');
+Route::resource('posts', 'PostsController');
+Route::get('article/articleView', 'RecommendController@articleView');
+Route::get('article/articleDetail/{id}', 'RecommendController@articleDetail');
 
+Route::resource('comment', 'CommetsController');
+Route::resource('reply', 'ReplyController');
+//view Quiz
+Route::get('form', 'IndexController@form');
 Route::get('quiz/quizFood', 'QuizController@quizFood');
+Route::get('quiz/chart', 'QuizController@chart');
 Route::resource('quiz', 'QuizController');
+
 
 Auth::routes();
