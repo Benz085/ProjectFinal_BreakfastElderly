@@ -18,13 +18,14 @@ Route::get('/home', 'HomeController@index');
 Route::resource('groupsfood', 'GroupfoodController');
 //DB Menu
 Route::resource('menu', 'MenuController');
+Route::get('menu/getGroupMenu/{id}', 'MenuController@getGroupMenu');
+//DB Cooking
+Route::resource('cooking', 'CookingController');
 //DB Deck
 Route::resource('deck', 'DeckController');
 //insert form ajax
 Route::post('/deck/store/', 'DeckController@store');
-//get Data DB Twitter
-Route::get('twitter/index', 'TwitterController@index');
-Route::get('twitter/show', 'TwitterController@show');
+
 //--------------------------//
 //Font - End//
 //view Home
@@ -41,8 +42,7 @@ Route::resource('article', 'ArticleController');
 //Route::get('article/articleDetail', 'RecommendController@articleDetail');
 //Route::get('article/articleDetail/{id}', 'RecommendController@articleDetail');
 
-Route::resource('comment', 'CommetsController');
-Route::resource('reply', 'ReplyController');
+
 //view Quiz
 Route::get('quiz/form', 'QuizController@form');
 Route::get('quiz/quizFood', 'QuizController@quizFood');

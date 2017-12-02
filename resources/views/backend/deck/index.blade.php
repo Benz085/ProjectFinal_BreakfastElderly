@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block" align="center">
-                                <h3> สำรับอาหารเช้าของผู้สูงอายุ เพศหญิง วัย 70+ ปี</h3>
+                                <h3> สำรับอาหารเช้าของผู้สูงอายุ เพศหญิง วัย 60+ ปี</h3>
                                 <p>  จำนวนสำรับทั้งหมด : {{ $countALL }} </p>
                             </div>
                             <div class="row">

@@ -141,7 +141,7 @@
         }(jQuery));
 
         var val = JSON.parse('<?php echo json_encode($json) ?>');
-        console.log(val);
+//        console.log(val);
 
         var pick = $("#pickList").pickList({
             data: val

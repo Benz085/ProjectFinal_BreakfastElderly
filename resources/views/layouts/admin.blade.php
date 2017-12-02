@@ -11,26 +11,16 @@
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{{--<link rel="apple-touch-icon" href="apple-touch-icon.png">--}}
-<!-- Place favicon.ico in the root directory -->
+    {{--<link rel="apple-touch-icon" href="apple-touch-icon.png">--}}
+    <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="{{ asset('backend/css/vendor.css') }}">
 
-    <!-- Theme initialization -->
-    {{--<script>--}}
-    {{--var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :--}}
-    {{--{};--}}
-    {{--var themeName = themeSettings.themeName || '';--}}
-    {{--if (themeName) {--}}
-    {{--document.write('<link rel="stylesheet" id="theme-style" href="{{ asset("backend/css/app- '+ themeName + '.css") }}">');--}}
-    {{--}--}}
-    {{--else {--}}
-    {{--document.write('<link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">');--}}
-    {{--}--}}
-    {{--</script>--}}
+
     <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app-green.css') }}">
     <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/bootstrap/css/bootstrap.min.css') }}">
     @yield('head')
+
 </head>
 @if (Auth::guest())
     <body class="loaded">
@@ -178,15 +168,6 @@
                             <li class="active">
                                 <a href="{{ url('home') }}"><i class="fa fa-home"></i> หน้าหลัก </a>
                             </li>
-                            <li>
-                                <a href=""><i class="fa fa-pencil-square-o"></i> เพิ่มข้อมูล<i class="fa arrow"></i></a>
-                                <ul>
-                                    <li><a href="{{ url('groupsfood/create') }}"> กลุ่มอาหาร</a></li>
-                                    <li><a href="{{ url('menu/create') }}"> เมูนอาหาร</a></li>
-                                    <li><a href="{{ url('') }}"> กระบวนการทำอาหาร</a></li>
-                                    <li><a href="{{ url('') }}"> โภชนาการ</a></li>
-                                </ul>
-                            </li>
                             <li><a href="">
                                     <i class="fa fa-desktop"></i>แสดงผลข้อมูล<i class="fa arrow"></i>
                                 </a>
@@ -194,6 +175,14 @@
                                     <li><a href="{{ url('groupsfood') }}"> กลุ่มอาหาร</a></li>
                                     <li><a href="{{ url('menu') }}">เมนูอาหาร </a></li>
                                     <li><a href="{{ url('deck') }}"> สำรับอาหาร</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-pencil-square-o"></i> เพิ่มข้อมูล<i class="fa arrow"></i></a>
+                                <ul>
+                                    <li><a href="{{ url('groupsfood/create') }}"> กลุ่มอาหาร</a></li>
+                                    <li><a href="{{ url('menu/create') }}"> เมูนอาหาร</a></li>
+                                    <li><a href="{{ url('#') }}"> โภชนาการ</a></li>
                                 </ul>
                             </li>
                             <li>

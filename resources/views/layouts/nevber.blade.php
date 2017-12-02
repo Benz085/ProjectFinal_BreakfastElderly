@@ -37,8 +37,6 @@
 
     <link href="{{ asset('frontend/css/lity.min.css') }}" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('head')
 </head>
 
@@ -165,8 +163,7 @@
 
 <script src="{{ url('frontend/js/lity.min.js') }}"></script>
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+
 @yield('script')
 </body>
 

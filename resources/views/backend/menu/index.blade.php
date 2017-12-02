@@ -1,4 +1,34 @@
 @extends('layouts.admin')
+@section('head')
+    <style>
+        ul.v_menu{ /* กำหนดขอบเขตของเมนู */
+            list-style:none;
+            margin:0px;
+            padding:0px;
+            font-family:tahoma, "Microsoft Sans Serif", Vanessa;
+            font-size:12px;
+            color: #0b0b0b;
+        }
+        ul.v_menu > li{ /* กำหนดรูปแบบให้กับเมนูเ */
+            display:block;
+            width:150px;
+            height:20px;
+            text-indent:5px;
+            float:left;
+            text-align:center;
+        }
+        ul.v_menu > li:hover{ /* กำหนดรูปแบบให้กับเมนูเมื่อมีเมาส์อยู่เหนือ */
+            display:block;
+            text-indent:5px;
+            text-align:center;
+        }
+        ul.v_menu > li > a{ /* กำหนดรูปแบบให้กับลิ้งค์ */
+            text-decoration:none;
+            color:#FFFFFF;
+            line-height:20px;
+        }
+    </style>
+@endsection
 
 @section('content')
     <article class="content dashboard-page">
@@ -8,20 +38,10 @@
                     <div class="col-md-12">
                         <h3>
                             เพิ่มข้อมูล
-                            <a href="#" class="btn btn-primary btn-sm rounded-s">เมนูอาหาร</a>
+                            <a href="{{ url('menu/create') }}" class="btn btn-primary btn-sm rounded-s">เมนูอาหาร</a>
                         </h3>
-                        <div class="action dropdown">
-                            <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                โหมดกลุ่มอาหาร...
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <a class="dropdown-item" href="#" style="text-decoration:none;">
-                                    <i class="fa fa-cutlery icon"></i>&nbsp;&nbsp;เดียว
-                                </a>
-                                <a class="dropdown-item" href="#" style="text-decoration:none;">
-                                    <i class="fa fa-cutlery icon"></i>&nbsp;&nbsp;หลาย
-                                </a>
-                            </div>
+                        <div class="col-md-3">
+                            <?=  Form::select('foodID',App\GroupFoods::pluck('food_name','id'),null, ['id' => 'foodID','class' => 'form-control','placeholder' => 'โหมดกลุ่มอาหาร...']);?>
                         </div>
                     </div>
                 </div>
@@ -32,65 +52,40 @@
                 <li class="item item-list-header hidden-sm-down">
                     <div class="item-row">
                         <div class="item-col item-col-header fixed item-col-img md">
-                            <div> <span>รูปภาพ</span> </div>
+                            <div><span style="font-size: 15px">รูปภาพ</span> </div>
                         </div>
                         <div class="item-col item-col-header item-col-title">
-                            <div> <span>ชื่ออาหาร</span> </div>
+                            <div> <span style="font-size: 15px">ชื่ออาหาร</span> </div>
                         </div>
                         <div class="item-col item-col-header item-col-category">
-                            <div class="no-overflow"> <span>ประเภท</span> </div>
+                            <div class="no-overflow"> <span style="font-size: 15px">ประเภท</span> </div>
                         </div>
                         <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                     </div>
                 </li>
-                <li class="item">
-                    <div class="item-row">
-                        <div class="item-col fixed item-col-img md">
-                            <a href="#">
-                                <div class="item-img rounded" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
-                            </a>
-                        </div>
-                        <div class="item-col fixed pull-left item-col-title">
-                            <div class="item-heading">ชื่ออาหาร</div>
-                            <div>
-                                <a href="#" class="" style="text-decoration:none;">
-                                    <h4 class="item-title"> ข้าวมันไก่ </h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item-col item-col-category no-overflow">
-                            <div class="item-heading">ประเภท</div>
-                            <div class="no-overflow" style="text-decoration:none;"> อาหารจารเดียว </div>
-                        </div>
-                        <div class="item-col fixed item-col-actions-dropdown">
-                            <div class="item-actions-dropdown">
-                                <a class="item-actions-toggle-btn">
-                                            <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span>
-                                    <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span>
-                                </a>
-                                <div class="item-actions-block">
-                                    <ul class="item-actions-list">
-                                        <li>
-                                            <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal">
-                                                <i class="fa fa-trash-o "></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="edit" href="#">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <div id="the-return">
+                   <h2>เลือก โหมดกลุ่มอาหาร</h2>
+                </div>
             </ul>
         </div>
     </article>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $("document").ready(function(){
+            $('#foodID').on('change', function () {
+                var value_foodID = this.value;
+//                console.log(value_foodID);
+                $.ajax({
+                    url: "{{ url('/menu/getGroupMenu') }}/" + this.value,
+                    type: 'GET',
+                    success: function (response) {
+//                        console.log(response);
+                        $("#the-return").html(response);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 @endsection

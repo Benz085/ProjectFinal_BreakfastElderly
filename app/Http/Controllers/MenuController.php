@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cooking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Menu;
@@ -13,7 +14,7 @@ class MenuController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'create', 'store']]);
+        $this->middleware('auth', ['except' => ['index', 'create', 'store','getGroupMenu']]);
     }
 
     /**
@@ -33,7 +34,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('backend.menu.create');
+
     }
 
     /**
@@ -76,7 +77,7 @@ class MenuController extends Controller
             ]);
         }
 
-        return redirect('menu');
+        return redirect('menu/'.$insertedId);
     }
 
     /**
@@ -87,7 +88,17 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        //
+        $menu = Menu::where('ID_Menu','=', $id )->first();
+        $composition = Composition::where('ID_Menu','=', $id )->get();
+        $cooking  = Cooking::where('ID_Menu','=',$id)->first();
+        return view('backend.menu.show',
+            [
+                'menu' => $menu,
+                'composition' => $composition,
+                'cooking' => $cooking
+            ]
+        );
+
     }
 
     /**
@@ -98,7 +109,13 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $menu = Menu::where('ID_Menu','=', $id )->first();
+//        dd($menu);
+        return view('backend.cooking.create',
+            [
+              'menu' =>  $menu
+            ]
+        );
     }
 
     /**
@@ -122,5 +139,15 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getGroupMenu($id)
+    {
+        $data = DB::table('groupfoods')
+            ->join('menu', 'groupfoods.id', '=', 'menu.ID_Food_Group')
+            ->select('groupfoods.id', 'groupfoods.food_name', 'menu.ID_Menu', 'menu.Menu_Name')
+            ->where('groupfoods.id', '=', $id)
+            ->get();
+        return view('backend.menu._table-menu', compact('data'));
     }
 }

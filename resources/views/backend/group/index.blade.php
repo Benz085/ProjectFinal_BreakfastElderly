@@ -4,11 +4,14 @@
         <section class="section">
             <div class="row">
                 <div class="col-md-12">
+                    <h3>
+                        เพิ่มข้อมูล
+                        <a href="{{ url('groupsfood/create') }}" class="btn btn-primary btn-sm rounded-s">เมนูอาหาร</a>
+                    </h3>
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <h3> กลุ่มอาหาร  จำนวนกลุ่มทั้งหมด {{$count}} </h3><br>
-                                <h4> จำนวนกลุ่มทั้งหมด : {{$count}} </h4>
+                                <h3> กลุ่มอาหาร  จำนวนกลุ่มทั้งหมด {{$count}} </h3>
                             </div>
                             <section class="example">
                                 <div class="table-flip-scroll">

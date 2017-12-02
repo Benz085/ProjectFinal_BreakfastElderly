@@ -156,11 +156,6 @@
                                                 <p>{{ $dataComposition->composition_ratio }}</p>
                                             @endforeach
                                         </div>
-                                        <div class="col-sm-2" align="right">
-                                            @foreach($compositionDetail as $dataComposition)
-                                                <p>ดู</p>
-                                            @endforeach
-                                        </div>
                                     </div>
                                 </div>
                             </div>
