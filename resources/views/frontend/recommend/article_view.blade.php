@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="margin-top: 15px">
+    <div class="container" style="margin-top: 15px">
         <div class="col-md-12">
             <div class="row">
                 <div class="team-title wow fadeIn" style="margin-right: 15px;">
@@ -101,8 +101,8 @@
                             <thead>
                             <tr style="font-size: 15px">
                                 <th width="25%">รูป</th>
-                                <th>หัวข้อ</th>
-                                <th>ผู้ตั้งกระทู้</th>
+                                <th>หัวข้อบทหวาน</th>
+                                <th>ผู้ตั้งบทความ</th>
                                 <th>ว/ด/ป</th>
                                 <th></th>
                             </tr>

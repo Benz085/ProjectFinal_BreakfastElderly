@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Composition;
+use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -9,13 +11,15 @@ class QuizController extends Controller
 {
     public function quizFood()
     {
-
         echo 'แบบทดสอบด้านสารอาหาร';
     }
     public function chart()
     {
-
         return view('frontend.quiz.chart');
+    }
+    public function form()
+    {
+        return  view('frontend.form');
     }
     /**
      * Display a listing of the resource.
@@ -181,7 +185,15 @@ class QuizController extends Controller
      */
     public function show($id)
     {
-        //
+//        $MenuData = Menu::find($id);//pk = int
+        $MenuData = Menu::where('ID_Menu', '=', $id)->first();
+        $CompositionData = Composition::where('ID_Menu', '=', $id)->get();
+//        dd($CompositionData);
+        return view('frontend.quiz.detail',
+            [
+                'menuDetail' => $MenuData,
+                'compositionDetail' => $CompositionData,
+            ]);
     }
 
     /**

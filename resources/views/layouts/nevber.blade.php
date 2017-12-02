@@ -34,6 +34,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('frontend/ico/apple-touch-icon-114-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('frontend/ico/apple-touch-icon-72-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('frontend/ico/apple-touch-icon-57-precomposed.png') }}">
+
+    <link href="{{ asset('frontend/css/lity.min.css') }}" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('head')
 </head>
 
@@ -54,26 +59,29 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li class="{{ Request::segment(1) === 'index' ? 'active' : null }}">
                     <a href="{{ url('index') }}"><i class="fa fa-home"></i><br>หน้าหลัก</a>
                 </li>
-                <li>
-                    <a href="{{ url('recommend/index') }}"><i class="glyphicon glyphicon-apple"></i><br>แนะนำผู้สูงอายุ</a>
+                <li class="{{ Request::segment(1) === 'recommend' ? 'active' : null }}">
+                    <a href="{{ url('recommend/index') }}"><i class="glyphicon glyphicon-apple"></i><br>สาระเกี่ยวกับผู้สูงวัย</a>
                 </li>
-                <li>
-                    <a href="{{ url('form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>ระบบจัดสำรับอาหารเช้า</a>
+                <li class="{{ Request::segment(1) === 'quiz' ? 'active' : null  }}">
+                    <a href="{{ url('quiz/form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>ระบบจัดสำรับอาหารเช้า</a>
                 </li>
                 <li>
                     <a href="{{ url('#') }}"><i class="fa fa-user"></i><br>ผู้จัดทำ</a>
                 </li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
-                        <i class="glyphicon glyphicon-log-in"></i><br>เข้าสู่ระบบ <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('login') }}" target="_blank">ระบบการจัดการฐานข้อมูล</a></li>
-                    </ul>
+                <li class="{{ Request::segment(1) === 'login' ? 'active' : null  }}">
+                    <a href="{{ route('login') }}"><i class="fa fa-user"></i><br>เข้าสู่ระบบจัดการข้อมูล</a>
                 </li>
+                {{--<li class="dropdown">--}}
+                    {{--<a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">--}}
+                        {{--<i class="glyphicon glyphicon-log-in"></i><br>เข้าสู่ระบบ <span class="caret"></span>--}}
+                    {{--</a>--}}
+                    {{--<ul class="dropdown-menu" role="menu">--}}
+                        {{--<li><a href="{{ url('login') }}" target="_blank">ระบบการจัดการฐานข้อมูล</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
             </ul>
         </div>
     </div>
@@ -154,6 +162,11 @@
 <script src="{{ asset('frontend/js/jquery.ui.map.min.js') }}"></script>
 <script src="{{ asset('frontend/js/scripts.js') }}"></script>
 
+
+<script src="{{ url('frontend/js/lity.min.js') }}"></script>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 @yield('script')
 </body>
 

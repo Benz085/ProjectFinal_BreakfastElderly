@@ -1,8 +1,5 @@
 @extends('layouts.nevber')
 @section('head')
-    {{--<script src="{{ asset('frontend/conditional/jquery.min.js') }}"></script>--}}
-    {{--<script src="{{ asset('frontend/conditional/conditional.js') }}"></script>--}}
-    {{--<script src="{{ asset('frontend/conditional/bootstrap-iso.css') }}"></script>--}}
     <style>
         .menu-item {
             border: 1px solid #dadada;
@@ -175,7 +172,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <button class="btn-change8">ดูข้อมูล >></button>
+                                                <a href="{{url('quiz/'.$data->ID_Menu)}}">
+                                                    <button href="#" class="btn-change8">ดูข้อมูล >></button>
+                                                </a>
                                             </div>
                                         </li>
                                     </ul>

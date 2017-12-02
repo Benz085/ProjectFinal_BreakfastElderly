@@ -33,15 +33,18 @@ Route::get('index', 'IndexController@index');
 //view Recommend
 Route::get('recommend/index', 'RecommendController@index');
 Route::get('reviewMenu/reviewMenuView', 'RecommendController@reviewMenuView');
-Route::get('reviewMenu/reviewMenuDetail/{id}', 'RecommendController@reviewMenuDetail');
+Route::get('reviewMenu/reviewMenuDetail', 'RecommendController@reviewMenuDetail');
+//Route::get('reviewMenu/reviewMenuDetail/{id}', 'RecommendController@reviewMenuDetail');
 Route::resource('posts', 'PostsController');
-Route::get('article/articleView', 'RecommendController@articleView');
-Route::get('article/articleDetail/{id}', 'RecommendController@articleDetail');
+Route::resource('article', 'ArticleController');
+//Route::get('article/articleView', 'RecommendController@articleView');
+//Route::get('article/articleDetail', 'RecommendController@articleDetail');
+//Route::get('article/articleDetail/{id}', 'RecommendController@articleDetail');
 
 Route::resource('comment', 'CommetsController');
 Route::resource('reply', 'ReplyController');
 //view Quiz
-Route::get('form', 'IndexController@form');
+Route::get('quiz/form', 'QuizController@form');
 Route::get('quiz/quizFood', 'QuizController@quizFood');
 Route::get('quiz/chart', 'QuizController@chart');
 Route::resource('quiz', 'QuizController');

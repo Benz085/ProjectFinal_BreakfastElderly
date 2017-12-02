@@ -88,9 +88,10 @@
             <div class="row">
                 <div class="team-title wow fadeIn" style="margin-right: 15px;">
                     <h2><i class="glyphicon glyphicon-cutlery"></i>
-                        รายละเอียดบทความ
+                        บทความ
                         <i class="glyphicon glyphicon-cutlery"></i>
                     </h2>
+                    <p>รายละเอียด</p>
                 </div>
             </div>
 

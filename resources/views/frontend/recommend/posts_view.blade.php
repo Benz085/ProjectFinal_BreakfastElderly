@@ -68,6 +68,52 @@
             overflow: hidden;
             padding: 0 0 0 22px;
         }
+        .comment-wrap{
+            margin:0 0 10px 41px;
+            padding:20px;
+            border-bottom:1px solid #d6d7d9;
+            background:#f5f5f5;
+        }
+        .comment-wrap p{
+            margin:0;
+        }
+        .comment-wrap:last-child{
+            border:none;
+            margin:0 0 0 41px;
+            padding-bottom:0;
+        }
+        .comment-wrap.reply-comment{
+            margin-left:120px;
+        }
+        .comment-thumb{
+            margin:0 0 20px -75px;
+            float:left;
+        }
+        .comment-thumb img{
+            float:left;
+            border:4px solid #FFF;
+            width:90px;
+            display:table-cell;
+            vertical-align:middle;
+            margin-top: -15px;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+            -moz-border-radius:50%;
+        }
+        .comment-wrap .icon-text h4{
+            margin:17px 0 20px 0;
+            font-weight:400;
+            color:#56beb8;
+            float:left;
+        }
+        .comment-wrap .icon-text h4 span{
+            color:#333;
+        }
+        .comment-wrap .icon-text small{
+            color:#999;
+            margin-top:8px;
+            display:block;
+        }
     </style>
 
 @endsection
@@ -83,7 +129,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="margin-top: 15px">
+    <div class="container" style="margin-top: 15px">
         <div class="col-md-12">
             <div class="row">
                 <div class="team-title wow fadeIn" style="margin-right: 15px;">
@@ -93,48 +139,39 @@
                     </h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="panel panel-warning" style="margin-top:5px">
-                    {{--<div class="panel-heading"></div>--}}
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr style="font-size: 15px">
-                                <th width="25%">รูป</th>
-                                <th>หัวข้อ</th>
-                                <th>ผู้ตั้งกระทู้</th>
-                                <th>ว/ด/ป</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr style="font-size: 15px">
-                                <td>
-                                    <a href="#" data-lity><img src="{{ asset("frontend/img/slider/1.jpg") }}" style="margin-left: -35px;"></a>
-                                </td>
-                                <td>ภูเก็ต</td>
-                                <td>ชื่อ</td>
-                                <td>วันที่ / เวลา</td>
-                                <td>
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="panel panel-warning" style="margin-top:5px">
+                        {{--<div class="panel-heading"></div>--}}
+                        <div class="panel-body">
+                            <div class="comment-wrap">
+                                <div class="comment-thumb">
+                                    <img src="{{ asset("frontend/img/testi1.png") }}" alt="">
+                                </div>
+                                <div class="icon-text">
+                                    <h4>Brad Thomos <span>says:</span><small>August 26, 2015 | 10:20 PM</small></h4>
+                                </div>
+                                <div align="right">
                                     <a href="{{ url('#') }}"><button class="btn-change8">อ่านกระทู้</button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#" data-lity><img src="{{ asset("frontend/img/slider/1.jpg") }}" style="margin-left: -35px;"></a>
-                                </td>
-                                <td>ภูเก็ต</td>
-                                <td>ชื่อ</td>
-                                <td>วันที่ / เวลา</td>
-                                <td>
+                                </div>
+                            </div>
+                            <div class="comment-wrap">
+                                <div class="comment-thumb">
+                                    <img src="{{ asset("frontend/img/testi1.png") }}" alt="">
+                                </div>
+                                <div class="icon-text">
+                                    <h4>Brad Thomos <span>says:</span><small>August 26, 2015 | 10:20 PM</small></h4>
+                                </div>
+                                <div align="right">
                                     <a href="{{ url('#') }}"><button class="btn-change8">อ่านกระทู้</button></a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 @endsection

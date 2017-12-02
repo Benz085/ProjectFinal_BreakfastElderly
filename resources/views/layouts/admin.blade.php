@@ -27,8 +27,9 @@
     {{--document.write('<link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">');--}}
     {{--}--}}
     {{--</script>--}}
-    <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">
     <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app-green.css') }}">
+    <link rel="stylesheet" id="theme-style" href="{{ asset('backend/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/bootstrap/css/bootstrap.min.css') }}">
     @yield('head')
 </head>
 @if (Auth::guest())
@@ -182,7 +183,8 @@
                                 <ul>
                                     <li><a href="{{ url('groupsfood/create') }}"> กลุ่มอาหาร</a></li>
                                     <li><a href="{{ url('menu/create') }}"> เมูนอาหาร</a></li>
-                                    <li><a href="{{ url('#') }}"> โภชนาการ</a></li>
+                                    <li><a href="{{ url('') }}"> กระบวนการทำอาหาร</a></li>
+                                    <li><a href="{{ url('') }}"> โภชนาการ</a></li>
                                 </ul>
                             </li>
                             <li><a href="">
@@ -192,8 +194,6 @@
                                     <li><a href="{{ url('groupsfood') }}"> กลุ่มอาหาร</a></li>
                                     <li><a href="{{ url('menu') }}">เมนูอาหาร </a></li>
                                     <li><a href="{{ url('deck') }}"> สำรับอาหาร</a></li>
-                                    <li><a href="{{ url('twitter/index') }}">ข้อมูล #HashTag twitter</a></li>
-                                    <li><a href="{{ url('twitter/show') }}"> ข้อมูลคะแนนให้อาหาร</a></li>
                                 </ul>
                             </li>
                             <li>

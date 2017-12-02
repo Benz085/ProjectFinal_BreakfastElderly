@@ -37,12 +37,6 @@
             /*border-bottom: 1px dashed #dadada;*/
             margin: 0 0 30px 0;
         }
-        .icon-text {
-            overflow: hidden;
-            padding: 0 0 0 22px;
-        }
-
-
     </style>
     <script src="{{ asset('frontend/js/sweetalert.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('frontend/css/sweetalert.css') }}">
@@ -63,47 +57,14 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="margin-top: 15px">
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="team-title wow fadeIn" style="margin-right: 15px;">
-                        <h2>การแพ้อาหารคือ ??</h2>
-                    </div>
-                    <div class="col-md-12 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
-                        <ul>
-                            <li>
-                                <div class="menu-image">
-                                    <img class="" alt="" src="{{ asset("frontend/img/menu-thumb-1.jpg") }}">
-                                </div>
-                                <div class="icon-text">
-                                    <h5><a href="#">การแพ้อาหารมีกี่ประเภท</a></h5>
-                                </div>
-                            </li>
-                        </ul>
-                        <br>
-                        <ul style="margin-top: 5px">
-                            <li>
-                                <div class="menu-image">
-                                    <img class="" alt="" src="{{ asset("frontend/img/menu-thumb-1.jpg") }}">
-                                </div>
-                                <div class="icon-text">
-                                    <h5><a href="#">อาการแพ้อาหาร</a></h5>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+    <center>
+        <div class="container-fluid" style="margin-top: 15px">
+            <div class="col-md-8" style="float: inherit;">
+                <div class="menu-item">
+                    <h2>คำถาม</h2>
                 </div>
-            </div>
-            <div class="col-md-8" style="margin-top: 30px;">
-                {{--<div class="menu-item">--}}
-                    {{--<h2>คำถาม</h2>--}}
-                {{--</div>--}}
                 <div class="row">
                     <div class="panel panel-default">
-                        {{--<div class="panel-heading">--}}
-                            {{--<h3 class="panel-title">คำถาม</h3>--}}
-                        {{--</div>--}}
 
                         <div class="container-fluid">
                             <div class="row">
@@ -136,7 +97,7 @@
                                         <div>
                                             <p style="font-size: 15px;color: #101010">
                                                 <label class="control-label ">
-                                                    Design Form
+                                                    รูปแบบการแพ้อาหาร 14 ชนิด
                                                 </label>
                                             </p>
                                             <div>
@@ -145,7 +106,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ผักขึ้นฉ่าย หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="celery" type="radio" value="1"/>--}}
@@ -171,7 +132,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ธัญพืชที่มีส่วน ประกอบของ กลูเตน
                                                                 หรือป่าว</h3><br>
                                                             <label class="radio-inline">
@@ -198,7 +159,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ สัตว์น้ำที่มีเปลืองแข็ง
                                                                 หรือป่าวว</h3><br>
                                                             <label class="radio-inline">
@@ -225,7 +186,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ไข่ หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="egg" type="radio" value="1"/>--}}
@@ -251,7 +212,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ปลา หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="fish" type="radio" value="1"/>--}}
@@ -277,7 +238,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ลูพิน หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="lupine" type="radio" value="1"/>--}}
@@ -303,7 +264,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ นม หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="mike" type="radio" value="1"/>--}}
@@ -329,7 +290,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ สัตว์จำพวกหอยและปลาหมึก
                                                                 หรือป่าว</h3><br>
                                                             <label class="radio-inline">
@@ -356,7 +317,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ มัสตาร์ด หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{  Form::radio('mustard', '1',null,['onclick' => "myFunction('True')" ]) }}
@@ -382,7 +343,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ถั่วที่มีเปลือกแข็ง
                                                                 หรือป่าว</h3><br>
                                                             <label class="radio-inline">
@@ -409,7 +370,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ถั่วลิสง หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="peanut" type="radio" value="1"/>--}}
@@ -435,7 +396,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ เมล็ดงา หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="sesame_seeds" type="radio" value="1"/>--}}
@@ -461,7 +422,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ถั่วเหลือง หรือป่าว</h3><br>
                                                             <label class="radio-inline">
                                                                 {{--<input name="soybean" type="radio" value="1"/>--}}
@@ -487,7 +448,7 @@
                                                         <img alt="100%x200" data-src="holder.js/100%x200"
                                                              style="height: 200px; width: 100%; display: block;"
                                                              src="{{ asset("frontend/img/newscms.jpg") }}"
-                                                             data-holder-rendered="true">
+                                                             data-holder-rendered="true" data-lity>
                                                         <div class="caption"><h3>คุณแพ้ ซัลเฟอร์ได อ็อกไซด์
                                                                 หรือป่าว</h3><br>
                                                             <label class="radio-inline">
@@ -526,7 +487,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </center>
+
 @endsection
 
 @section('script')

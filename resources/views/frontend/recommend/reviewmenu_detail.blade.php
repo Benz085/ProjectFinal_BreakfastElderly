@@ -68,6 +68,15 @@
             overflow: hidden;
             padding: 0 0 0 22px;
         }
+        .shop-img {
+            border: 3px solid #FFF;
+        }
+        .item-rate {
+            display: inline-block;
+            color: #56beb8;
+            padding: 3px 0;
+            margin-left: 10px;
+        }
     </style>
 
 @endsection
@@ -88,12 +97,45 @@
             <div class="row">
                 <div class="team-title wow fadeIn" style="margin-right: 15px;">
                     <h2><i class="glyphicon glyphicon-cutlery"></i>
-                        รายละเอียดรีวิวอาหารเช้า
+                        รีวิวอาหารเช้า
                         <i class="glyphicon glyphicon-cutlery"></i>
                     </h2>
+                    <p>รายละเอียด</p>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="shop-img">
+                        <img src="{{ asset("frontend/img/portfolio/work8.jpg") }}" alt="">
+                    </div>
+                </div>
+                <div class="col-sm-6" align="left">
+                    <h2>ชื่อเมนู</h2>
+                    <div class="item-rate">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o dark"></i>
+                    </div>
+                    <hr>
+                    <h3>ส่วนประกอบ</h3>
+                    <div class="col-sm-3">
+                        <p>ชื่อส่วนประกอบ</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p>อัตราส่วน</p>
+                    </div>
+                    <br>
+                    <hr>
+                    <h3>วิธีทำ</h3>
+                    <div class="col-sm-6">
+                        <p>ปรุง<p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
         </div>
     </div>
 @endsection
