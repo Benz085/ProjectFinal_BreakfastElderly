@@ -52,7 +52,7 @@
                 <li class="item item-list-header hidden-sm-down">
                     <div class="item-row">
                         <div class="item-col item-col-header fixed item-col-img md">
-                            <div><span style="font-size: 15px">รูปภาพ</span> </div>
+                            {{--<div><span style="font-size: 15px">รูปภาพ</span> </div>--}}
                         </div>
                         <div class="item-col item-col-header item-col-title">
                             <div> <span style="font-size: 15px">ชื่ออาหาร</span> </div>
@@ -64,7 +64,7 @@
                     </div>
                 </li>
                 <div id="the-return">
-                   <h2>เลือก โหมดกลุ่มอาหาร</h2>
+                   <p align="center" style="margin-top: 10px">เลือก โหมดกลุ่มอาหาร</p>
                 </div>
             </ul>
         </div>

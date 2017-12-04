@@ -75,8 +75,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 wow fadeInLeftBig animated" style="visibility: visible; animation-name: fadeInLeftBig;">
-                    <h1>สาระเกี่ยวกับ <span class="violet">ผู้สูงวัย</span></h1>
-                    <p>อธิบาย.</p>
+                    <h2>จัดสำรับอาหารเช้า <span class="violet">ผู้สูงวัย 61 - 69 ปี</span></h2>
                 </div>
             </div>
         </div>
@@ -84,8 +83,12 @@
             <div class="col-md-12">
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="team-title wow fadeIn" style="margin-right: 15px;">
-                            <h2>การแพ้อาหาร</h2>
+                        <div class="row">
+                            <div class="col-sm-12 work-title wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;margin-right: 15px;" >
+                                <h2>
+                                    ความรู้แพ้อาหาร
+                                </h2>
+                            </div>
                         </div>
                         <div class="col-md-12 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
                             <ul>

@@ -1,5 +1,7 @@
 @extends('layouts.nevber')
 @section('head')
+    {{--buttons--}}
+    <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
     <style>
         .menu-item {
             border: 1px solid #dadada;
@@ -7,6 +9,8 @@
             margin: 0 0 30px 0;
             position: relative;
             background: #f5f5f5;
+            width: 60%;
+            margin: auto;
         }
 
         .menu-item:after {
@@ -22,7 +26,8 @@
         }
 
         img {
-            max-width: 90%;
+            max-width: 100%;
+            margin-top: -10px;
         }
 
         .btn-change8 {
@@ -68,6 +73,62 @@
             overflow: hidden;
             padding: 0 0 0 22px;
         }
+
+        a.button4 {
+             display: inline-block;
+             padding: 0.3em 1.2em;
+             margin: 0 0.1em 0.1em 0;
+             border: 0.16em solid rgba(255, 255, 255, 0);
+             border-radius: 2em;
+             box-sizing: border-box;
+             text-decoration: none;
+             font-family: 'Roboto', sans-serif;
+             font-weight: 300;
+             color: #FFFFFF;
+             text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+             text-align: center;
+             transition: all 0.2s;
+            font-size: 20px;
+        }
+
+        a.button4:hover {
+             border-color: rgba(255, 255, 255, 1);
+        }
+
+        @media all and (max-width: 30em) {
+             a.button4 {
+                  display: block;
+                  margin: 0.2em auto;
+            }
+        }
+
+        .item-rate {
+            display: inline-block;
+            color: #56beb8;
+            padding: 3px 0;
+            margin-left: 10px;
+        }
+
+        .blog-wrap {
+            border: 1px solid #dadada;
+            padding: 20px;
+            padding-bottom: 10px;
+            margin: 0;
+            position: relative;
+            background: #f5f5f5;
+            margin-top: 10px;
+        }
+        .blog-wrap2 {
+            border: 1px solid #dadada;
+            padding-bottom: 10px;
+            margin: 0;
+            position: relative;
+            background: #f5f5f5;
+            margin-top: 10px;
+        }
+        .blog-text {
+            overflow: hidden;
+        }
     </style>
 
 @endsection
@@ -76,118 +137,189 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
-                    {{--<a><i class="glyphicon glyphicon-cutlery"></i></a>--}}
-                    {{--<h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>--}}
+                    <a><i class="glyphicon glyphicon-cutlery"></i></a>
+                    <h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid" style="margin-top: 15px">
-
+    <div class="container" style="margin-top: 15px">
         <div class="col-md-12">
             <div class="row">
-                <div class="team-title wow fadeIn" style="margin-right: 15px;">
+                <div class="col-sm-12 work-title wow fadeIn animated"
+                     style="visibility: visible; animation-name: fadeIn;margin-right: 15px;">
                     <h2><i class="glyphicon glyphicon-cutlery"></i>
                         สำรับอาหาร
                         <i class="glyphicon glyphicon-cutlery"></i>
                     </h2>
                 </div>
             </div>
-            <div style="margin-top: 15px">
-                <div class="col-md-5">
-                    <div class="menu-item">
-                        <h2>โภชนาการอาหาร</h2>
-                    </div>
-                    <div class="col-md-12 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <?php
-                                $charts = [
-
-                                    'chart' => [
-                                        'type' => 'pie',
-                                        'borderWidth' => 1,
-                                        'borderRadius' => 5,
-                                        'options3d' => [
-                                            'enabled' =>  true,
-                                            'alpha'=> 45,
-                                            'beta' =>0,
-
-                                        ]
-                                    ],
-                                    'title' => ['text' => 'ข้อมูลแคลอรีของอาหารเช้า'],
-                                    'subtitle' =>['text' => 'Benzny@DEv'],
-                                    'legend' =>[
-                                        'align' => 'right',
-                                        'verticalAlign' => 'middle',
-                                        'layout' => 'vertical',
-                                        'borderWidth' => 1,
-                                    ],
-                                    'plotOptions' =>[
-                                        'pie' => [
-                                            'showInLegend' =>  true,
-                                            'allowPointSelect' => true,
-                                            'cursor' =>'pointer',
-                                            'depth'=> 40,
-                                        ],
-                                    ],
-                                    'series' => [
-                                        [
-                                            'name' => 'Reza',
-                                            'data' => [1,2],
-                                            'dataLabels' =>[
-                                                'enabled' => true,
-                                            ]
-                                        ],
-                                    ]
-                                ];
-
-                                echo Chart::display("id-highchartsnya", $charts);
-
-                                ?>
-                                <hr>
-                                ข้อมูล
+            <div class="row" style="margin-top: 30px;margin-bottom: 30px">
+                <div class="col-md-4">
+                    <a href="#menu" class="button4 hvr-bounce-in" style="background-color:#f14ebd" id="menu-tab"
+                       role="tab" data-toggle="tab" aria-controls="menu" aria-expanded="true">
+                        เมนูอาหารเช้า
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#composition" class="button4 hvr-bounce-in" style="background-color:#f14ebd"
+                       id="composition-tab"
+                       role="tab" data-toggle="tab" aria-controls="composition" aria-expanded="true">
+                        ส่วนประกอบอาหาร
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#cooking" class="button4 hvr-bounce-in" style="background-color:#f14ebd" id="cooking-tab"
+                       role="tab" data-toggle="tab" aria-controls="cooking" aria-expanded="true">
+                        วิธีการทำอาหาร
+                    </a>
+                </div>
+            </div>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active in" role="tabpanel" id="menu"
+                     aria-labelledby="menu-tab">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12 wow fadeInLeftBig animated animated"
+                                 style="visibility: visible; animation-name: fadeInLeftBig;">
+                                <h3>เมนูอาหารมื้อเช้าผู้สูงอายุ : <span class="violet">ต่อ/วัน</span></h3>
                             </div>
+                        </div>
+                        <hr/>
+                        <div class="col-md-12 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
+                            @foreach($decks as $data)
+                                <div class="col-md-6">
+                                    <div class="blog-wrap work wow fadeInDown animated hvr-ripple-in"
+                                         style="visibility: visible; animation-name: fadeInDown;">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="#">
+                                                    <img class="img-thumbnail"
+                                                         src="{{ asset("frontend/img/slider/1.jpg") }}">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="blog-text">
+                                                    <p style="font-size: 16px;margin-top: 25px"><a href="#">{{ $data->Menu_Name }}</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7">
-                    <div class="menu-item">
-                        <h2>สำรับอาหาร :  มื้อเช้า</h2>
-                    </div>
-                    <div class="col-md-12 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                <div class="tab-pane fade" role="tabpanel" id="composition"
+                     aria-labelledby="composition-tab">
+                    <div style="margin-top: 15px">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-sm-12 wow fadeInLeftBig animated animated"
+                                     style="visibility: visible; animation-name: fadeInLeftBig;">
+                                    <h3>ส่วนประกอบ : <span class="violet">เมนูอาหารเช้า</span></h3>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="col-md-5 menu-heading" style="margin-top: 40px;margin-bottom: 25px;">
                                 @foreach($decks as $data)
-                                    <ul>
-                                        <li>
-                                            <div class="col-md-8">
-                                                <div class="menu-image" style="margin-top: 10px">
-                                                    <img class="" alt=""
-                                                         src="{{ asset("frontend/img/menu-thumb-1.jpg") }}">
+                                    <div class="col-md-12">
+                                        <div class="blog-wrap2 work wow fadeInDown animated"
+                                             style="visibility: visible; animation-name: fadeInDown;">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <p style="font-size: 18px;margin-top: 25px" align="left">
+                                                        {{ $data->Menu_Name }}
+                                                    </p>
                                                 </div>
-                                                <div class="icon-text">
-                                                    <h4 align="left">ชื่อ : {{ $data->Menu_Name }}</h4>
+                                                <div class="col-sm-6">
+                                                    <div class="blog-text">
+                                                        <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}"class="btn-change8">ดูข้อมูล >></button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <a href="{{url('quiz/'.$data->ID_Menu)}}">
-                                                    <button href="#" class="btn-change8">ดูข้อมูล >></button>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <br>
+                                        </div>
+                                    </div>
                                 @endforeach
+                            </div>
+                            <div class="col-md-7 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
+                                <div id="the-return">
+                                    <p align="center" style="margin-top: 10px">เลือก รายการเมนูอาหาร</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" role="tabpanel" id="cooking"
+                     aria-labelledby="cooking-tab">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12 wow fadeInLeftBig animated animated"
+                                 style="visibility: visible; animation-name: fadeInLeftBig;">
+                                <h3>วิธีทำการประกอบ : <span class="violet">เมนูอาหาร</span></h3>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="col-md-5 menu-heading" style="margin-top: 40px;margin-bottom: 25px;">
+                            @foreach($decks as $data)
+                                <div class="col-md-12">
+                                    <div class="blog-wrap2 work wow fadeInDown animated"
+                                         style="visibility: visible; animation-name: fadeInDown;">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p style="font-size: 18px;margin-top: 25px" align="left">
+                                                    {{ $data->Menu_Name }}
+                                                </p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="blog-text">
+                                                    <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}"class="btn-change8">ดูข้อมูล >></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="col-md-7 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
+                            <div id="the-return2">
+                                <p align="center" style="margin-top: 10px">เลือก รายการเมนูอาหาร</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-    @endsection
-    @section('script')
-        <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    @endsection
+@endsection
+@section('script')
+
+    <script type="text/javascript">
+        $("document").ready(function(){
+            $("button").click(function(){
+                $('#ID_Menu').click();
+                var value_ID_Menu = this.value;
+                console.log(value_ID_Menu);
+                $.ajax({
+                    url: "{{ url('/quiz/getComposition') }}/" + this.value,
+                    type: 'GET',
+                    success: function (response) {
+                       // console.log(response);
+                        $("#the-return").html(response);
+                    }
+                });
+                $.ajax({
+                    url: "{{ url('/quiz/getCooking') }}/" + this.value,
+                    type: 'GET',
+                    success: function (response) {
+                        // console.log(response);
+                        $("#the-return2").html(response);
+                    }
+                });
+            });
+        });
+    </script>
+@endsection

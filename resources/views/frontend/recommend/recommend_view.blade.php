@@ -111,8 +111,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
-                    {{--<a><i class="glyphicon glyphicon-cutlery"></i></a>--}}
-                    {{--<h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>--}}
+                    <a><i class="glyphicon glyphicon-cutlery"></i></a>
+                    <h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>
                 </div>
             </div>
         </div>
@@ -207,53 +207,7 @@
                 </div>
             </div>
             <br>
-            <a href="{{ url('reviewMenu/reviewMenuView') }}"><button class="btn-change8">อ่านทั้งหมด</button></a>
-            <br>
-        </div>
-    </div>
-    <div class="work-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 work-title wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
-                    <h2>กระทู้สนทนา</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="service wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="service-icon"><i class="fa fa-eye"></i></div>
-                        <h3>Beautiful Websites</h3>
-                        <p>ผู้สร้างกระทู้ : </p>
-                        <a class="big-link-1" href="#">Read more</a>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="service wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
-                        <div class="service-icon"><i class="fa fa-eye"></i></div>
-                        <h3>Responsive Layout</h3>
-                        <p>ผู้สร้างกระทู้ : </p>
-                        <a class="big-link-1" href="#">Read more</a>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="service wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="service-icon"><i class="fa fa-eye"></i></div>
-                        <h3>Awesome Logos</h3>
-                        <p>ผู้สร้างกระทู้ : </p>
-                        <a class="big-link-1" href="#">Read more</a>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="service wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
-                        <div class="service-icon"><i class="fa fa-eye"></i></div>
-                        <h3>High Res Prints</h3>
-                        <p>ผู้สร้างกระทู้ : </p>
-                        <a class="big-link-1" href="#">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <a href="{{ url('posts') }}"><button class="btn-change8">อ่านทั้งหมด</button></a>
+            <a href="{{ url('reviewMenu/reviewMenuView') }}" class="work-title wow fadeIn animated"><button class="btn-change8">อ่านทั้งหมด</button></a>
             <br>
         </div>
     </div>
@@ -279,7 +233,7 @@
                 @endforeach
             </div>
             <br>
-            <a href="{{ url('article') }}"><button class="btn-change8">อ่านทั้งหมด</button></a>
+            <a href="{{ url('article') }}" class="work-title wow fadeIn animated"><button class="btn-change8">อ่านทั้งหมด</button></a>
             <br>
         </div>
         <br>

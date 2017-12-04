@@ -165,10 +165,10 @@
                             <li>
                                 <a href="{{ url('index') }}" target="_blank"><i class="fa fa-home"></i> หน้าเว็บไซต์หลัก </a>
                             </li>
-                            <li class="active">
+                            <li class="{{ Request::segment(1) === 'home' ? 'active' : null }}">
                                 <a href="{{ url('home') }}"><i class="fa fa-home"></i> หน้าหลัก </a>
                             </li>
-                            <li><a href="">
+                            <li><a>
                                     <i class="fa fa-desktop"></i>แสดงผลข้อมูล<i class="fa arrow"></i>
                                 </a>
                                 <ul>
@@ -182,7 +182,7 @@
                                 <ul>
                                     <li><a href="{{ url('groupsfood/create') }}"> กลุ่มอาหาร</a></li>
                                     <li><a href="{{ url('menu/create') }}"> เมูนอาหาร</a></li>
-                                    <li><a href="{{ url('#') }}"> โภชนาการ</a></li>
+                                    <li><a href="{{ url('home/view') }}">ตั้งค่าสำรับแพ้อาหาร</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -275,9 +275,7 @@
             <footer class="footer">
                 <div class="footer-block author">
                     <ul>
-                        <li> created by <a href="https://github.com/modularcode">ModularCode</a></li>
-                        <li><a href="https://github.com/modularcode/modular-admin-html#get-in-touch">get in touch</a>
-                        </li>
+                        <li> created by <a href="#">Nattapong Thipbamrung</a></li>
                     </ul>
                 </div>
             </footer>

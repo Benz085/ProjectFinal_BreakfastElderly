@@ -2,13 +2,13 @@
     @foreach($data as $val)
         <li class="item">
             <div class="item-row">
-                <div class="item-col fixed item-col-img md">
-                    <div class="item-img rounded"
-                         style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
-                </div>
+                {{--<div class="item-col fixed item-col-img md">--}}
+                    {{--<div class="item-img rounded">--}}
+                        {{--<img src="{{ asset("backend/images/resize/".$val->Menu_Image)}}">--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 <div class="item-col fixed pull-left item-col-title">
                     <div class="item-heading">ชื่ออาหาร</div>
-
                     <div>
                         <h3 class="item-title">{{ $val->Menu_Name }}</h3>
                     </div>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="item-col fixed item-col-actions-dropdown">
                     <div class="item-actions-dropdown">
-                        <ul class="v_menu" style="margin-left: -40px">
+                        <ul class="v_menu" style="margin-left: -60px">
                             <li>
                                 <a href="{{url('menu/'.$val->ID_Menu.'/')}}">
                                     <i class="fa fa-pencil" style="color: darkcyan;font-size: 18px"></i>

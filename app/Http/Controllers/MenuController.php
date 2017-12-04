@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cooking;
+use App\Models\NutritionDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Menu;
@@ -34,7 +35,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-
+        return view('backend.menu.create');
     }
 
     /**
@@ -47,7 +48,7 @@ class MenuController extends Controller
     {
 
 //        dd($request->all());
-        ;
+
         $data = Input::all($request);
 
 //        $menu->Menu_Name = $data['namefood'];
@@ -91,11 +92,18 @@ class MenuController extends Controller
         $menu = Menu::where('ID_Menu','=', $id )->first();
         $composition = Composition::where('ID_Menu','=', $id )->get();
         $cooking  = Cooking::where('ID_Menu','=',$id)->first();
+        $nutrition = DB::table('nutrition_detail')
+            ->join('nutrition', 'nutrition.nutrition_id', '=', 'nutrition_detail.nutrition_id')
+            ->join('composition', 'nutrition_detail.ID_Composition', '=', 'composition.ID_Composition')
+            ->where('nutrition_detail.ID_Menu', '=', $menu->ID_Menu)
+            ->get();
+//        dd($nutrition);
         return view('backend.menu.show',
             [
                 'menu' => $menu,
                 'composition' => $composition,
-                'cooking' => $cooking
+                'cooking' => $cooking,
+                'nutrition' => $nutrition
             ]
         );
 

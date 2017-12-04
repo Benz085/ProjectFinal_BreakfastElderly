@@ -23,8 +23,12 @@ Route::get('menu/getGroupMenu/{id}', 'MenuController@getGroupMenu');
 Route::resource('cooking', 'CookingController');
 //DB Deck
 Route::resource('deck', 'DeckController');
-//insert form ajax
-Route::post('/deck/store/', 'DeckController@store');
+Route::post('/deck/store/', 'DeckController@store'); //insert form ajax
+Route::get('/home/view', 'HomeController@view'); //view foodAllergy
+Route::get('deck/getRule/{id}', 'DeckController@getRule'); //getRule
+Route::post('/deck/insertRule/', 'DeckController@insertRule'); //insert form Rule
+//DB Nutrition
+Route::resource('nutrition', 'NutritionController');
 
 //--------------------------//
 //Font - End//
@@ -48,6 +52,7 @@ Route::get('quiz/form', 'QuizController@form');
 Route::get('quiz/quizFood', 'QuizController@quizFood');
 Route::get('quiz/chart', 'QuizController@chart');
 Route::resource('quiz', 'QuizController');
-
+Route::get('quiz/getComposition/{id}', 'QuizController@getComposition');//getComposition
+Route::get('quiz/getCooking/{id}', 'QuizController@getCooking');//getComposition
 
 Auth::routes();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QuizRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDOException;
@@ -12,9 +13,8 @@ class DeckController extends Controller
     protected $result;
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'create', 'store']]);
+        $this->middleware('auth', ['except' => ['index', 'create', 'store','view']]);
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -137,6 +137,7 @@ class DeckController extends Controller
         //
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -147,4 +148,46 @@ class DeckController extends Controller
     {
         //
     }
+    public function getRule($id)
+    {
+        $nutrition = DB::table('menu')
+            ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
+            ->join('composition', 'composition.ID_Menu', '=', 'menu.ID_Menu')
+            ->where('decks.ID_Deck', '=', $id)
+            ->get();
+//        dd($nutrition);
+       return view('backend.deck.insert',[
+           'id' => $id,
+           'nutrition' => $nutrition
+       ]);
+    }
+
+
+    public function insertRule(Request $request)
+    {
+//        dd($request->all());
+        $quiz_rule = new  QuizRule();
+        $isActive = 1;
+        $quiz_rule->ID_Deck = $request->ID_Menu;
+        $quiz_rule->quiz_Celery = $request->celery;
+        $quiz_rule->quiz_Gluten = $request->gluten;
+        $quiz_rule->quiz_Sea_animals = $request->Sea_animals;
+        $quiz_rule->quiz_Egg = $request->egg;
+        $quiz_rule->quiz_fish = $request->fish;
+        $quiz_rule->quiz_Lupine = $request->lupine;
+        $quiz_rule->quiz_Mike = $request->mike;
+        $quiz_rule->quiz_Shellfish_squid = $request->shellfish_squid;
+        $quiz_rule->quiz_Mustard = $request->mustard;
+        $quiz_rule->quiz_Nuts_with_hard_shell = $request->Nuts_with_hard_shell;
+        $quiz_rule->quiz_Peanut = $request->peanut;
+        $quiz_rule->quiz_Sesame_seeds = $request->sesame_seeds;
+        $quiz_rule->quiz_Soybean = $request->soybean;
+        $quiz_rule->quiz_Sulfur_oxide = $request->sulfur_oxide;
+        $quiz_rule->isActive = $isActive ;
+        $quiz_rule->save();
+        return  redirect('home/view');
+    }
+
+
+
 }

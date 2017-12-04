@@ -36,6 +36,9 @@
     <link rel="apple-touch-icon-precomposed" href="{{ asset('frontend/ico/apple-touch-icon-57-precomposed.png') }}">
 
     <link href="{{ asset('frontend/css/lity.min.css') }}" rel="stylesheet">
+    {{--Hover--}}
+    <link href="{{ asset('frontend/hover/css/hover.css') }}" rel="stylesheet" media="all">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
 
     @yield('head')
 </head>
@@ -57,19 +60,19 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="{{ Request::segment(1) === 'index' ? 'active' : null }}">
+                <li class="{{ Request::segment(1) === 'index' ? 'active' : null }} hvr-pulse-shrink">
                     <a href="{{ url('index') }}"><i class="fa fa-home"></i><br>หน้าหลัก</a>
                 </li>
-                <li class="{{ Request::segment(1) === 'recommend' ? 'active' : null }}">
+                <li class="{{ Request::segment(1) === 'recommend' ? 'active' : null }} hvr-pulse-shrink">
                     <a href="{{ url('recommend/index') }}"><i class="glyphicon glyphicon-apple"></i><br>สาระเกี่ยวกับผู้สูงวัย</a>
                 </li>
-                <li class="{{ Request::segment(1) === 'quiz' ? 'active' : null  }}">
-                    <a href="{{ url('quiz/form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>ระบบจัดสำรับอาหารเช้า</a>
+                <li class="{{ Request::segment(1) === 'quiz' ? 'active' : null  }} hvr-pulse-shrink">
+                    <a href="{{ url('quiz/form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>จัดสำรับอาหารเช้า</a>
                 </li>
-                <li>
+                <li class="hvr-pulse-shrink">
                     <a href="{{ url('#') }}"><i class="fa fa-user"></i><br>ผู้จัดทำ</a>
                 </li>
-                <li class="{{ Request::segment(1) === 'login' ? 'active' : null  }}">
+                <li class="{{ Request::segment(1) === 'login' ? 'active' : null  }} hvr-pulse-shrink">
                     <a href="{{ route('login') }}"><i class="fa fa-user"></i><br>เข้าสู่ระบบจัดการข้อมูล</a>
                 </li>
                 {{--<li class="dropdown">--}}
@@ -156,7 +159,7 @@
 <script src="{{ asset('frontend/flexslider/jquery.flexslider-min.js') }}"></script>
 <script src="{{ asset('frontend/js/jflickrfeed.min.js') }}"></script>
 <script src="{{ asset('frontend/js/masonry.pkgd.min.js') }}"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="{{ asset('frontend/js/jquery.ui.map.min.js') }}"></script>
 <script src="{{ asset('frontend/js/scripts.js') }}"></script>
 

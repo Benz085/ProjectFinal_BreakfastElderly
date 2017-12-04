@@ -9,14 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class QuizController extends Controller
 {
-    public function quizFood()
-    {
-        echo 'แบบทดสอบด้านสารอาหาร';
-    }
-    public function chart()
-    {
-        return view('frontend.quiz.chart');
-    }
+
     public function form()
     {
         return  view('frontend.form');
@@ -87,23 +80,6 @@ class QuizController extends Controller
             $sulfur_oxide == 1 ?: $sulfur_oxide = null;
 
 
-//            echo '<hr>';
-//            var_dump( $celery);echo '<br>';
-//            var_dump ($gluten);echo '<br>';
-//            var_dump ($Sea_animals);echo '<br>';
-//            var_dump ($egg);echo '<br>';
-//            var_dump ($fish);echo '<br>';
-//            var_dump ($lupine);echo '<br>';
-//            var_dump ($mike);echo '<br>';
-//            var_dump ($shellfish_squid);echo '<br>';
-//            var_dump ($mustard);echo '<br>';
-//            var_dump ($Nuts_with_hard_shell);echo '<br>';
-//            var_dump ($peanut);echo '<br>';
-//            var_dump ($sesame_seeds);echo '<br>';
-//            var_dump ($soybean);echo '<br>';
-//            var_dump ($sulfur_oxide);echo '<br>';
-//            var_dump(null);
-//            echo '<hr>';
 
             $in = DB::table('quiz_rule')
                 ->orWhere('quiz_Celery' ,'=', $celery)
@@ -126,24 +102,17 @@ class QuizController extends Controller
                 $inArr[] = $value->ID_Deck;
             }
             $result = DB::table('quiz_rule')->whereNotIn('ID_Deck', $inArr)->get();
-//            dd($result);
             $inArr2 = [];
-//            echo '<hr>';
             foreach($result as $value){
                 $inArr2[] =  $value->ID_Deck;
             }
             $col = collect($inArr2);
-//            echo '<pre>';
-//           print_r($col);
-//            echo 'ramdom : '. $randon = $col->random();
             $randon = $col->random();
-
             $decks = DB::table('menu')
                 ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
                 ->select('decks.ID_Deck', 'menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
                 ->where('decks.ID_Deck', '=', $randon)
                 ->get();
-//            dd($decks);
 
             return view('frontend.quiz.index',
                 [
@@ -152,7 +121,6 @@ class QuizController extends Controller
                 ]);
 
         }else{
-//            echo 'No';
             $data = DB::table('decks')
                 ->get();
             $arr1 = [];
@@ -160,18 +128,16 @@ class QuizController extends Controller
                  $arr1[] = $value->ID_Deck;
             }
             $col = collect($arr1);
-//            echo '<pre>';
-//            print_r($arr1);
             $randon = $col->random();
             $decks = DB::table('menu')
                 ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
                 ->select('decks.ID_Deck', 'menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
                 ->where('decks.ID_Deck', '=', $randon)
                 ->get();
-//            dd($decks);
             return view('frontend.quiz.index',
-                ['decks' => $decks,
-                'randon' =>$randon
+                [
+                    'decks' => $decks,
+                    'randon' =>$randon
                 ]);
 
         }
@@ -228,5 +194,25 @@ class QuizController extends Controller
     public function destroy($id)
     {
         //
+    }
+    /**
+     * @return mixed
+     */
+    public function getComposition($id)
+    {
+        $data = DB::table('menu')
+            ->join('composition', 'menu.ID_Menu', '=', 'composition.ID_Menu')
+            ->where('composition.ID_Menu', '=', $id)
+            ->get();
+        return view('frontend.quiz._table-composition', compact('data'));
+    }
+    public function getCooking($id)
+    {
+        $data = DB::table('menu')
+            ->join('cooking', 'menu.ID_Menu', '=', 'cooking.ID_Menu')
+            ->where('cooking.ID_Menu', '=', $id)
+            ->first();
+//        dd($data);
+        return view('frontend.quiz._table-cooking', compact('data'));
     }
 }

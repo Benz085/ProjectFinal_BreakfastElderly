@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QuizRule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['index', 'view']]);
     }
 
     /**
@@ -24,6 +26,25 @@ class HomeController extends Controller
     public function index()
     {
         return view('backend.home');
+    }
+    public function view()
+    {
+        $dataDecks = DB::table('decks')
+            ->select(DB::raw('count(*) as count_Deck, ID_Deck'))
+            ->groupBY('ID_Deck')
+            ->simplePaginate(8);
+        $count2 = DB::table('decks')
+            ->select(DB::raw('count(*) as count_Deck, ID_Deck'))
+            ->groupBY('ID_Deck')
+            ->get();
+        $isActive = DB::table('quiz_rule')->select('*')->get();
+        $countALL = count($count2);
+        return view('backend.deck.view', [
+            'dataDecks' => $dataDecks,
+            'countALL' => $countALL,
+            'isActive' => $isActive
+        ]);
+
     }
 
 }
