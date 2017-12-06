@@ -15,7 +15,7 @@ class Menu extends Model
     //Mant-to-one
     public function groupfoods()
     {
-        return $this->belongsTo(GroupFoods::class,'typebooks_id');
+        return $this->belongsTo(GroupFoods::class,'id');
     }
     //One-to-Many
     public function composition()

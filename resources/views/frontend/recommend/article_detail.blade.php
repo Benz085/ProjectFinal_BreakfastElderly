@@ -76,8 +76,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
-                    {{--<a><i class="glyphicon glyphicon-cutlery"></i></a>--}}
-                    {{--<h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>--}}
+                    <a><i class="glyphicon glyphicon-cutlery"></i></a>
+                    <h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>
                 </div>
             </div>
         </div>
@@ -91,10 +91,32 @@
                         บทความ
                         <i class="glyphicon glyphicon-cutlery"></i>
                     </h2>
-                    <p>รายละเอียด</p>
                 </div>
             </div>
-
+            <div class="col-md-12">
+                <div class="row" style="margin-top: 15px">
+                    <div class="col-sm-6">
+                        <div class="shop-img">
+                            <img src="{{ asset("frontend/img/portfolio/work8.jpg") }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <hr>
+                        <h3>เนื้อหา</h3>
+                        <hr>
+                        <div align="left">
+                            <p>title : {{ $article->article_title }}</p><br>
+                            <p>รายละเอียด : {!! $article->article_detail !!} </p><br>
+                            <p>ที่มา : {{ $article->article_resource }}</p><br>
+                            <p>link เพิ่มเติม : {{ $article->article_link }}</p><br>
+                            <p>โดย : {{ $article->article_creator }}</p><br>
+                            <p>วันเดือนปีข่าวที่ลง : {{ $article->article_updatatime }}</p><br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
         </div>
     </div>
 @endsection

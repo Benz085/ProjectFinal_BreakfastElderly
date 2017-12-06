@@ -39,6 +39,7 @@ class CookingController extends Controller
         $cooking->cooking_recipe = $request->cooking;
         $cooking->ID_Menu = $request->ID_Menu;
         $cooking->save();
+
         return  redirect('menu/'.$request->ID_Menu);
     }
     /**

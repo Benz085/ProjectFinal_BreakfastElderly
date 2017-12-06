@@ -108,28 +108,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr style="font-size: 15px">
-                                <td>
-                                    <a href="#" data-lity><img src="{{ asset("frontend/img/slider/1.jpg") }}" style="margin-left: -35px;"></a>
-                                </td>
-                                <td>ภูเก็ต</td>
-                                <td>ชื่อ</td>
-                                <td>วันที่ / เวลา</td>
-                                <td>
-                                    <a href="{{ url('#') }}"><button class="btn-change8">อ่านกระทู้</button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#" data-lity><img src="{{ asset("frontend/img/slider/1.jpg") }}" style="margin-left: -35px;"></a>
-                                </td>
-                                <td>ภูเก็ต</td>
-                                <td>ชื่อ</td>
-                                <td>วันที่ / เวลา</td>
-                                <td>
-                                    <a href="{{ url('#') }}"><button class="btn-change8">อ่านกระทู้</button></a>
-                                </td>
-                            </tr>
+                            @foreach($article as $value)
+                                <tr style="font-size: 15px">
+                                    <td>
+                                        <a href="#" data-lity><img src="{{ asset("frontend/img/slider/1.jpg") }}" style="margin-left: -35px;"></a>
+                                    </td>
+                                    <td>{{ $value->article_title }}</td>
+                                    <td>{{ $value->article_creator }}</td>
+                                    <td>{{ $value->article_updatatime }}</td>
+                                    <td>
+                                        <a href="{{url('article/'.$value->article_id.'/')}}"><button class="btn-change8">อ่านกระทู้</button></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            {!! $article->render() !!}
                             </tbody>
                         </table>
                     </div>

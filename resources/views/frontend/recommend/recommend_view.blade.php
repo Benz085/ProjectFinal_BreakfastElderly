@@ -133,10 +133,11 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($menu as $val)
                 <div class="col-sm-3">
                     <div class="work wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
                         <img src="{{ asset("frontend/img/slider/1.jpg") }}" alt="Lorem Website" data-at2x="assets/img/portfolio/work1.jpg">
-                        <h3>Lorem Website</h3>
+                        <h3>{{ $val->Menu_Name }}</h3>
                         <div class="item-rate">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -144,70 +145,16 @@
                             <i class="fa fa-star-half-o"></i>
                             <i class="fa fa-star-o dark"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
                         <div class="work-bottom">
                             <a class="big-link-2 view-work" href="{{ asset("frontend/img/slider/1.jpg") }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-1" href="{{ url('reviewMenu/reviewMenuDetail') }}">Read more</a>
+                            <a class="big-link-1" href="{{ url('reviewMenu/'.$val->ID_Menu) }}">อ่านเพิ่มเติม</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="work wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
-                        <img src="{{ asset("frontend/img/slider/1.jpg") }}" alt="Ipsum Logo" data-at2x="assets/img/portfolio/work2.jpg">
-                        <h3>Ipsum Logo</h3>
-                        <div class="item-rate">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o dark"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-                        <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset("frontend/img/slider/1.jpg") }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-1" href="{{ url('reviewMenu/reviewMenuDetail') }}">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="work wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <img src="{{ asset("frontend/img/slider/1.jpg") }}" alt="Dolor Prints" data-at2x="assets/img/portfolio/work3.jpg">
-                        <h3>Dolor Prints</h3>
-                        <div class="item-rate">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o dark"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-                        <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset("frontend/img/slider/1.jpg") }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-1" href="{{ url('reviewMenu/reviewMenuDetail') }}">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="work wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
-                        <img src="{{ asset("frontend/img/slider/1.jpg") }}" alt="Sit Amet Website" data-at2x="assets/img/portfolio/work4.jpg">
-                        <h3>Sit Amet Website</h3>
-                        <div class="item-rate">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o dark"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
-                        <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset("frontend/img/slider/1.jpg") }}"><i class="fa fa-search"></i></a>
-                            <a class="big-link-1" href="{{ url('reviewMenu/reviewMenuDetail') }}">Read more</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <br>
-            <a href="{{ url('reviewMenu/reviewMenuView') }}" class="work-title wow fadeIn animated"><button class="btn-change8">อ่านทั้งหมด</button></a>
+            <a href="{{ url('reviewMenu') }}"><button class="btn-change8">อ่านทั้งหมด</button></a>
             <br>
         </div>
     </div>
@@ -233,7 +180,7 @@
                 @endforeach
             </div>
             <br>
-            <a href="{{ url('article') }}" class="work-title wow fadeIn animated"><button class="btn-change8">อ่านทั้งหมด</button></a>
+            <a href="{{ url('article/getArticle') }}"><button class="btn-change8">อ่านทั้งหมด</button></a>
             <br>
         </div>
         <br>

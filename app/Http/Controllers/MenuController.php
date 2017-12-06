@@ -135,7 +135,8 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
     }
 
     /**

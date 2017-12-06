@@ -37,7 +37,7 @@ class HomeController extends Controller
             ->select(DB::raw('count(*) as count_Deck, ID_Deck'))
             ->groupBY('ID_Deck')
             ->get();
-        $isActive = DB::table('quiz_rule')->select('*')->get();
+        $isActive = DB::table('quiz_rule')->select('*')->simplePaginate(8);
         $countALL = count($count2);
         return view('backend.deck.view', [
             'dataDecks' => $dataDecks,

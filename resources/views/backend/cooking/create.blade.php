@@ -1,4 +1,9 @@
 @extends('layouts.admin')
+@section('head')
+    <!-- Include stylesheet -->
+    <link href="https://cdn.quilljs.com/1.3.4/quill.snow.css" rel="stylesheet">
+
+@endsection
 @section('content')
     <article class="content dashboard-page">
         <section class="section">
@@ -15,9 +20,12 @@
                         </fieldset>
                         <fieldset class="form-group">
                             {!! Form::label('cooking', 'วิธีการทำอาหาร')!!}
-                            <?=  Form::textarea('cooking', null, ['class' => 'form-control', 'placeholder' => '..']);?>
-                            {{--<textarea name="details" id="details" rows="5" class="form-control"></textarea>--}}
-{{--<!--                            --><?//=  Form::textarea('cooking', null, ['id' => 'cooking','row'=>'5','class' => 'form-control', 'placeholder' => '..']);?>--}}
+                            <!-- Create the editor container -->
+                                <div id="editor">
+                                    <p>Hello World!</p>
+                                </div>
+                            <?=  Form::textarea('cooking', null, ['id'=>'output', 'style' => 'display: none;']);?>
+
                         </fieldset>
                         <hr/>
                         <div class="form-group">
@@ -33,8 +41,22 @@
     </article>
 @endsection
 @section('script')
-    <script src="{{ asset('backend/library/ckeditor/ckeditor.js') }}"></script>
     <script>
 //        CKEDITOR.replace('cooking'); //.replace ทำการแทนที่ข้อความเป็นอีกข้อความหนึ่งได้
+    </script>
+
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.4/quill.js"></script>
+    <!-- Initialize Quill editor -->
+    <script>
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+        $(function() {
+            $('#output').html($('#editor .ql-editor').html());
+            $('#editor .ql-editor').keypress(function() {
+                $('#output').html($(this).html());
+            });
+        });
     </script>
 @endsection

@@ -37,6 +37,23 @@
                                         <br>
                                         {!! $dataDecks->render() !!}
                                     </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="card-title-block">
+                                <h3> กลุ่มอาหาร  จำนวนกลุ่มทั้งหมด {{$countALL}} </h3>
+                            </div>
+                            <section class="example">
+                                <div class="table-flip-scroll">
                                     <div class="col-md-4">
                                         <table class="table table-striped table-bordered table-hover flip-content">
                                             <thead class="flip-header">
@@ -58,6 +75,7 @@
                                             @endforeach
                                             </tbody>
                                         </table>
+                                        {!! $isActive->render() !!}
                                         <br>
                                     </div>
                                 </div>

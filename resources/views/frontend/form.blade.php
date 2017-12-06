@@ -58,6 +58,16 @@
             overflow: hidden;
             padding: 0 0 0 22px;
         }
+        .blog-wrap {
+            border: 1px solid #dadada;
+            padding: 20px;
+            padding-bottom: 10px;
+            margin: 0;
+            position: relative;
+            background: #f5f5f5;
+            margin-top: 10px;
+            width: 100%;
+        }
     </style>
 @endsection
 @section('content')
@@ -86,32 +96,45 @@
                         <div class="row">
                             <div class="col-sm-12 work-title wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;margin-right: 15px;" >
                                 <h2>
-                                    ความรู้แพ้อาหาร
+                                    การแพ้อาหาร
                                 </h2>
                             </div>
                         </div>
                         <div class="col-md-12 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
-                            <ul>
-                                <li>
-                                    <div class="menu-image">
-                                        <img class="" alt="" src="{{ asset("frontend/img/menu-thumb-1.jpg") }}">
+                            <div class="blog-wrap  hvr-ripple-in wow fadeInLeftBig animated"
+                                 style="visibility: visible; animation-name: fadeInDown;">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <img alt="100%x200" data-src="holder.js/100%x200"
+                                             style="height: 80px; width: 100%; display: block;"
+                                             src="{{ asset("frontend/img/menu-thumb-1.jpg") }}"
+                                             data-holder-rendered="true" data-lity>
                                     </div>
-                                    <div class="icon-text">
-                                        <h5><a href="#">การแพ้อาหารมีกี่ประเภท</a></h5>
+                                    <div class="col-sm-7">
+                                        <div class="caption">
+                                            <h5>การแพ้อาหารมีกี่ประเภท</h5>
+                                            <a href="{{ url('#') }}" class="btn btn-primary hvr-icon-forward" role="button">อ่าน </a>
+                                        </div>
                                     </div>
-                                </li>
-                            </ul>
-                            <br>
-                            <ul style="margin-top: 5px">
-                                <li>
-                                    <div class="menu-image">
-                                        <img class="" alt="" src="{{ asset("frontend/img/menu-thumb-1.jpg") }}">
+                                </div>
+                            </div>
+                            <div class="blog-wrap  hvr-ripple-in wow fadeInLeftBig animated"
+                                 style="visibility: visible; animation-name: fadeInDown;">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <img alt="100%x200" data-src="holder.js/100%x200"
+                                             style="height: 80px; width: 100%; display: block;"
+                                             src="{{ asset("frontend/img/menu-thumb-1.jpg") }}"
+                                             data-holder-rendered="true" data-lity>
                                     </div>
-                                    <div class="icon-text">
-                                        <h5><a href="#">อาการแพ้อาหาร</a></h5>
+                                    <div class="col-sm-7">
+                                        <div class="caption">
+                                            <h5>อาการแพ้อาหาร</h5>
+                                            <a href="{{ url('#') }}" class="btn btn-primary hvr-icon-forward" role="button">อ่าน </a>
+                                        </div>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -123,10 +146,19 @@
                                     <div class="col-md-3">
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ url('quiz/create') }}">
-                                            <img alt="140x140" data-src="holder.js/140x140" class="img-circle" style="width: 140px; height: 140px;" src="{{ asset("frontend/img/newscms.jpg") }}" data-holder-rendered="true">
-                                        </a>
-                                        <h4 style="color: #411c0e">จัดสำรับอาหาร</h4>
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="thumbnail hvr-wobble-horizontal" style="width: 100%;">
+                                                    <h4 style="color: #411c0e">จัดสำรับอาหารเช้า ผู้สูงอายุ</h4>
+                                                    <img  class="img-circle" style="width: 255px; height: 180px;" src="{{ asset("images/foodallergy/foodallergy.png") }}" data-holder-rendered="true">
+                                                    <div class="caption">
+                                                        <p>
+                                                            <a href="{{ url('quiz/create') }}" class="btn btn-primary hvr-icon-forward" role="button">เริ่ม </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

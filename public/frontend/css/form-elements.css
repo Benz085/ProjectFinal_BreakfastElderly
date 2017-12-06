@@ -29,14 +29,15 @@ input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placehold
 
 
 button.btn {
-	height: 30px;
+	height: 45px;
+    width: 150px;
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
     background: #9d426b;
     border: 0;
     font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 30px;
     color: #fff;

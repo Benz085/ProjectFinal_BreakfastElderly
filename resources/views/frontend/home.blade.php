@@ -11,29 +11,25 @@
                             <li data-thumb="{{ asset("frontend/img/slider/1.jpg") }}">
                                 <img src="{{ asset("frontend/img/slider/1.jpg") }}">
                                 <div class="flex-caption">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
+                                    <center><h4>ยินดีต้อนรับสู่ระบบจัดสำรับอาหารเช้าผู้สูงอายุ</h4></center>
                                 </div>
                             </li>
                             <li data-thumb="{{ asset('frontend/img/slider/2.jpg') }}">
                                 <img src="{{ asset('frontend/img/slider/2.jpg') }}">
                                 <div class="flex-caption">
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                    lobortis nisl ut aliquip ex ea commodo consequat.
+                                   <center><h4>แนะนำเมนูอาหารสำหรับผู้สูงวัย</h4></center>
                                 </div>
                             </li>
                             <li data-thumb="{{ asset('frontend/img/slider/3.jpg') }}">
                                 <img src="{{ asset('frontend/img/slider/3.jpg') }}">
                                 <div class="flex-caption">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                    Lorem ipsum dolor sit amet, consectetur.
+                                   <center><h4>แนะนำวิธีการใช้งานจัดสำรับอาหาร</h4></center>
                                 </div>
                             </li>
                             <li data-thumb="{{ asset('frontend/img/slider/4.jpg') }}">
                                 <img src="{{ asset('frontend/img/slider/4.jpg') }}">
                                 <div class="flex-caption">
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                    lobortis nisl ut aliquip ex ea commodo consequat.
+                                    <center><h4>ความรู้ในวัยสูงอายุ</h4></center>
                                 </div>
                             </li>
                         </ul>
@@ -49,8 +45,10 @@
             <div class="row">
                 <div class="col-sm-12 wow fadeInLeftBig">
                     {{--  ชื่อโปรเจค  --}}
-                    <h1>Project <span class="violet">Andia</span>, a super cool design agency.</h1>
-                    <p>บรรยายเกี่ยวกับ.</p>
+                    <h2>รายละเอียด<br>
+                        <span class="violet">ระบบจัดสำรับอาหารเช้าผู้สูงอายุ</span>
+                    </h2>
+                    <p>เกี่ยวกับอาหารเช้า สำหรับผู้สูงอายุ 60 - 69 ปี .</p>
                 </div>
             </div>
         </div>
@@ -61,115 +59,106 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="service wow fadeInUp">
+                    <div class="service wow fadeInUp hvr-float-shadow">
                         <div class="service-icon"><i class="fa fa-eye"></i></div>
                         <h3>ความเป็นมา</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="#">Read more</a>
+                        <p>อาหารในมื้อเช้านั้นถือว่าเป็นมื้อสำคัญต่อสุภาพร่างกายมากที่สุดเนื่องจากตอนเช้า ....</p>
+                        <button type="button" class="btn btn-info btn-lg hvr-icon-float-away" data-toggle="modal" data-target="#myModal1">อ่านเพิ่มเติม</button>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="service wow fadeInDown">
+                    <div class="service wow fadeInDown hvr-float-shadow">
                         <div class="service-icon"><i class="fa fa-table"></i></div>
                         <h3>จุดประสงค์</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="#">Read more</a>
+                        <p>เพื่อพัฒนาระบบสำรับแนะนำเกี่ยวกับอาหารเช้าผู้สูงอายุบนเว็บไซต์ ...</p>
+                        <button type="button" class="btn btn-info btn-lg hvr-icon-float-away" data-toggle="modal" data-target="#myModal2">อ่านเพิ่มเติม</button>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="service wow fadeInUp">
+                    <div class="service wow fadeInUp hvr-float-shadow">
                         <div class="service-icon"><i class="fa fa-magic"></i></div>
-                        <h3>วิธีการใช้งานเว็บไซต์</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...</p>
-                        <a class="big-link-1" href="#">Read more</a>
+                        <h3>ประโยชน์</h3>
+                        <p> ผู้ใช้หรือผู้สูงอายุได้รับประโยชน์จากงานเว็บไซต์เพื่อช่วยในการเลือกอาหารเช้า ...</p>
+                        <button type="button" class="btn btn-info btn-lg hvr-icon-float-away" data-toggle="modal" data-target="#myModal3">อ่านเพิ่มเติม</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Testimonials -->
     <div class="testimonials-container">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 testimonials-title wow fadeIn">
-                    <h2>แนะนำเว็บไซต์</h2>
+                    <h2></h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1 testimonial-list">
-                    <div role="tabpanel">
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="tab1">
-                                <div class="testimonial-image">
-                                    <img src="{{ asset('frontend/img/testimonials/1.jpg') }}" alt="" data-at2x="{{ asset('frontend/img/testimonials/1.jpg') }}">
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>
-                                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                        Lorem ipsum dolor sit amet, consectetur..."<br>
-                                        <a href="#">Lorem Ipsum, dolor.co.uk</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="tab2">
-                                <div class="testimonial-image">
-                                    <img src="{{ asset('frontend/img/testimonials/2.jpg') }}" alt="" data-at2x="{{ asset('frontend/img/testimonials/2.jpg') }}">
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>
-                                        "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip
-                                        ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                        lobortis nisl ut aliquip ex ea commodo consequat..."<br>
-                                        <a href="#">Minim Veniam, nostrud.com</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="tab3">
-                                <div class="testimonial-image">
-                                    <img src="{{ asset('frontend/img/testimonials/3.jpg') }}" alt="" data-at2x="{{ asset('frontend/img/testimonials/3.jpg') }}">
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>
-                                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                        Lorem ipsum dolor sit amet, consectetur..."<br>
-                                        <a href="#">Lorem Ipsum, dolor.co.uk</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="tab4">
-                                <div class="testimonial-image">
-                                    <img src="{{ asset('frontend/img/testimonials/1.jpg') }}" alt="" data-at2x="{{ asset('frontend/img/testimonials/1.jpg') }}">
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>
-                                        "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip
-                                        ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                        lobortis nisl ut aliquip ex ea commodo consequat..."<br>
-                                        <a href="#">Minim Veniam, nostrud.com</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"></a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"></a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"></a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab"></a>
-                            </li>
-                        </ul>
-                    </div>
+        </div>
+    </div>
+
+    <!-- Modal  ความเป็นมา-->
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">ความเป็นมา</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size: 16px">
+                         การบริโภคอาหารในมื้อเช้านั้นถือว่าเป็นมื้อสำคัญต่อสุภาพร่างกายมากที่สุดเนื่องจากตอนเช้า
+                        ตื่นขึ้นมาร่างกายไม่ได้รับประทานอาหารจากมื้อเย็นประมาทสิบชั่วโมงหรือมากกว่า โดยระดับน้ำตาลในเลือดจะต่ำในขณะที่เราลุกขึ้นเคลื่อนไหวทำกิจกรรมต่างๆ จะทำให้รู้สึกหิว เพราะร่างกายต้องการพลังงานเติม
+                        โดยสมองจะกระตุ้นศูนย์ควบคุมความหิวให้เราเกิดความรู้สึกหิวในเวลาต่อมา ซึ่งทำให้หิวมาก และจะรับประทานอาหารในมื้อถัดมาในปริมาณมากขึ้น
+                        แล้วยังส่งผลเสียต่อระบบในร่างกายหรืออ้วนขึ้น แล้วยิ่งเป็นผู้สูงอายุที่มีความเปลี่ยนแปลงทางร่างกาย ทำให้ประสิทธิภาพการทำงานของอวัยวะต่างๆ
+                        เริ่มมีการเสื่อมลง เกิดการเปลี่ยนแปลงของระบบต่างๆ และยังมีอีกหนึ่งสาเหตุสำคัญที่ทำให้คนไม่กินมื่อเช้า เพราะมีความเข้าใจผิดคิดว่าการจะลดน้ำหนักต้องอดอาหาร
+                        แท้จริงแล้วคนที่ไม่กินอาหารเช้ายิ่งจะทำให้อ้วน เพราะเมื่อไม่กิน ในช่วง 10-12 โมงก่อนเวลาอาหารกลางวันยิ่งจะทำให้ร่างกายโหย
+                        สมองจะหลั่งสารเคมีเพื่อให้เรากินอาหารมากขึ้น ทำให้กินจุกกินจิบ และจะกินมื้อเที่ยงและมื้อเย็นมากทำให้อ้วนได้ เพราะได้รับพลังงานส่วนเกิน
+                        และคนที่ไม่กินมื้อเช้าการเผาผลาญพลังงานจะลดลงถึง 10% ฉะนั้นการอดอาหารเพื่อลดน้ำหนักจึงไม่ใช่วิธีการที่ถูกต้อง ถ้าเราอดอาหารมื้อใดสักมื้อหนึ่งเพื่อลดน้ำหนัก
+                        จะทำให้เกิดการโยโย่ เอฟเฟค (YOYO Effect)  ดังนั้นการลดน้ำหนักจึงควรที่จะกินอาหารให้ครบสามมื้อ แต่ให้ควบคุมปริมาณอาหารแทน
+                        จึงทำให้ผู้สูงอายุมีความต้องการพลังงานและสารอาหารในปริมาณที่เหมาะสม เช่นเดียวกับบุคคลวัยอื่นๆ
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal  จุดประสงค์-->
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">จุดประสงค์</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size: 17px">
+                        เพื่อพัฒนาระบบสำรับแนะนำเกี่ยวกับอาหารเช้าผู้สูงอายุบนเว็บไซต์
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal  ผู้จัดทำ-->
+    <div class="modal fade" id="myModal3" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">ประโยชน์</h4>
+                </div>
+                <div class="modal-body">
+                    <p>ผู้ใช้หรือผู้สูงอายุได้รับประโยชน์จากงานเว็บไซต์เพื่อช่วยในการเลือกอาหารเช้า จะได้ฐานข้อมูลที่เป็นแหล่งรวมอาหารเช้าที่เหมาะสมสำหรับผู้สูงอายุ</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

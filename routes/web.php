@@ -32,19 +32,19 @@ Route::resource('nutrition', 'NutritionController');
 
 //--------------------------//
 //Font - End//
+
 //view Home
 Route::get('/', 'IndexController@index');
 Route::get('index', 'IndexController@index');
+
 //view Recommend
 Route::get('recommend/index', 'RecommendController@index');
 Route::get('reviewMenu/reviewMenuView', 'RecommendController@reviewMenuView');
 Route::get('reviewMenu/reviewMenuDetail', 'RecommendController@reviewMenuDetail');
-//Route::get('reviewMenu/reviewMenuDetail/{id}', 'RecommendController@reviewMenuDetail');
-Route::resource('posts', 'PostsController');
+Route::resource('reviewMenu', 'ReviewMenuController');
+Route::get('article/getArticle', 'ArticleController@getArticle');
 Route::resource('article', 'ArticleController');
-//Route::get('article/articleView', 'RecommendController@articleView');
-//Route::get('article/articleDetail', 'RecommendController@articleDetail');
-//Route::get('article/articleDetail/{id}', 'RecommendController@articleDetail');
+Route::get('article/index2', 'ArticleController@index2');
 
 
 //view Quiz

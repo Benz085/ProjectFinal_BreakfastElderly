@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'ระบบแนะนำอาหารเช้าผู้สูงอายุ') }}</title>
-    <script src="{{ asset('frontend/js/jquery-1.11.1.min.js') }}"></script>
+
+
+
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans">
@@ -69,20 +71,12 @@
                 <li class="{{ Request::segment(1) === 'quiz' ? 'active' : null  }} hvr-pulse-shrink">
                     <a href="{{ url('quiz/form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>จัดสำรับอาหารเช้า</a>
                 </li>
-                <li class="hvr-pulse-shrink">
-                    <a href="{{ url('#') }}"><i class="fa fa-user"></i><br>ผู้จัดทำ</a>
-                </li>
+                {{--<li class="hvr-pulse-shrink">--}}
+                    {{--<a href="{{ url('#') }}"><i class="fa fa-user"></i><br>ผู้จัดทำ</a>--}}
+                {{--</li>--}}
                 <li class="{{ Request::segment(1) === 'login' ? 'active' : null  }} hvr-pulse-shrink">
                     <a href="{{ route('login') }}"><i class="fa fa-user"></i><br>เข้าสู่ระบบจัดการข้อมูล</a>
                 </li>
-                {{--<li class="dropdown">--}}
-                    {{--<a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">--}}
-                        {{--<i class="glyphicon glyphicon-log-in"></i><br>เข้าสู่ระบบ <span class="caret"></span>--}}
-                    {{--</a>--}}
-                    {{--<ul class="dropdown-menu" role="menu">--}}
-                        {{--<li><a href="{{ url('login') }}" target="_blank">ระบบการจัดการฐานข้อมูล</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
             </ul>
         </div>
     </div>
@@ -149,7 +143,7 @@
 </footer>
 
 <!-- Javascript -->
-
+<script src="{{ asset('frontend/js/jquery-1.11.1.min.js') }}"></script>
 <script src="{{ asset('frontend/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('frontend/js/bootstrap-hover-dropdown.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.backstretch.min.js') }}"></script>

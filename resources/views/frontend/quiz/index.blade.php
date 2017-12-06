@@ -31,9 +31,9 @@
         }
 
         .btn-change8 {
-            height: 30px;
+            height: 40px;
             width: 90px;
-            background: lightseagreen;
+            background: #31708f;
             margin: 20px;
             /*float: left;*/
             border: 0px;
@@ -41,11 +41,11 @@
             box-shadow: 0 0 1px #ccc;
             -webkit-transition-duration: 0.5s;
             -webkit-transition-timing-function: linear;
-            box-shadow: 0px 0 0 #31708f inset;
+            box-shadow: 0px 0 0 lightseagreen inset;
         }
 
         .btn-change8:hover {
-            -webkit-box-shadow: -100px 0 0 #31708f inset;
+            -webkit-box-shadow: -100px 0 0 lightseagreen inset;
         }
 
         .menu-image {
@@ -235,7 +235,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="blog-text">
-                                                        <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}"class="btn-change8">ดูข้อมูล >></button>
+                                                        <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}"class="btn-change8 hvr-icon-forward">ดูข้อมูล</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -245,7 +245,7 @@
                             </div>
                             <div class="col-md-7 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
                                 <div id="the-return">
-                                    <p align="center" style="margin-top: 10px">เลือก รายการเมนูอาหาร</p>
+                                    <p align="center" style="margin-top: 10px" class="wow fadeInLeftBig animated animated">เลือก รายการเมนูอาหาร</p>
                                 </div>
                             </div>
                         </div>
@@ -275,7 +275,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="blog-text">
-                                                    <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}"class="btn-change8">ดูข้อมูล >></button>
+                                                    <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}" class="btn-change8 hvr-icon-forward">ดูข้อมูล</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -285,18 +285,20 @@
                         </div>
                         <div class="col-md-7 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
                             <div id="the-return2">
-                                <p align="center" style="margin-top: 10px">เลือก รายการเมนูอาหาร</p>
+                                <p align="center" style="margin-top: 10px" class="wow fadeInLeftBig animated animated">เลือก รายการเมนูอาหาร</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+        <a href="{{ url('quiz/form') }}" class="button4  hvr-icon-back hvr-grow-shadow"
+           style="background-color:#64798d;font-size: 15px;width: 30%;margin-bottom: 10px">
+            กลับหน้าจัดสำรับ
+        </a>
     </div>
 @endsection
 @section('script')
-
     <script type="text/javascript">
         $("document").ready(function(){
             $("button").click(function(){

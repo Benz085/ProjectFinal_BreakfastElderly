@@ -215,4 +215,7 @@ class QuizController extends Controller
 //        dd($data);
         return view('frontend.quiz._table-cooking', compact('data'));
     }
+
+
+
 }

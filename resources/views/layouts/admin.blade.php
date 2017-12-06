@@ -61,65 +61,11 @@
                 </div>
                 <div class="header-block header-block-nav">
                     <ul class="nav-profile">
-                        <li class="notifications new"><a href="" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <sup>
-                                    <span class="counter">8</span>
-                                </sup>
-                            </a>
-                            <div class="dropdown-menu notifications-dropdown-menu">
-                                <ul class="notifications-container">
-                                    <li>
-                                        <a href="" class="notification-item">
-                                            <div class="img-col">
-                                                <div class="img"
-                                                     style="background-image: url({{ asset('backend/assets/faces/3.jpg') }})"></div>
-                                            </div>
-                                            <div class="body-col">
-                                                <p><span class="accent">Zack Alien</span> pushed new commit: <span
-                                                            class="accent">Fix page load performance issue</span>. </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="notification-item">
-                                            <div class="img-col">
-                                                <div class="img"
-                                                     style="background-image: url({{ asset('backend/assets/faces/5.jpg') }})"></div>
-                                            </div>
-                                            <div class="body-col">
-                                                <p><span class="accent">Amaya Hatsumi</span> started new task: <span
-                                                            class="accent">Dashboard UI design.</span>. </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="notification-item">
-                                            <div class="img-col">
-                                                <div class="img"
-                                                     style="background-image: url({{ asset('backend/assets/faces/8.jpg') }})"></div>
-                                            </div>
-                                            <div class="body-col">
-                                                <p><span class="accent">Andy Nouman</span> deployed new version of <span
-                                                            class="accent">NodeJS REST Api V3</span></p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <footer>
-                                    <ul>
-                                        <li><a href="">
-                                                View All
-                                            </a></li>
-                                    </ul>
-                                </footer>
-                            </div>
-                        </li>
                         <li class="profile dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="true" aria-expanded="false">
                                 <div class="img"
-                                     style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"></div>
+                                     style="background-image: url('{{ asset('images/profile/profile.jpg') }}')"></div>
                                 <span class="name">
     			       {{ Auth::user()->name }}
     			    </span> </a>
@@ -175,6 +121,7 @@
                                     <li><a href="{{ url('groupsfood') }}"> กลุ่มอาหาร</a></li>
                                     <li><a href="{{ url('menu') }}">เมนูอาหาร </a></li>
                                     <li><a href="{{ url('deck') }}"> สำรับอาหาร</a></li>
+                                    <li><a href="{{ url('article') }}"> บทความ</a></li>
                                 </ul>
                             </li>
                             <li>
