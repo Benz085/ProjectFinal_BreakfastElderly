@@ -1,11 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.nevber')
 
 @section('content')
-<div class="container">
+    <div class="page-title-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+                    <a><i class="glyphicon glyphicon-cutlery"></i></a>
+                    <h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container" style="margin-top: 15px">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">สมัครสมาชิก</div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}

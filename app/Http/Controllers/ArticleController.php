@@ -6,6 +6,7 @@ use App\Article;
 use Illuminate\Http\Request;
 use File;
 use DB;
+use Image;
 use DateTime;
 class ArticleController extends Controller
 {
@@ -47,6 +48,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
         if ($request->hasFile('image'))
         {
             $filename = str_random(5).'.'. $request->file('image')->getClientOriginalName();
@@ -56,15 +58,16 @@ class ArticleController extends Controller
         }else{
             $image = null;
         }
+
         $artisam  = new  Article();
         $artisam->article_title = $request->title;
         $artisam->article_detail =$request->detail;
-        $artisam->article_link = $request->link;
-        $artisam->article_image = $image;
-        $artisam->article_resource = $request->resource;
         $artisam->article_creator = $request->creator;
+        $artisam->article_resource = $request->resource;
+        $artisam->article_image = $image;
         $artisam->save();
-        return view('backend.article.view');
+
+        return redirect('article');
     }
 
     /**

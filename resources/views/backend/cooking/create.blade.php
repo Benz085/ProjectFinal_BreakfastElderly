@@ -22,10 +22,14 @@
                             {!! Form::label('cooking', 'วิธีการทำอาหาร')!!}
                             <!-- Create the editor container -->
                                 <div id="editor">
-                                    <p>Hello World!</p>
+                                    {{--<p>Hello World!</p>--}}
                                 </div>
                             <?=  Form::textarea('cooking', null, ['id'=>'output', 'style' => 'display: none;']);?>
 
+                        </fieldset>
+                        <fieldset class="form-group">
+                            {!! Form::label('resource', 'แหล่งที่มา')!!}
+                            <?=  Form::text('resource',null,['class' => 'form-control','placeholder'=>'แหล่งที่มา..']);?>
                         </fieldset>
                         <hr/>
                         <div class="form-group">
@@ -54,7 +58,7 @@
         });
         $(function() {
             $('#output').html($('#editor .ql-editor').html());
-            $('#editor .ql-editor').keypress(function() {
+            $('#editor .ql-editor').keyup(function() {
                 $('#output').html($(this).html());
             });
         });

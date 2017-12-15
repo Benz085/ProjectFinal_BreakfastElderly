@@ -112,8 +112,8 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <div class="caption">
-                                            <h5>การแพ้อาหารมีกี่ประเภท</h5>
-                                            <a href="{{ url('#') }}" class="btn btn-primary hvr-icon-forward" role="button">อ่าน </a>
+                                            <h5>ประเภทการแพ้อาหาร</h5>
+                                            <a href="{{ url('recommend/getArticle/2') }}" class="btn btn-primary hvr-icon-forward" role="button">อ่าน </a>
                                         </div>
                                     </div>
                                 </div>
@@ -129,8 +129,8 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <div class="caption">
-                                            <h5>อาการแพ้อาหาร</h5>
-                                            <a href="{{ url('#') }}" class="btn btn-primary hvr-icon-forward" role="button">อ่าน </a>
+                                            <h5>ทำไมการแพ้อาหารจึงเป็นเรื่องที่สำคัญ</h5>
+                                            <a href="{{ url('recommend/getArticle/1') }}" class="btn btn-primary hvr-icon-forward" role="button">อ่าน </a>
                                         </div>
                                     </div>
                                 </div>

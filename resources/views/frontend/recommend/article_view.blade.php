@@ -111,13 +111,13 @@
                             @foreach($article as $value)
                                 <tr style="font-size: 15px">
                                     <td>
-                                        <a href="#" data-lity><img src="{{ asset("frontend/img/slider/1.jpg") }}" style="margin-left: -35px;"></a>
+                                        <a href="#" data-lity><img  src="{{ asset("backend/images/".$value->article_image) }}" style="margin-left: -35px;" data-lity></a>
                                     </td>
                                     <td>{{ $value->article_title }}</td>
                                     <td>{{ $value->article_creator }}</td>
                                     <td>{{ $value->article_updatatime }}</td>
                                     <td>
-                                        <a href="{{url('article/'.$value->article_id.'/')}}"><button class="btn-change8">อ่านกระทู้</button></a>
+                                        <a href="{{url('recommend/getArticle/'.$value->article_id.'/')}}"><button class="btn-change8">อ่านกระทู้</button></a>
                                     </td>
                                 </tr>
                             @endforeach

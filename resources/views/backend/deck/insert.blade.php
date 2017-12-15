@@ -259,21 +259,39 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="form-group">
-                                        <?=  Form::submit('ส่งคำตอบ', ['class' => 'btn btn-success','style'=>'margin-top: 40px']);?>
-                                    </div>
-                                    {!! Form::close() !!}
+                                    <hr>
                                 </section>
+
                             </div>
                         </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">อาการแพ้อาหารคุณคือ</div>
+                            <div class="panel-body">
+                                <label class="radio-inline">
+                                    {{  Form::radio('disease', '1',null,['onclick' => "myFunction('True')"]) }}
+                                    โรคเบาหวาน
+                                </label><br>
+                                <label class="radio-inline">
+                                    {{  Form::radio('disease', '2',null,['onclick' => "myFunction('True')"]) }}
+                                    โรคไขมันในเลือดสูง
+                                </label><br>
+                                <label class="radio-inline">
+                                    {{  Form::radio('disease', '3',null,['onclick' => "myFunction('True')"]) }}
+                                    โรคไขมันในเลือดสูง และ โรคไขมันในเลือดสูง
+                                </label><br>
+                                <label class="radio-inline">
+                                    {{  Form::radio('disease', '4',null,['onclick' => "myFunction('True')"]) }}
+                                    ไม่มี
+                                </label><br>
+                            </div>
+                        </div>
+                        <div class="form-group" align="center" style="margin-bottom: 20px">
+                            <?=  Form::submit('ส่งคำตอบ', ['class' => 'btn btn-success','style'=>'margin-top: 40px']);?>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
-        </section>
-        </div>
-        </div>
-        </div>
-        </div>
         </section>
     </article>
 @endsection

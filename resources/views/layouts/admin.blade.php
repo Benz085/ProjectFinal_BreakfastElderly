@@ -73,12 +73,6 @@
                                         class="dropdown-item" href="#">
                                     <i class="fa fa-user icon"></i>
                                     Profile
-                                </a> <a class="dropdown-item" href="#">
-                                    <i class="fa fa-bell icon"></i>
-                                    Notifications
-                                </a> <a class="dropdown-item" href="#">
-                                    <i class="fa fa-gear icon"></i>
-                                    Settings
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -98,11 +92,11 @@
                 <div class="sidebar-container">
                     <div class="sidebar-header">
                         <div class="brand" style="font-size:14px ">
-                            <div class="logo">
-                                <span class="l l1"></span> <span class="l l2"></span>
-                                <span class="l l3"></span> <span class="l l4"></span>
-                                <span class="l l5"></span>
-                            </div>
+                            {{--<div class="logo">--}}
+                                {{--<span class="l l1"></span> <span class="l l2"></span>--}}
+                                {{--<span class="l l3"></span> <span class="l l4"></span>--}}
+                                {{--<span class="l l5"></span>--}}
+                            {{--</div>--}}
                             ระบบการจัดการฐานข้อมูล
                         </div>
                     </div>
@@ -139,81 +133,6 @@
                         </ul>
                     </nav>
                 </div>
-                <footer class="sidebar-footer">
-                    <footer class="sidebar-footer">
-                        <ul class="nav metismenu" id="customize-menu">
-                            <li>
-                                <ul>
-                                    <li class="customize">
-                                        <div class="customize-item">
-                                            <div class="row customize-header">
-                                                <div class="col-xs-4"></div>
-                                                <div class="col-xs-4"><label class="title">fixed</label></div>
-                                                <div class="col-xs-4"><label class="title">static</label></div>
-                                            </div>
-                                            <div class="row hidden-md-down">
-                                                <div class="col-xs-4"><label class="title">Sidebar:</label></div>
-                                                <div class="col-xs-4"><label>
-                                                        <input class="radio" type="radio" name="sidebarPosition"
-                                                               value="sidebar-fixed">
-                                                        <span></span>
-                                                    </label></div>
-                                                <div class="col-xs-4"><label>
-                                                        <input class="radio" type="radio" name="sidebarPosition"
-                                                               value="">
-                                                        <span></span>
-                                                    </label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-4"><label class="title">Header:</label></div>
-                                                <div class="col-xs-4"><label>
-                                                        <input class="radio" type="radio" name="headerPosition"
-                                                               value="header-fixed">
-                                                        <span></span>
-                                                    </label></div>
-                                                <div class="col-xs-4"><label>
-                                                        <input class="radio" type="radio" name="headerPosition"
-                                                               value="">
-                                                        <span></span>
-                                                    </label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-4"><label class="title">Footer:</label></div>
-                                                <div class="col-xs-4"><label>
-                                                        <input class="radio" type="radio" name="footerPosition"
-                                                               value="footer-fixed">
-                                                        <span></span>
-                                                    </label></div>
-                                                <div class="col-xs-4"><label>
-                                                        <input class="radio" type="radio" name="footerPosition"
-                                                               value="">
-                                                        <span></span>
-                                                    </label></div>
-                                            </div>
-                                        </div>
-                                        <div class="customize-item">
-                                            <ul class="customize-colors">
-                                                <li><span class="color-item color-red" data-theme="red"></span></li>
-                                                <li><span class="color-item color-orange" data-theme="orange"></span>
-                                                </li>
-                                                <li><span class="color-item color-green active" data-theme=""></span>
-                                                </li>
-                                                <li><span class="color-item color-seagreen"
-                                                          data-theme="seagreen"></span>
-                                                </li>
-                                                <li><span class="color-item color-blue" data-theme="blue"></span></li>
-                                                <li><span class="color-item color-purple" data-theme="purple"></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <a href="">
-                                    <i class="fa fa-cog"></i> ตั้งค่า
-                                </a></li>
-                        </ul>
-                    </footer>
-                </footer>
             </aside>
             <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
@@ -235,36 +154,6 @@
                                 <span class="sr-only">Close</span>
                             </button>
                             <h4 class="modal-title">Media Library</h4>
-                        </div>
-                        <div class="modal-body modal-tab-container">
-                            <ul class="nav nav-tabs modal-tabs" role="tablist">
-                                <li class="nav-item"><a class="nav-link" href="#gallery" data-toggle="tab" role="tab">Gallery</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link active" href="#upload" data-toggle="tab"
-                                                        role="tab">Upload</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content modal-tab-content">
-                                <div class="tab-pane fade" id="gallery" role="tabpanel">
-                                    <div class="images-container">
-                                        <div class="row"></div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade active in" id="upload" role="tabpanel">
-                                    <div class="upload-container">
-                                        <div id="dropzone">
-                                            <form action="/" method="POST" enctype="multipart/form-data"
-                                                  class="dropzone needsclick dz-clickable" id="demo-upload">
-                                                <div class="dz-message-block">
-                                                    <div class="dz-message needsclick"> Drop files here or click to
-                                                        upload.
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

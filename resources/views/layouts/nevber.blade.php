@@ -31,11 +31,11 @@
     <![endif]-->
 
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="{{ asset('frontend/ico/favicon.ico') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('frontend/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('frontend/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('frontend/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('frontend/ico/apple-touch-icon-57-precomposed.png') }}">
+    {{--<link rel="shortcut icon" href="{{ asset('frontend/ico/favicon.ico') }}">--}}
+    {{--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('frontend/ico/apple-touch-icon-144-precomposed.png') }}">--}}
+    {{--<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('frontend/ico/apple-touch-icon-114-precomposed.png') }}">--}}
+    {{--<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('frontend/ico/apple-touch-icon-72-precomposed.png') }}">--}}
+    {{--<link rel="apple-touch-icon-precomposed" href="{{ asset('frontend/ico/apple-touch-icon-57-precomposed.png') }}">--}}
 
     <link href="{{ asset('frontend/css/lity.min.css') }}" rel="stylesheet">
     {{--Hover--}}
@@ -71,12 +71,29 @@
                 <li class="{{ Request::segment(1) === 'quiz' ? 'active' : null  }} hvr-pulse-shrink">
                     <a href="{{ url('quiz/form') }}"><i class="glyphicon glyphicon-cutlery"></i><br>จัดสำรับอาหารเช้า</a>
                 </li>
-                {{--<li class="hvr-pulse-shrink">--}}
-                    {{--<a href="{{ url('#') }}"><i class="fa fa-user"></i><br>ผู้จัดทำ</a>--}}
-                {{--</li>--}}
-                <li class="{{ Request::segment(1) === 'login' ? 'active' : null  }} hvr-pulse-shrink">
-                    <a href="{{ route('login') }}"><i class="fa fa-user"></i><br>เข้าสู่ระบบจัดการข้อมูล</a>
-                </li>
+                @if (Auth::guest())
+                    <li class="{{ Request::segment(1) === 'login' ? 'active' : null  }} hvr-pulse-shrink">
+                        <a href="{{ url('login') }}"><i class="glyphicon glyphicon-log-in"></i><br>เข้าสู่ระบบ</a>
+                    </li>
+                    <li class="{{ Request::segment(1) === 'register' ? 'active' : null  }} hvr-pulse-shrink">
+                        <a href="{{ route('register') }}"><i class="glyphicon glyphicon-log-in"></i><br>สมัตรสมาชิก</a>
+                    </li>
+                    @else
+                    <li class="dropdown {{ Request::segment(1) === 'profile' ? 'active' : null  }} hvr-pulse-shrink">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+                            <i class="glyphicon glyphicon-user"></i><br>{{ Auth::user()->name }}<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('profile/'.Auth::user()->id) }}">ข้อมูลส่วนตัว</a></li>
+                            <li><a href="{{ url('profile/create') }}">เพิ่มข้อมูลเรื่องโรค</a></li>
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">ออกจากะบบ</a></li>
+                        </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
@@ -89,28 +106,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 footer-box wow fadeInUp">
+            </div>
+            <div class="col-sm-4 footer-box wow fadeInUp">
                 <h4>เกี่ยวกับ</h4>
                 <div class="footer-box-text">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
                     </p>
                     <p><a href="#">Read more...</a></p>
-                </div>
-            </div>
-            <div class="col-sm-4 footer-box wow fadeInDown">
-                <h4>Email</h4>
-                <div class="footer-box-text footer-box-text-subscribe">
-                    <p>ป้อนอีเมลของคุณและคุณจะเป็นหนึ่งในคนแรกที่ได้รับการอัปเดตใหม่ ๆ :</p>
-                    <form role="form" action="#" method="post">
-                        <div class="form-group">
-                            <label class="sr-only" for="subscribe-email">Email address</label>
-                            <input type="text" name="email" placeholder="Email..." class="subscribe-email" id="subscribe-email">
-                        </div>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
-                    <p class="success-message"></p>
-                    <p class="error-message"></p>
                 </div>
             </div>
             <div class="col-sm-4 footer-box wow fadeInDown">

@@ -195,8 +195,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <a href="#">
-                                                    <img class="img-thumbnail"
-                                                         src="{{ asset("frontend/img/slider/1.jpg") }}">
+                                                    <img class="img-thumbnail" src="{{ asset("backend/images/".$data->Menu_Image) }}">
                                                 </a>
                                             </div>
                                             <div class="col-sm-6">

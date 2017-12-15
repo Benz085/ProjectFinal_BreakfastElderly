@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DiseaseFood;
 use App\Models\QuizRule;
+use App\Models\UserDisease;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDOException;
@@ -185,6 +187,26 @@ class DeckController extends Controller
         $quiz_rule->quiz_Sulfur_oxide = $request->sulfur_oxide;
         $quiz_rule->isActive = $isActive ;
         $quiz_rule->save();
+
+        $DiseaseFood = new  DiseaseFood();
+        if($request->disease == 1){
+            $DiseaseFood->ID_Deck = $request->ID_Menu;
+            $DiseaseFood->Disease_id = $request->disease ;
+            $DiseaseFood->save();
+        }else if($request->disease == 2){
+            $DiseaseFood->ID_Deck = $request->ID_Menu;
+            $DiseaseFood->Disease_id = $request->disease ;
+            $DiseaseFood->save();
+        }else if($request->disease == 3){
+            $DiseaseFood->ID_Deck = $request->ID_Menu;
+            $DiseaseFood->Disease_id = $request->disease ;
+            $DiseaseFood->save();
+        }else{
+            $DiseaseFood->ID_Deck = $request->ID_Menu;
+            $DiseaseFood->Disease_id = $request->disease ;
+            $DiseaseFood->save();
+        }
+
         return  redirect('home/view');
     }
 

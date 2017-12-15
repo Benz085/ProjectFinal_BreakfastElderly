@@ -42,7 +42,9 @@ Route::get('recommend/index', 'RecommendController@index');
 Route::get('reviewMenu/reviewMenuView', 'RecommendController@reviewMenuView');
 Route::get('reviewMenu/reviewMenuDetail', 'RecommendController@reviewMenuDetail');
 Route::resource('reviewMenu', 'ReviewMenuController');
-Route::get('article/getArticle', 'ArticleController@getArticle');
+Route::get('recommend/getArticle/', 'RecommendController@getArticle');
+Route::get('recommend/getArticle/{id}', 'RecommendController@show');
+
 Route::resource('article', 'ArticleController');
 Route::get('article/index2', 'ArticleController@index2');
 
@@ -54,5 +56,9 @@ Route::get('quiz/chart', 'QuizController@chart');
 Route::resource('quiz', 'QuizController');
 Route::get('quiz/getComposition/{id}', 'QuizController@getComposition');//getComposition
 Route::get('quiz/getCooking/{id}', 'QuizController@getCooking');//getComposition
+
+Route::resource('profile', 'ProfileController');
+
+
 
 Auth::routes();

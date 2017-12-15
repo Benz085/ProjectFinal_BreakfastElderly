@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DiseaseFood;
 use App\Models\QuizRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,6 +39,8 @@ class HomeController extends Controller
             ->groupBY('ID_Deck')
             ->get();
         $isActive = DB::table('quiz_rule')->select('*')->simplePaginate(8);
+
+
         $countALL = count($count2);
         return view('backend.deck.view', [
             'dataDecks' => $dataDecks,

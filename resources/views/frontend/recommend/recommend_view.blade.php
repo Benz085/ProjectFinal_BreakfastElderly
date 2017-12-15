@@ -112,7 +112,7 @@
             <div class="row">
                 <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
                     <a><i class="glyphicon glyphicon-cutlery"></i></a>
-                    <h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>
+                    <h1>ระบบสำหรับอาหารเช้าผู้สูงอายุ</h1>
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
         <div class="row">
             <div class="col-sm-12 wow fadeInLeftBig animated" style="visibility: visible; animation-name: fadeInLeftBig;">
                 <h1>สาระเกี่ยวกับ <span class="violet">ผู้สูงวัย</span></h1>
-                <p>อธิบาย.</p>
+                <p>เพศหญิงวัย 60 - 61 ปี หรือ ผู้ที่ดูแลผู้สูงอายุ.</p>
             </div>
         </div>
     </div>
@@ -136,17 +136,13 @@
                 @foreach($menu as $val)
                 <div class="col-sm-3">
                     <div class="work wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <img src="{{ asset("frontend/img/slider/1.jpg") }}" alt="Lorem Website" data-at2x="assets/img/portfolio/work1.jpg">
+                        <img src="{{ asset("backend/images/default.jpg") }}" alt="Lorem Website" data-at2x="assets/img/portfolio/work1.jpg">
+                         <h3>
+                             <i class="glyphicon glyphicon-cutlery"></i> เมนูอาหารเช้า<i class="glyphicon glyphicon-cutlery"></i>
+                         </h3>
                         <h3>{{ $val->Menu_Name }}</h3>
-                        <div class="item-rate">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o dark"></i>
-                        </div>
                         <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset("frontend/img/slider/1.jpg") }}"><i class="fa fa-search"></i></a>
+                            <a class="big-link-2 view-work" href="{{ asset("backend/images/default.jpg") }}"><i class="fa fa-search"></i></a>
                             <a class="big-link-1" href="{{ url('reviewMenu/'.$val->ID_Menu) }}">อ่านเพิ่มเติม</a>
                         </div>
                     </div>
@@ -169,18 +165,19 @@
                 @foreach($articles as $dataArticle)
                 <div class="col-sm-3">
                     <div class="work wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <img src="{{ asset("backend/images/".$dataArticle->article_image) }}" alt="Lorem Website" data-at2x="{{ asset("backend/images/".$dataArticle->article_image) }}">
+{{--                        <img src="{{ asset("backend/images/".$dataArticle->article_image) }}" alt="Lorem Website" data-at2x="{{ asset("backend/images/".$dataArticle->article_image) }}">--}}
+                        <img src="{{ asset("backend/images/".$dataArticle->article_image) }}" alt="บทความ" data-at2x="{{ asset("backend/images/".$dataArticle->article_image) }}">
                         <h3>{{ $dataArticle->article_title}}</h3>
                         <p style="font-size: 15px">โดย : {{ $dataArticle->article_creator}}</p>
                         <div class="work-bottom">
-                            <a class="big-link-1" href="{{ url('article/'.$dataArticle->article_id) }}">อ่านบทความ</a>
+                            <a class="big-link-1" href="{{ url('recommend/getArticle/'.$dataArticle->article_id) }}">อ่านบทความ</a>
                         </div>
                     </div>
                 </div>
                 @endforeach
             </div>
             <br>
-            <a href="{{ url('article/getArticle') }}"><button class="btn-change8">อ่านทั้งหมด</button></a>
+            <a href="{{ url('recommend/getArticle') }}"><button class="btn-change8">อ่านทั้งหมด</button></a>
             <br>
         </div>
         <br>

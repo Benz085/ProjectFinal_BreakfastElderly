@@ -20,7 +20,20 @@ class RecommendController extends Controller
             'menu' => $menu
         ]);
     }
-
+    public function getArticle()
+    {
+        $article = Article::paginate(10);
+        return view('frontend.recommend.article_view',[
+            'article' => $article
+        ]);
+    }
+    public function show($id)
+    {
+        $article = Article::where('article_id','=', $id )->first();
+        return view('frontend.recommend.article_detail',[
+            'article' => $article
+        ]);
+    }
     public function articleView()
     {
         //query Data = 'Article'

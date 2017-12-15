@@ -106,6 +106,17 @@
                                         <p>
                                     @endif
                                 </div>
+                                <hr>
+                                <div class="row">
+                                    @if($cooking == null)
+                                        <p>แหล่งที่มา : </p>
+                                    @else
+                                        <p align="left" style="margin-left: 10px;font-size: 17px">
+                                            <p>แหล่งที่มา :  {{ substr($cooking->resource,0,150)}} </p>
+                                        </p>
+                                        <p>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>

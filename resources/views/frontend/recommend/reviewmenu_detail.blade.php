@@ -17,6 +17,15 @@
         .shop-img {
             border: 3px solid #FFF;
         }
+        p{
+            font-size: 17px;
+        }
+        td{
+            font-size: 17px;
+        }
+        li{
+            font-size: 17px;
+        }
     </style>
 
 @endsection
@@ -26,7 +35,7 @@
             <div class="row">
                 <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
                     <a><i class="glyphicon glyphicon-cutlery"></i></a>
-                    <h1>ระบบสำรับอาหารเช้าผู้สูงอายุ</h1>
+                    <h1>ระบบสำหรับอาหารเช้าผู้สูงอายุ</h1>
                 </div>
             </div>
         </div>
@@ -40,16 +49,21 @@
                         รีวิวอาหารเช้า
                         <i class="glyphicon glyphicon-cutlery"></i>
                     </h2>
+
                 </div>
             </div>
             <div class="row" style="margin-top: 15px">
                 <div class="col-sm-6">
                     <div class="shop-img">
-                        <img src="{{ asset("frontend/img/portfolio/work8.jpg") }}" alt="">
+                        <img src="{{ asset("backend/images/".$menu->Menu_Image) }}" alt="" data-lity>
                     </div>
                     <hr>
-                    <h3>ส่วนประกอบ</h3>
+                    <h2>เมนู :  {{ $menu->Menu_Name }}</h2>
                     <hr>
+                    <p>เวลาที่โพส : {{ $menu->created_at }}</p>
+                    <hr>
+                </div>
+                <div class="col-sm-6" align="left">
                     <table class="table table-bordered" style="margin-top: 20px">
                         <thead>
                         <tr>
@@ -66,16 +80,13 @@
                         @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="col-sm-6" align="left">
-                    <h2>เมนู :  {{ $menu->Menu_Name }}</h2>
                     <hr>
                     <h3>วิธีทำ</h3>
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         @if($cooking == null)
                             <p>ยังไม่มีข้อมูล</p>
                         @else
-                            <p align="left" style="margin-left: 10px;font-size: 17px">
+                            <p align="left" style="margin-left: 10px;font-size: 20px">
                             {!! $cooking->cooking_recipe !!}
                             <p>
                         @endif

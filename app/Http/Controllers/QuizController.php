@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Composition;
 use App\Menu;
+use App\Models\DiseaseFood;
+use App\Models\UserDisease;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class QuizController extends Controller
 {
 
@@ -80,7 +82,6 @@ class QuizController extends Controller
             $sulfur_oxide == 1 ?: $sulfur_oxide = null;
 
 
-
             $in = DB::table('quiz_rule')
                 ->orWhere('quiz_Celery' ,'=', $celery)
                 ->orWhere('quiz_Gluten' ,'=', $gluten)
@@ -114,11 +115,16 @@ class QuizController extends Controller
                 ->where('decks.ID_Deck', '=', $randon)
                 ->get();
 
-            return view('frontend.quiz.index',
-                [
-                    'decks' => $decks,
-                    'randon' =>$randon
-                ]);
+            // ตัวแปร $decks คือ สุ่มอาหาร
+            $userId = Auth::user()->id;
+
+            $user = UserDisease::where('user_id' ,'=' ,$userId)->get();
+
+//            return view('frontend.quiz.index',
+//                [
+//                    'decks' => $decks,
+//                    'randon' =>$randon
+//                ]);
 
         }else{
             $data = DB::table('decks')
@@ -128,17 +134,66 @@ class QuizController extends Controller
                  $arr1[] = $value->ID_Deck;
             }
             $col = collect($arr1);
-            $randon = $col->random();
-            $decks = DB::table('menu')
-                ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
-                ->select('decks.ID_Deck', 'menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
-                ->where('decks.ID_Deck', '=', $randon)
-                ->get();
-            return view('frontend.quiz.index',
-                [
-                    'decks' => $decks,
-                    'randon' =>$randon
-                ]);
+
+//            $randon = $col->random();
+
+//            $decks = DB::table('menu')
+//                ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
+//                ->select('decks.ID_Deck', 'menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
+//                ->where('decks.ID_Deck', '=', $randon)
+//                ->get();
+
+            // ตัวแปร $decks คือ สุ่มอาหาร
+            $userId = Auth::user()->id;
+            $user = UserDisease::where('user_id' ,'=' ,$userId)->first();
+            $DiseaseFood = DiseaseFood::where('Disease_id' ,'!=' , $user->Disease_id)->get();
+
+//            dd (collect($DiseaseFood)->random(2));
+            $new = collect($DiseaseFood)->random(4);
+            $array2 = [];
+
+            foreach ($new as  $value){
+                $array2[] = $value->ID_Deck;
+            }
+
+
+            $datafood = [] ;
+
+//            echo 'array แพ้อาหาร เมนูทั้งหมด';
+//            dd($col);
+//            echo 'array สำรับอาหารที่กินได้';
+//            dd($array2);
+
+            $col = array_unique(collect($col)->toArray());
+            $array2 = array_unique(collect($array2)->toArray());
+            $arr3 = array_merge($col, $array2);
+            echo "<pre>";
+//            var_dump($col);
+//            var_dump($array2);
+//            var_dump($arr3);
+//            var_dump(array_diff_assoc($arr3, array_unique($arr3)));
+            $arrData  =  array_diff_assoc($arr3, array_unique($arr3));
+            print_r($arrData);
+            foreach ($arrData as $val){
+                $datafood[] = DB::table('menu')
+                    ->join('decks', 'menu.ID_Menu', '=', 'decks.ID_Menu')
+                    ->select('decks.ID_Deck', 'menu.ID_Menu','menu.Menu_Name','menu.Menu_Image')
+                    ->where('decks.ID_Deck', '=', $val)
+                    ->get();
+            }
+            dd($datafood);
+
+            // โชว์ข้อมูลสำรับที่กินได้
+//            return collect($new)->get(0)->deck;
+//            dd($decks);
+//            dd($user);
+//            return $DiseaseFood;
+
+//            return view('frontend.quiz.index',
+//                [
+//                    'decks' => $datafood,
+//                    'randon' =>$randon
+//                ]);
 
         }
     }

@@ -35,8 +35,11 @@ class CookingController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
+
         $cooking = new Cooking();
         $cooking->cooking_recipe = $request->cooking;
+        $cooking->resource = $request->resource;
         $cooking->ID_Menu = $request->ID_Menu;
         $cooking->save();
 

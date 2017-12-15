@@ -68,6 +68,9 @@
             overflow: hidden;
             padding: 0 0 0 22px;
         }
+        p{
+            font-size: 17px;
+        }
     </style>
 
 @endsection
@@ -95,22 +98,21 @@
             </div>
             <div class="col-md-12">
                 <div class="row" style="margin-top: 15px">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="shop-img">
-                            <img src="{{ asset("frontend/img/portfolio/work8.jpg") }}" alt="">
-                        </div>
+                            <img src="{{ asset("backend/images/".$article->article_image) }}" alt="" data-lity>
+                        </div><br><br>
+                        <p>วันเดือนปีข่าวที่ลง : {{ $article->article_updatatime }}</p><br>
+                        <p>โดย : {{ $article->article_creator }}</p><br>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-8">
                         <hr>
-                        <h3>เนื้อหา</h3>
+                        <h2>เนื้อหา</h2>
                         <hr>
                         <div align="left">
-                            <p>title : {{ $article->article_title }}</p><br>
-                            <p>รายละเอียด : {!! $article->article_detail !!} </p><br>
-                            <p>ที่มา : {{ $article->article_resource }}</p><br>
-                            <p>link เพิ่มเติม : {{ $article->article_link }}</p><br>
-                            <p>โดย : {{ $article->article_creator }}</p><br>
-                            <p>วันเดือนปีข่าวที่ลง : {{ $article->article_updatatime }}</p><br>
+                            <h4><b>หัวข้อเรื่อง</b><p> {{ $article->article_title }}</p></h4><br>
+                            <h4><b>รายละเอียด</b><p> {!! $article->article_detail !!} </p></h4><br>
+                            <h4><b>ที่มา </b><p> {{ $article->article_resource }}</p></h4><br>
                         </div>
                     </div>
                 </div>

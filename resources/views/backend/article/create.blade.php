@@ -34,10 +34,6 @@
                             <?=  Form::text('creator',null,['class' => 'form-control','placeholder'=>'ชื่อคนโพส..']);?>
                         </fieldset>
                         <fieldset class="form-group">
-                            {!! Form::label('resource', 'ลิงค์ Youtube')!!}
-                            <?=  Form::text('resource',null,['class' => 'form-control','placeholder'=>'..']);?>
-                        </fieldset>
-                        <fieldset class="form-group">
                             {!! Form::label('resource', 'แหล่งที่มา')!!}
                             <?=  Form::text('resource',null,['class' => 'form-control','placeholder'=>'แหล่งที่มา..']);?>
                         </fieldset>

@@ -10,6 +10,8 @@ class Deck extends Model
 {
     protected $table = 'decks';
 
+//    protected $primaryKey = 'ID_Deck';
+
     protected $fillable = [
         'ID_Menu','ID_Deck'
     ];
