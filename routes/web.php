@@ -54,6 +54,7 @@ Route::get('quiz/form', 'QuizController@form');
 Route::get('quiz/quizFood', 'QuizController@quizFood');
 Route::get('quiz/chart', 'QuizController@chart');
 Route::resource('quiz', 'QuizController');
+Route::get('quiz/getDeck/{id}', 'QuizController@getDeck');//getDeck
 Route::get('quiz/getComposition/{id}', 'QuizController@getComposition');//getComposition
 Route::get('quiz/getCooking/{id}', 'QuizController@getCooking');//getComposition
 

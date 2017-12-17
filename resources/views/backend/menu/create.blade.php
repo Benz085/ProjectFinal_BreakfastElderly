@@ -47,6 +47,10 @@
                                 </tr>
                             </table>
                         </fieldset>
+                        <fieldset class="form-group">
+                            {!! Form::label('resource', 'ชื่อวิจัยอ้างอิง')!!}
+                            <?=  Form::text('resource',null,['class' => 'form-control','placeholder'=>'ชื่อวิจัยอ้างอิง..']);?>
+                        </fieldset>
                         <hr/>
                         <div class="form-group">
                             <div class="col-xs-12">

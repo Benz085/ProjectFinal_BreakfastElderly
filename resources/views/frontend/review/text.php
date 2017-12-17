@@ -26,3 +26,83 @@
     หวานบางชนิด รวมทั้งไอศรีม   ผลิตภัณฑเ์นื้อ ซอสต่างๆ และ ผลิตภัณฑเ์อาหารมังสวิรัติ
 </p>14 ซัลเฟอร์ได อ็อกไซด์ มักใช้สารกันบุดหรือวัตถุกันเสียในผลไม้แห้ง ผลิตภัณฑเ์เนื้อสัตว์ น้ำอัดลม และผักต่างๆ รวมทั้งไวน์ และเบียร์
 <p><br></p>
+
+<div class="tab-pane fade" role="tabpanel" id="composition"
+     aria-labelledby="composition-tab">
+    <div style="margin-top: 15px">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 wow fadeInLeftBig animated animated"
+                     style="visibility: visible; animation-name: fadeInLeftBig;">
+                    <h3>ส่วนประกอบ : <span class="violet">เมนูอาหารเช้า</span></h3>
+                </div>
+            </div>
+            <hr/>
+            <div class="col-md-5 menu-heading" style="margin-top: 40px;margin-bottom: 25px;">
+                @foreach($decks as $data)
+                <div class="col-md-12">
+                    <div class="blog-wrap2 work wow fadeInDown animated"
+                         style="visibility: visible; animation-name: fadeInDown;">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p style="font-size: 18px;margin-top: 25px" align="left">
+                                    {{ $data->Menu_Name }}
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="blog-text">
+                                    <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}"class="btn-change8 hvr-icon-forward">ดูข้อมูล</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="col-md-7 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
+                <div id="the-return">
+                    <p align="center" style="margin-top: 10px" class="wow fadeInLeftBig animated animated">เลือก รายการเมนูอาหาร</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="tab-pane fade" role="tabpanel" id="cooking"
+     aria-labelledby="cooking-tab">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-sm-12 wow fadeInLeftBig animated animated"
+                 style="visibility: visible; animation-name: fadeInLeftBig;">
+                <h3>วิธีทำการประกอบ : <span class="violet">เมนูอาหาร</span></h3>
+            </div>
+        </div>
+        <hr/>
+        <div class="col-md-5 menu-heading" style="margin-top: 40px;margin-bottom: 25px;">
+            @foreach($decks as $data)
+            <div class="col-md-12">
+                <div class="blog-wrap2 work wow fadeInDown animated"
+                     style="visibility: visible; animation-name: fadeInDown;">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p style="font-size: 18px;margin-top: 25px" align="left">
+                                {{ $data->Menu_Name }}
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="blog-text">
+                                <button id="ID_Menu"  name="ID_Menu" value="{{ $data->ID_Menu }}" class="btn-change8 hvr-icon-forward">ดูข้อมูล</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <div class="col-md-7 menu-heading" style="margin-top: 10px;margin-bottom: 25px;">
+            <div id="the-return2">
+                <p align="center" style="margin-top: 10px" class="wow fadeInLeftBig animated animated">เลือก รายการเมนูอาหาร</p>
+            </div>
+        </div>
+    </div>
+</div>

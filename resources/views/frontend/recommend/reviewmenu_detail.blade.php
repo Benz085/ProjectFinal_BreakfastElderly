@@ -55,12 +55,14 @@
             <div class="row" style="margin-top: 15px">
                 <div class="col-sm-6">
                     <div class="shop-img">
-                        <img src="{{ asset("backend/images/".$menu->Menu_Image) }}" alt="" data-lity>
+                        <img src="{{ asset("backend/images/".$menu->Menu_Image) }}" alt="" data-lity style="width: 50%">
                     </div>
                     <hr>
                     <h2>เมนู :  {{ $menu->Menu_Name }}</h2>
                     <hr>
                     <p>เวลาที่โพส : {{ $menu->created_at }}</p>
+                    <hr>
+                    <p>แหล่งอ้างอิง : {{ $menu->memu_resource }}</p>
                     <hr>
                 </div>
                 <div class="col-sm-6" align="left">

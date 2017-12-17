@@ -277,10 +277,6 @@
                                 </label><br>
                                 <label class="radio-inline">
                                     {{  Form::radio('disease', '3',null,['onclick' => "myFunction('True')"]) }}
-                                    โรคไขมันในเลือดสูง และ โรคไขมันในเลือดสูง
-                                </label><br>
-                                <label class="radio-inline">
-                                    {{  Form::radio('disease', '4',null,['onclick' => "myFunction('True')"]) }}
                                     ไม่มี
                                 </label><br>
                             </div>

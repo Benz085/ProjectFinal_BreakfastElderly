@@ -580,7 +580,17 @@
             </div>
         </div>
     </center>
-
+    <div class="page-title-container">
+        <div class="container">
+            <div class="row" align="center">
+                <div class="col-sm-12 wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+                    <a><i class="glyphicon glyphicon-cutlery"></i></a>
+                    <p style="font-size: 20px;color: #ffff00">ข้อมูลจัดอาหาร โรคเบาหวาน กับ โรคไขมันในเลือดสูง โดยไม่ทำโรคที่ใกล้เคียงกัน</p>
+                    <a><i class="glyphicon glyphicon-cutlery"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('script')

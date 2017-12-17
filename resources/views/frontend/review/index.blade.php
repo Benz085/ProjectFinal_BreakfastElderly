@@ -152,7 +152,7 @@
                                         <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                     data-holder-rendered="true"
                                                                     style="height: 200px; width: 100%; display: block;">
-                                            <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                            <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                 <p>
                                                     <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                 </p>
@@ -169,7 +169,7 @@
                                             <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>
@@ -188,7 +188,7 @@
                                             <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>
@@ -205,7 +205,7 @@
                                             <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>
@@ -222,7 +222,7 @@
                                             <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>
@@ -239,7 +239,7 @@
                                             <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>
@@ -256,7 +256,7 @@
                                             <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>
@@ -273,7 +273,7 @@
                                             <div class="thumbnail"><img  src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>
@@ -290,7 +290,7 @@
                                             <div class="thumbnail"><img src="{{ asset("backend/images/".$value->Menu_Image) }}"
                                                                         data-holder-rendered="true"
                                                                         style="height: 200px; width: 100%; display: block;">
-                                                <div class="caption"><h3>{{ $value->Menu_Name }}</h3>
+                                                <div class="caption"><h4>{{ $value->Menu_Name }}</h4>
                                                     <p>
                                                         <a href="{{ url('reviewMenu/'.$value->ID_Menu) }}" class="btn btn-primary" role="button" style="margin-top: 20px;">ดูข้อมูล</a>
                                                     </p>

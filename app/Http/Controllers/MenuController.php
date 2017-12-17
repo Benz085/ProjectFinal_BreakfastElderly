@@ -65,6 +65,7 @@ class MenuController extends Controller
         $insertedId = DB::table('menu')->insertGetId(
             [   'Menu_Name' => $data['namefood'],
                 'Menu_Image' => $image,
+                'memu_resource' => $data['resource'],
                 'ID_Food_Group' =>$data['id'],
             ]
         );

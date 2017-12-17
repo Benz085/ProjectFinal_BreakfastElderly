@@ -136,13 +136,13 @@
                 @foreach($menu as $val)
                 <div class="col-sm-3">
                     <div class="work wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <img src="{{ asset("backend/images/default.jpg") }}" alt="Lorem Website" data-at2x="assets/img/portfolio/work1.jpg">
+                        <img src="{{ asset("backend/images/".$val->Menu_Image) }}"  data-at2x="assets/img/portfolio/work1.jpg">
                          <h3>
                              <i class="glyphicon glyphicon-cutlery"></i> เมนูอาหารเช้า<i class="glyphicon glyphicon-cutlery"></i>
                          </h3>
                         <h3>{{ $val->Menu_Name }}</h3>
                         <div class="work-bottom">
-                            <a class="big-link-2 view-work" href="{{ asset("backend/images/default.jpg") }}"><i class="fa fa-search"></i></a>
+                            <a class="big-link-2 view-work" href="{{ asset("backend/images/".$val->Menu_Image) }}"><i class="fa fa-search"></i></a>
                             <a class="big-link-1" href="{{ url('reviewMenu/'.$val->ID_Menu) }}">อ่านเพิ่มเติม</a>
                         </div>
                     </div>

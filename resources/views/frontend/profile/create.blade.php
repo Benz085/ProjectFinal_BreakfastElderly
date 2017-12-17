@@ -113,7 +113,7 @@
                                     </label><br>
                                     <label class="radio-inline">
                                         {{  Form::radio('disease', '3',null,['onclick' => "myFunction('True')"]) }}
-                                        โรคไขมันในเลือดสูง และ  โรคไขมันในเลือดสูง
+                                        ไม่เป็นทั้ง 2 โรค
                                     </label>
                                 </div>
                             </div>

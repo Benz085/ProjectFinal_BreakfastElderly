@@ -78,14 +78,15 @@
                     <li class="{{ Request::segment(1) === 'register' ? 'active' : null  }} hvr-pulse-shrink">
                         <a href="{{ route('register') }}"><i class="glyphicon glyphicon-log-in"></i><br>สมัตรสมาชิก</a>
                     </li>
+
                     @else
-                    <li class="dropdown {{ Request::segment(1) === 'profile' ? 'active' : null  }} hvr-pulse-shrink">
+                    <li class="dropdown {{ Request::segment(1) === 'profile' ? 'active' : null  }}">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
                             <i class="glyphicon glyphicon-user"></i><br>{{ Auth::user()->name }}<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('profile/'.Auth::user()->id) }}">ข้อมูลส่วนตัว</a></li>
-                            <li><a href="{{ url('profile/create') }}">เพิ่มข้อมูลเรื่องโรค</a></li>
+                            {{--<li><a href="{{ url('profile/create') }}">เพิ่มข้อมูลเรื่องโรค</a></li>--}}
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">ออกจากะบบ</a></li>
                         </ul>

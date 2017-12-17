@@ -99,7 +99,17 @@
                 <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading"><h4>แก้ไขข้อมูลส่วนตัว</h4>
-                        <br> <p>โรค:{{ $disease->diseases_type }}<p>
+                        <br>
+
+                            @if($disease == null)
+                                <p>
+                                    <a href="{{ url('profile/create') }}"
+                                       class="btn btn-primary hvr-icon-forward"
+                                       role="button">เพิ่มข้อมูลโรคประจำ </a>
+                                </p>
+                                @else
+                                <p>โรคประจำตัว ผู้ใช้เป็น คือ :{{ $disease->diseases_type }}<p>
+                            @endif
                         </div>
                         <div class="panel-body" style="font-size: 17px">
                             {{ Form::model($user,['url' =>'profile/'.$user->id,'method' => 'put']) }}

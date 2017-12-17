@@ -54,7 +54,7 @@ class ProfileController extends Controller
             $userDis->Disease_id = $request->disease;
             $userDis->save();
         }
-        return  redirect('quiz');
+        return  redirect('quiz/form');
     }
 
     /**
